@@ -2,9 +2,7 @@ import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import { ThemeProvider } from '@shopify/restyle';
 
-import theme from './theme';
-import { Box } from './theme/Box';
-import { Text } from './theme/Text';
+import { theme, Box, Text } from './theme';
 
 import { Button } from './components/Button';
 
