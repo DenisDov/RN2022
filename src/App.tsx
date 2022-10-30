@@ -11,7 +11,8 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <SafeAreaView style={styles.scroll}>
         <Box backgroundColor="mainBackground" padding="m">
-          <Text>LOL</Text>
+          <Text variant="header">Ralewayy</Text>
+          <Text>Whereas recognition of the inherent dignity</Text>
           <Button />
         </Box>
       </SafeAreaView>

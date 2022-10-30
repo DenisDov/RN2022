@@ -6,12 +6,14 @@ const palette = {
   dark: '#193948',
   blue: '#4FADC0',
   white: '#F0F2F3',
+  black: '#0F1115',
 };
 
 const theme = createTheme({
   colors: {
     mainBackground: palette.white,
     cardPrimaryBackground: palette.dark,
+    text: palette.black,
   },
   spacing: {
     s: 8,
@@ -27,11 +29,11 @@ const theme = createTheme({
     defaults: {
       fontFamily: 'Raleway-Regular',
       fontSize: 16,
+      color: 'text',
     },
     header: {
       fontFamily: 'Raleway-Bold',
       fontSize: 34,
-      color: 'black',
     },
   },
 });
