@@ -1,16 +1,23 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
+import { ThemeProvider } from '@shopify/restyle';
+
+import theme from './theme';
+import { Box } from './theme/Box';
+import { Text } from './theme/Text';
 
 import { Button } from './components/Button';
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.scroll}>
-      <View>
-        <Text>LOL</Text>
-        <Button />
-      </View>
-    </SafeAreaView>
+    <ThemeProvider theme={theme}>
+      <SafeAreaView style={styles.scroll}>
+        <Box backgroundColor="mainBackground" padding="m">
+          <Text>LOL</Text>
+          <Button />
+        </Box>
+      </SafeAreaView>
+    </ThemeProvider>
   );
 };
 
