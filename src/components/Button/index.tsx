@@ -1,10 +1,14 @@
 import { View, Text } from 'react-native';
 import React from 'react';
 
-const Button = () => {
+type Props = {
+  onPress: () => void;
+};
+
+const Button = ({ onPress }: Props) => {
   return (
     <View>
-      <Text onPress={() => console.log('PRESSED')}>Button</Text>
+      <Text onPress={onPress}>Button</Text>
     </View>
   );
 };
