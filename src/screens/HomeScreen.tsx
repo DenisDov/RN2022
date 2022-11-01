@@ -7,18 +7,18 @@ import { Counter } from '../features/counter/Counter';
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <Box backgroundColor="mainBackground" padding="m" flex={1}>
+    <Box backgroundColor="background" padding="m" flex={1}>
       <Text variant="header">Raleway</Text>
       <Text>Whereas recognition of the inherent dignity</Text>
-      <Button
-        onPress={() => navigation.navigate('Profile')}
-        text="Go to profile"
-      />
+
+      <Button onPress={() => navigation.navigate('Profile')}>
+        <Text>Go to profile</Text>
+      </Button>
       <Counter />
-      <Button
-        onPress={() => navigation.navigate('Products')}
-        text="Go to products"
-      />
+
+      <Button onPress={() => navigation.navigate('Products')}>
+        <Text>Go to products</Text>
+      </Button>
       <Hamburger color="red" />
     </Box>
   );

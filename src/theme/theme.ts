@@ -11,8 +11,8 @@ const palette = {
 
 const theme = createTheme({
   colors: {
-    mainBackground: palette.white,
-    cardPrimaryBackground: palette.darkBlue,
+    background: palette.white,
+    card: palette.darkBlue,
     text: palette.black,
     main: palette.red,
     accent: palette.yellow,
@@ -45,6 +45,31 @@ const theme = createTheme({
     header: {
       fontFamily: 'Raleway-Bold',
       fontSize: 34,
+    },
+  },
+  cardVariants: {
+    defaults: {
+      backgroundColor: 'accent',
+      // We can define defaults for the variant here.
+      // This will be applied after the defaults passed to createVariant and before the variant defined below.
+    },
+    regular: {
+      // We can refer to other values in the theme here, and use responsive props
+      padding: {
+        phone: 's',
+        tablet: 'm',
+      },
+    },
+    elevated: {
+      padding: {
+        phone: 's',
+        tablet: 'm',
+      },
+      shadowColor: '#000',
+      shadowOpacity: 0.2,
+      shadowOffset: { width: 0, height: 5 },
+      shadowRadius: 15,
+      elevation: 5,
     },
   },
 });

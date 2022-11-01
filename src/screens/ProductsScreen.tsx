@@ -11,7 +11,7 @@ const ProductsScreen = ({ route }) => {
   console.log('isLoading: ', isLoading);
   console.log('data: ', data);
   return (
-    <Box backgroundColor="mainBackground" padding="m" flex={1}>
+    <Box backgroundColor="background" padding="m" flex={1}>
       <Text>{route.name}</Text>
       {/* {error ? (
         <Text>Oh no, there was an error</Text>
