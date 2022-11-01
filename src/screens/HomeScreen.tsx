@@ -2,9 +2,10 @@ import React from 'react';
 
 import { Box, Text } from '../theme';
 import { Button } from '../components/Button';
+import { Hamburger } from '../components/Icons/Hamburger';
 
 //redux start
-import { useAppSelector, useAppDispatch } from '../redux/hooks';
+import { useAppSelector, useAppDispatch } from '../hooks/redux';
 import {
   getCounterSelector,
   decrement,
@@ -30,6 +31,7 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => navigation.navigate('Products')}
         text="Go to products"
       />
+      <Hamburger color="red" />
     </Box>
   );
 };

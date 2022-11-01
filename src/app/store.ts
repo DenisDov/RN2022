@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import counterReducer from './slices/counterSlice';
-import { pokemonApi } from './slices/apis/productApiSlice';
+import counterReducer from '../redux/slices/counterSlice';
+import { pokemonApi } from '../redux/slices/apis/productApiSlice';
 
 export const store = configureStore({
   reducer: {

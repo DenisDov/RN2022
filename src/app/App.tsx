@@ -8,8 +8,8 @@ import {
 import { Provider } from 'react-redux';
 
 import AppNavigator from './Navigation';
-import { theme } from './theme';
-import { store } from './redux/store';
+import { theme } from '../theme';
+import { store } from './store';
 
 const App = () => {
   return (
