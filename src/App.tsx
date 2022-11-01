@@ -5,18 +5,22 @@ import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from 'react-native-safe-area-context';
+import { Provider } from 'react-redux';
 
 import AppNavigator from './Navigation';
 import { theme } from './theme';
+import { store } from './redux/store';
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <StatusBar barStyle="light-content" backgroundColor="black" />
-      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-        <AppNavigator />
-      </SafeAreaProvider>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <StatusBar barStyle="light-content" backgroundColor="black" />
+        <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+          <AppNavigator />
+        </SafeAreaProvider>
+      </ThemeProvider>
+    </Provider>
   );
 };
 
