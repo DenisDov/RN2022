@@ -4,15 +4,16 @@ import { Box, Text } from '../theme';
 
 import { ActivityIndicator } from '../components/ActivityIndicator';
 
-import { useGetPokemonByNameQuery } from '../redux/slices/apis/productApiSlice';
+import { useGetProductsQuery } from '../features/api/apiSlice';
 
 const ProductsScreen = ({ route }) => {
-  const { data, error, isLoading } = useGetPokemonByNameQuery('bulbasaur');
+  const { data, error, isLoading } = useGetProductsQuery();
   console.log('isLoading: ', isLoading);
+  console.log('data: ', data);
   return (
     <Box backgroundColor="mainBackground" padding="m" flex={1}>
       <Text>{route.name}</Text>
-      {error ? (
+      {/* {error ? (
         <Text>Oh no, there was an error</Text>
       ) : isLoading ? (
         <ActivityIndicator />
@@ -21,7 +22,7 @@ const ProductsScreen = ({ route }) => {
           <Text>{data.species.name}</Text>
           <Image source={data.sprites.front_shiny} />
         </>
-      ) : null}
+      ) : null} */}
     </Box>
   );
 };
