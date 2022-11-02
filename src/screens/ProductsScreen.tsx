@@ -6,6 +6,8 @@ import { ActivityIndicator } from '../components/ActivityIndicator';
 
 import { useGetAllProductsQuery } from '../services/apiSlice';
 
+import { capitalize } from '../utils/capitalize';
+
 const dummyImage = require('../assets/images/dummy.jpeg');
 const ProductCard = ({ item }) => {
   const intlPrice = new Intl.NumberFormat('en-US', {
@@ -27,7 +29,7 @@ const ProductCard = ({ item }) => {
         borderRadius="s"
         defaultSource={dummyImage}
       />
-      <Text numberOfLines={1}>{item.brand}</Text>
+      <Text numberOfLines={1}>{capitalize(item.brand)}</Text>
       <Text numberOfLines={3}>{item.description}</Text>
       <Text numberOfLines={1}>{intlPrice}</Text>
     </TouchBox>
@@ -37,13 +39,13 @@ const ProductCard = ({ item }) => {
 const ProductsScreen = () => {
   const {
     data: products,
-    error,
     isLoading,
+    isError,
   } = useGetAllProductsQuery(undefined);
 
   return (
     <Box backgroundColor="background" flex={1}>
-      {error ? (
+      {isError ? (
         <Text>Oh no, there was an error</Text>
       ) : isLoading ? (
         <ActivityIndicator />
