@@ -26,7 +26,7 @@ const MyLoader = () => {
           <Rect x="8" y="96" rx="3" ry="3" width="410" height="6" />
           <Rect x="8" y="114" rx="3" ry="3" width="380" height="6" />
           <Rect x="8" y="133" rx="3" ry="3" width="123" height="6" />
-          <Rect x="8" y="5" rx="0" ry="0" width="80" height="80" />
+          <Rect x="8" y="5" rx="11" width="80" height="80" />
         </ContentLoader>
       ))}
     </Box>
