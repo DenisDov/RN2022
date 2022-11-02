@@ -12,13 +12,15 @@ const palette = {
 const theme = createTheme({
   colors: {
     background: palette.white,
-    card: palette.darkBlue,
+    card: palette.yellow,
     text: palette.black,
     main: palette.red,
-    accent: palette.yellow,
+    // accent: palette.yellow,
     secondary: palette.blue,
+    dark: palette.darkBlue,
   },
   spacing: {
+    xs: 4,
     s: 8,
     m: 16,
     l: 24,
@@ -49,7 +51,9 @@ const theme = createTheme({
   },
   cardVariants: {
     defaults: {
-      backgroundColor: 'accent',
+      backgroundColor: 'card',
+      borderRadius: 's',
+      padding: 's',
       // We can define defaults for the variant here.
       // This will be applied after the defaults passed to createVariant and before the variant defined below.
     },
@@ -65,7 +69,7 @@ const theme = createTheme({
         phone: 's',
         tablet: 'm',
       },
-      shadowColor: '#000',
+      shadowColor: 'card',
       shadowOpacity: 0.2,
       shadowOffset: { width: 0, height: 5 },
       shadowRadius: 15,

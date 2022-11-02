@@ -8,13 +8,13 @@ const ProfileScreen = ({ route }) => {
       <Text>{route.name}</Text>
       <Box width={70} height={70} backgroundColor="card" borderRadius="s" />
       <Box width={70} height={70} backgroundColor="main" borderRadius="s" />
-      <Box width={70} height={70} backgroundColor="accent" borderRadius="s" />
       <Box
         width={70}
         height={70}
         backgroundColor="secondary"
         borderRadius="s"
       />
+      <Box width={70} height={70} backgroundColor="dark" borderRadius="s" />
     </Box>
   );
 };
