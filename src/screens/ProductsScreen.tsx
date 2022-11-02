@@ -40,21 +40,24 @@ const ProductsScreen = () => {
   const {
     data: products,
     isLoading,
-    isError,
+    error,
   } = useGetAllProductsQuery(undefined);
 
   return (
     <Box backgroundColor="background" flex={1}>
-      {isError ? (
-        <Text>Oh no, there was an error</Text>
+      {error ? (
+        <Text>Oh no, there was an: {error.status}</Text>
       ) : isLoading ? (
-        <ActivityIndicator />
+        <Box margin="xl">
+          <ActivityIndicator />
+        </Box>
       ) : products ? (
         <MasonryFlashList
           data={products}
           renderItem={ProductCard}
           estimatedItemSize={100}
           numColumns={2}
+          ListEmptyComponent={<Text>no products available</Text>}
         />
       ) : null}
     </Box>
