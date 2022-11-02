@@ -70,9 +70,11 @@ const ProductsScreen = () => {
 
   return (
     <Box backgroundColor="background" flex={1}>
-      {error && <Text>Oh no, there was an: {error.status}</Text>}
-      {isLoading && <MyLoader />}
-      {products && (
+      {error ? (
+        <Text>Oh no, there was an: {error.status}</Text>
+      ) : isLoading ? (
+        <MyLoader />
+      ) : products ? (
         <MasonryFlashList
           data={products}
           renderItem={ProductCard}
@@ -80,7 +82,7 @@ const ProductsScreen = () => {
           numColumns={2}
           ListEmptyComponent={<Text>no products available</Text>}
         />
-      )}
+      ) : null}
     </Box>
   );
 };
