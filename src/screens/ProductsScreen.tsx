@@ -1,12 +1,37 @@
 import React from 'react';
+import { Dimensions } from 'react-native';
 import { MasonryFlashList } from '@shopify/flash-list';
+import ContentLoader, { Rect } from 'react-content-loader/native';
 import { Box, Text, TouchBox, ImageBox } from '../theme';
-
-import { ActivityIndicator } from '../components/ActivityIndicator';
 
 import { useGetAllProductsQuery } from '../services/apiSlice';
 
 import { capitalize } from '../utils/capitalize';
+
+const MyLoader = () => {
+  const { width } = Dimensions.get('window');
+  return (
+    <Box flexDirection="row" flexWrap="wrap">
+      {[...Array(6).keys()].map(key => (
+        <ContentLoader
+          key={key}
+          width={width / 2 - 8}
+          height={200}
+          viewBox="0 0 200 200"
+          backgroundColor="#FCDC73"
+          foregroundColor="#ecebeb"
+          style={{
+            margin: 4,
+          }}>
+          <Rect x="8" y="96" rx="3" ry="3" width="410" height="6" />
+          <Rect x="8" y="114" rx="3" ry="3" width="380" height="6" />
+          <Rect x="8" y="133" rx="3" ry="3" width="123" height="6" />
+          <Rect x="8" y="5" rx="0" ry="0" width="80" height="80" />
+        </ContentLoader>
+      ))}
+    </Box>
+  );
+};
 
 const dummyImage = require('../assets/images/dummy.jpeg');
 const ProductCard = ({ item }) => {
@@ -48,9 +73,7 @@ const ProductsScreen = () => {
       {error ? (
         <Text>Oh no, there was an: {error.status}</Text>
       ) : isLoading ? (
-        <Box margin="xl">
-          <ActivityIndicator />
-        </Box>
+        <MyLoader />
       ) : products ? (
         <MasonryFlashList
           data={products}
