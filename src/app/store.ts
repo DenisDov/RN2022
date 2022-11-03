@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import Reactotron from '../../ReactotronConfig';
 
 import { dummyApi } from '../services/api';
 import counterReducer from '../features/counter/counterSlice';
@@ -8,8 +9,12 @@ export const store = configureStore({
     [dummyApi.reducerPath]: dummyApi.reducer,
     counter: counterReducer,
   },
+
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(dummyApi.middleware),
+    getDefaultMiddleware({ serializableCheck: false }).concat(
+      dummyApi.middleware,
+    ),
+  enhancers: [Reactotron.createEnhancer!()],
 });
 
 //Infer the `RootState` and `AppDispatch` types from the store itself
