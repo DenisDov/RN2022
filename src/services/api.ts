@@ -7,8 +7,8 @@ export const dummyApi = createApi({
   endpoints: builder => ({
     getAllProducts: builder.query<IProduct[], void>({
       query: () => 'products',
-      transformResponse: (rawResult: { result: { products: IProduct[] } }) => {
-        return rawResult.result.products;
+      transformResponse: (rawResult: { products: IProduct[] }) => {
+        return rawResult.products;
       },
     }),
   }),
