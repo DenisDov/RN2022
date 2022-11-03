@@ -3,7 +3,7 @@ import { FlashList } from '@shopify/flash-list';
 import { useNavigation } from '@react-navigation/native';
 import { Box, Text } from '../theme';
 
-import { useGetAllProductsQuery } from '../services/api';
+import { useGetAllProductsQuery } from '../services/productsApi';
 
 import { ProductsLoader } from '../components/ProductsLoader';
 import { ProductsCard } from '../components/ProductsCard';

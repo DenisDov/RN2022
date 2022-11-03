@@ -1,19 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit';
 import Reactotron from '../../ReactotronConfig';
 
-import { dummyApi } from '../services/api';
+import { rootApi } from '../services/rootApi';
 import counterReducer from '../features/counter/counterSlice';
 
 export const store = configureStore({
   reducer: {
-    [dummyApi.reducerPath]: dummyApi.reducer,
+    [rootApi.reducerPath]: rootApi.reducer,
     counter: counterReducer,
   },
 
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       //  serializableCheck: false
-    }).concat(dummyApi.middleware),
+    }).concat(rootApi.middleware),
   enhancers: [Reactotron.createEnhancer!()],
 });
 

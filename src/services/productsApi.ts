@@ -1,9 +1,7 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { rootApi } from './rootApi';
 import { IProduct } from '../models/IProduct';
 
-export const dummyApi = createApi({
-  reducerPath: 'dummyApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com' }),
+const productsApi = rootApi.injectEndpoints({
   endpoints: builder => ({
     getAllProducts: builder.query<IProduct[], void>({
       query: () => '/products?limit=40',
@@ -14,6 +12,7 @@ export const dummyApi = createApi({
       query: (id: string) => `/products/${id}`,
     }),
   }),
+  overrideExisting: false,
 });
 
-export const { useGetAllProductsQuery, useGetSingleProductQuery } = dummyApi;
+export const { useGetAllProductsQuery, useGetSingleProductQuery } = productsApi;
