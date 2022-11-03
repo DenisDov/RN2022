@@ -1,15 +1,16 @@
 import React from 'react';
 import { Dimensions } from 'react-native';
-import { MasonryFlashList } from '@shopify/flash-list';
+import { FlashList } from '@shopify/flash-list';
 import ContentLoader, { Rect } from 'react-content-loader/native';
 import { Box, Text, TouchBox, ImageBox } from '../theme';
 
-import { useGetAllProductsQuery } from '../services/apiSlice';
+import { useGetAllProductsQuery } from '../services/api';
 
 import { capitalize } from '../utils/capitalize';
 
+const { width } = Dimensions.get('window');
+
 const MyLoader = () => {
-  const { width } = Dimensions.get('window');
   return (
     <Box flexDirection="row" flexWrap="wrap">
       {[...Array(6).keys()].map(key => (
@@ -44,6 +45,7 @@ const ProductCard = ({ item }) => {
       onPress={() => console.log('item press')}
       backgroundColor="card"
       height={200}
+      width={width / 2 - 8}
       borderRadius="s"
       padding="s"
       margin="xs">
@@ -62,25 +64,23 @@ const ProductCard = ({ item }) => {
 };
 
 const ProductsScreen = () => {
-  const {
-    data: products,
-    isLoading,
-    error,
-  } = useGetAllProductsQuery(undefined);
+  const { data: allProducts, isLoading, error } = useGetAllProductsQuery();
 
+  console.log('allProducts: ', allProducts);
   return (
     <Box backgroundColor="background" flex={1}>
       {error ? (
         <Text>Oh no, there was an: {error.status}</Text>
       ) : isLoading ? (
         <MyLoader />
-      ) : products ? (
-        <MasonryFlashList
-          data={products}
+      ) : allProducts ? (
+        <FlashList
+          data={allProducts}
           renderItem={ProductCard}
           estimatedItemSize={100}
           numColumns={2}
           ListEmptyComponent={<Text>no products available</Text>}
+          keyExtractor={item => item.id}
         />
       ) : null}
     </Box>
