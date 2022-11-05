@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import RNBootSplash from 'react-native-bootsplash';
 
 // Screens start
 import HomeScreen from '../screens/HomeScreen';
@@ -22,7 +23,7 @@ const AppNavigator = () => {
   return (
     <NavigationContainer
       theme={DarkTheme}
-      onReady={() => console.log('APP LOADED')}>
+      onReady={() => RNBootSplash.hide({ fade: true })}>
       <Stack.Navigator screenOptions={{ headerShown: true }}>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
