@@ -6,8 +6,6 @@ import { Text, TouchBox, ImageBox } from '../../theme';
 import { capitalize } from '../../utils/capitalize';
 // import { IProduct } from '../../models/IProduct';
 
-// const dummyImage = require('../../assets/images/dummy.jpeg');
-
 import { Images } from '@assets';
 
 const { width } = Dimensions.get('window');
