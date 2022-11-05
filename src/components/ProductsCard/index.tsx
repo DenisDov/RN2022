@@ -6,7 +6,9 @@ import { Text, TouchBox, ImageBox } from '../../theme';
 import { capitalize } from '../../utils/capitalize';
 // import { IProduct } from '../../models/IProduct';
 
-const dummyImage = require('../../assets/images/dummy.jpeg');
+// const dummyImage = require('../../assets/images/dummy.jpeg');
+
+import { Images } from '@assets';
 
 const { width } = Dimensions.get('window');
 
@@ -32,7 +34,7 @@ const ProductsCard = ({ item: product, navigation }) => {
         width={80}
         height={80}
         borderRadius="s"
-        defaultSource={dummyImage}
+        defaultSource={Images.dummy}
       />
       <Text numberOfLines={1}>{capitalize(product.brand)}</Text>
       <Text numberOfLines={3}>{product.description}</Text>
