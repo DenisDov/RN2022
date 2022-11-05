@@ -11,14 +11,20 @@ const HomeScreen = ({ navigation }) => {
       <Text variant="header">Raleway</Text>
       <Text>Whereas recognition of the inherent dignity</Text>
 
-      <Button onPress={() => navigation.navigate('Profile')}>
-        <Text>Go to profile</Text>
-      </Button>
+      <Box>
+        <Button onPress={() => navigation.navigate('Profile')}>
+          <Text>Go to profile</Text>
+        </Button>
+      </Box>
+
       <Counter />
 
-      <Button onPress={() => navigation.navigate('Products')}>
-        <Text>Go to products</Text>
-      </Button>
+      <Box>
+        <Button onPress={() => navigation.navigate('Products')}>
+          <Text>Go to products</Text>
+        </Button>
+      </Box>
+
       <Hamburger color="red" />
     </Box>
   );

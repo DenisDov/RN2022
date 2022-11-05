@@ -1,20 +1,25 @@
 import React from 'react';
-import { Box, Text } from '../theme';
+import { theme, Box, Text } from '../theme';
 
-const ProfileScreen = ({ route }) => {
+const ProfileScreen = () => {
   return (
     <Box backgroundColor="background" padding="m" flex={1}>
-      <Text>This is the profile screen of the app</Text>
-      <Text>{route.name}</Text>
-      <Box width={70} height={70} backgroundColor="card" borderRadius="s" />
-      <Box width={70} height={70} backgroundColor="main" borderRadius="s" />
-      <Box
-        width={70}
-        height={70}
-        backgroundColor="secondary"
-        borderRadius="s"
-      />
-      <Box width={70} height={70} backgroundColor="dark" borderRadius="s" />
+      <Box flexDirection="row" flexWrap="wrap">
+        {Object.keys(theme.colors).map(key => {
+          return (
+            <Box key={key} width={'33%'}>
+              <Text>{key}</Text>
+              <Box
+                width={70}
+                height={70}
+                backgroundColor={key}
+                borderRadius="s"
+                borderWidth={1}
+              />
+            </Box>
+          );
+        })}
+      </Box>
     </Box>
   );
 };

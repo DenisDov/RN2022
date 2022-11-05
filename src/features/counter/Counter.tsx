@@ -13,14 +13,16 @@ const Counter = () => {
   const dispatch = useAppDispatch();
   return (
     <Card padding="m" marginVertical="m">
-      <Text variant="header">Conter: {count}</Text>
+      <Text variant="header" marginBottom="s">
+        Conter: {count}
+      </Text>
       <Box flexDirection="row" justifyContent="space-between">
-        <Button onPress={() => dispatch(increment())}>
-          <Text>increment</Text>
-        </Button>
-        <Box marginHorizontal="s" />
         <Button onPress={() => dispatch(decrement())}>
           <Text>decrement</Text>
+        </Button>
+        <Box marginHorizontal="s" />
+        <Button onPress={() => dispatch(increment())}>
+          <Text>increment</Text>
         </Button>
       </Box>
     </Card>

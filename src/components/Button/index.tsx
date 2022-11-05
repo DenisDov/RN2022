@@ -16,9 +16,7 @@ const Button = ({ onPress, loading, children }: ButtonProps) => {
       disabled={loading}
       style={({ pressed }) => [
         {
-          backgroundColor: pressed
-            ? theme.colors.secondary
-            : theme.colors.background,
+          backgroundColor: pressed ? theme.colors.secondary : theme.colors.card,
         },
         styles.button,
       ]}>
@@ -29,6 +27,7 @@ const Button = ({ onPress, loading, children }: ButtonProps) => {
 
 const styles = StyleSheet.create({
   button: {
+    flexGrow: 1,
     height: 48,
     borderRadius: theme.borderRadii.s,
     padding: theme.spacing.s,
