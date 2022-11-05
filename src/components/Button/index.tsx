@@ -16,7 +16,9 @@ const Button = ({ onPress, loading, children }: ButtonProps) => {
       disabled={loading}
       style={({ pressed }) => [
         {
-          backgroundColor: pressed ? theme.colors.secondary : 'white',
+          backgroundColor: pressed
+            ? theme.colors.secondary
+            : theme.colors.background,
         },
         styles.button,
       ]}>
