@@ -4,10 +4,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RNBootSplash from 'react-native-bootsplash';
 
 // Screens start
-import HomeScreen from '../screens/HomeScreen';
-import ProfileScreen from '../screens/ProfileScreen';
-import ProductsScreen from '../screens/ProductsScreen';
-import SingleProductScreen from '../screens/SingleProductScreen';
+// Auth screens
+
+// Home screeens
+import HomeScreen from '../screens/Home/HomeScreen';
+import ProfileScreen from '../screens/Home/ProfileScreen';
+import ProductsScreen from '../screens/Home/ProductsScreen';
+import SingleProductScreen from '../screens/Home/SingleProductScreen';
 // Screens end
 
 type StackParamList = {

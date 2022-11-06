@@ -1,9 +1,9 @@
 import React from 'react';
 import { useRoute } from '@react-navigation/native';
-import { Box, Text } from '../theme';
-import { ActivityIndicator } from '../components/ActivityIndicator';
+import { Box, Text } from '@theme';
+import { ActivityIndicator } from '../../components/ActivityIndicator';
 
-import { useGetSingleProductQuery } from '../services/productsApi';
+import { useGetSingleProductQuery } from '../../services/productsApi';
 
 const SingleProductScreen = () => {
   const route = useRoute();

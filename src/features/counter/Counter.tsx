@@ -1,11 +1,11 @@
 import React from 'react';
+import { Box, Text, Card } from '@theme';
 
 //redux start
 import { useAppSelector, useAppDispatch } from '../../hooks/redux';
 import { getCounterSelector, decrement, increment } from './counterSlice';
 //redux end
 
-import { Box, Text, Card } from '../../theme';
 import { Button } from '../../components/Button';
 
 const Counter = () => {

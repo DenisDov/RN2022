@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme, Box, Text } from '../theme';
+import { theme, Box, Text } from '@theme';
 
 const ProfileScreen = () => {
   return (

@@ -7,8 +7,8 @@ import {
 } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 
+import { theme } from '@theme';
 import AppNavigator from './Navigation';
-import { theme } from '../theme';
 import { store } from './store';
 
 const App = () => {

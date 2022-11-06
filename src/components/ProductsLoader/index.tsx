@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dimensions, StyleSheet } from 'react-native';
 import ContentLoader, { Rect } from 'react-content-loader/native';
-import { Box } from '../../theme';
+import { Box } from '@theme';
 
 const { width } = Dimensions.get('window');
 
