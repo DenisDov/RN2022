@@ -12,7 +12,7 @@ const ProductsScreen = () => {
   const { data: allProducts, isLoading, error } = useGetAllProductsQuery();
   const navigation = useNavigation();
   return (
-    <Box backgroundColor="background" flex={1}>
+    <Box flex={1} padding="m">
       {error ? (
         <Text>Oh no, there was an: {error.status}</Text>
       ) : isLoading && !allProducts ? (
@@ -23,7 +23,7 @@ const ProductsScreen = () => {
           renderItem={({ item }) => (
             <ProductsCard item={item} navigation={navigation} />
           )}
-          estimatedItemSize={100}
+          estimatedItemSize={40}
           numColumns={2}
           ListEmptyComponent={<Text>no products available</Text>}
           keyExtractor={item => item.id}

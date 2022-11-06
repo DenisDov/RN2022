@@ -7,7 +7,7 @@ import { Counter } from '../../features/counter/Counter';
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <Box backgroundColor="background" padding="m" flex={1}>
+    <Box padding="m" flex={1}>
       <Text variant="header">Raleway</Text>
       <Text>Whereas recognition of the inherent dignity</Text>
 
