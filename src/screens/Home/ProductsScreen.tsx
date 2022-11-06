@@ -12,7 +12,7 @@ const ProductsScreen = () => {
   const { data: allProducts, isLoading, error } = useGetAllProductsQuery();
   const navigation = useNavigation();
   return (
-    <Box flex={1} padding="m">
+    <Box flex={1}>
       {error ? (
         <Text>Oh no, there was an: {error.status}</Text>
       ) : isLoading && !allProducts ? (

@@ -41,19 +41,24 @@ const AppNavigator = () => {
     <NavigationContainer
       theme={navigationTheme}
       onReady={() => RNBootSplash.hide({ fade: true })}>
-      {isAuthenicated ? (
-        <Stack.Navigator screenOptions={{ headerShown: true }}>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Profile" component={ProfileScreen} />
-          <Stack.Screen name="Products" component={ProductsScreen} />
-          <Stack.Screen name="SingleProduct" component={SingleProductScreen} />
-        </Stack.Navigator>
-      ) : (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Register" component={RegisterScreen} />
-          <Stack.Screen name="Login" component={LoginScreen} />
-        </Stack.Navigator>
-      )}
+      <Stack.Navigator>
+        {isAuthenicated ? (
+          <Stack.Group screenOptions={{ headerShown: true }}>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Profile" component={ProfileScreen} />
+            <Stack.Screen name="Products" component={ProductsScreen} />
+            <Stack.Screen
+              name="SingleProduct"
+              component={SingleProductScreen}
+            />
+          </Stack.Group>
+        ) : (
+          <Stack.Group screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Register" component={RegisterScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} />
+          </Stack.Group>
+        )}
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
