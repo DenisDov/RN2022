@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dimensions } from 'react-native';
-// import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { Text, TouchBox, ImageBox } from '@theme';
 
 import { capitalize } from '../../utils/capitalize';
@@ -10,7 +10,8 @@ import { Images } from '@assets';
 
 const { width } = Dimensions.get('window');
 
-const ProductsCard = ({ item: product, navigation }) => {
+const ProductsCard = ({ item: product }) => {
+  const navigation = useNavigation();
   const intlPrice = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
