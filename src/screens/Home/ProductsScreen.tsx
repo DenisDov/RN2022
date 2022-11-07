@@ -5,7 +5,7 @@ import { Box, Text } from '@theme';
 
 import { useGetAllProductsQuery } from '../../services/productsApi';
 
-import { ProductsLoader } from '../../components/ProductsLoader';
+import { Skeleton } from '../../components/ProductsCard/Skeleton';
 import { ProductsCard } from '../../components/ProductsCard';
 
 const ProductsScreen = () => {
@@ -14,9 +14,11 @@ const ProductsScreen = () => {
   return (
     <Box flex={1}>
       {error ? (
-        <Text>Oh no, there was an: {error.status}</Text>
+        <Box padding="m">
+          <Text>Oh no, there was an: {error.status}</Text>
+        </Box>
       ) : isLoading && !allProducts ? (
-        <ProductsLoader />
+        <Skeleton />
       ) : allProducts ? (
         <FlashList
           data={allProducts}

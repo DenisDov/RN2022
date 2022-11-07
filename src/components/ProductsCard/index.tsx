@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Text, TouchBox, ImageBox } from '@theme';
 
 import { capitalize } from '../../utils/capitalize';
-// import { IProduct } from '../../models/IProduct';
+// import { IProduct } from '../../@types/IProduct';
 
 import { Images } from '@assets';
 
