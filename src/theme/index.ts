@@ -4,3 +4,5 @@ export { default as Text } from './Text';
 export { default as Card } from './Card';
 export { default as ImageBox } from './ImageBox';
 export { default as TouchBox } from './TouchBox';
+export { default as ScrollBox } from './ScrollBox';
+export { default as SafeAreaBox } from './SafeAreaBox';

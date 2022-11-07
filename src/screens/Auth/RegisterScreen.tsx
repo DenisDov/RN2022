@@ -1,11 +1,19 @@
 import React from 'react';
-import { Box, Text } from '@theme';
+import { SafeAreaBox, Box, Text } from '@theme';
 
 const RegisterScreen = () => {
   return (
-    <Box>
-      <Text>RegisterScreen</Text>
-    </Box>
+    <SafeAreaBox flex={1} backgroundColor="underlay">
+      <Box
+        flex={1}
+        backgroundColor="main"
+        padding="m"
+        marginTop="xl"
+        borderTopLeftRadius="l"
+        borderTopRightRadius="l">
+        <Text>RegisterScreen</Text>
+      </Box>
+    </SafeAreaBox>
   );
 };
 

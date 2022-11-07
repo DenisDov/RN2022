@@ -15,6 +15,8 @@ import ProductsScreen from '../screens/Home/ProductsScreen';
 import SingleProductScreen from '../screens/Home/SingleProductScreen';
 // Screens end
 
+import PlaygroundScreen from '../screens/Playground';
+
 type StackParamList = {
   Register: undefined;
   Login: undefined;
@@ -23,6 +25,8 @@ type StackParamList = {
   Profile: undefined;
   Products: undefined;
   SingleProduct: undefined;
+
+  Playground: undefined;
 };
 
 const navigationTheme = {
@@ -36,12 +40,13 @@ const navigationTheme = {
 const Stack = createNativeStackNavigator<StackParamList>();
 
 const AppNavigator = () => {
-  const isAuthenicated = true;
+  const isAuthenicated = false;
   return (
     <NavigationContainer
       theme={navigationTheme}
       onReady={() => RNBootSplash.hide({ fade: true })}>
       <Stack.Navigator>
+        {/* <Stack.Screen name="Playground" component={PlaygroundScreen} /> */}
         {isAuthenicated ? (
           <Stack.Group screenOptions={{ headerShown: true }}>
             <Stack.Screen name="Home" component={HomeScreen} />

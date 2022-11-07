@@ -12,6 +12,7 @@ const palette = {
 const theme = createTheme({
   colors: {
     background: palette.white,
+    underlay: palette.black,
     card: palette.yellow,
     text: palette.black,
     main: palette.red,
