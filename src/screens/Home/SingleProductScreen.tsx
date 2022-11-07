@@ -5,8 +5,10 @@ import { ActivityIndicator } from '../../components/ActivityIndicator';
 
 import { useGetSingleProductQuery } from '../../services/productsApi';
 
+import { SingleProductScreenRouteProp } from '../../@types/navigation';
+
 const SingleProductScreen = () => {
-  const route = useRoute();
+  const route = useRoute<SingleProductScreenRouteProp>();
   const {
     data: product,
     isLoading,

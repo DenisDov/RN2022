@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RNBootSplash from 'react-native-bootsplash';
 import { theme } from '@theme';
 
+import { RootStackParamList } from '../@types/navigation';
+
 // Screens start
 // Auth screens
 import RegisterScreen from '../screens/Auth/RegisterScreen';
@@ -17,18 +19,6 @@ import SingleProductScreen from '../screens/Home/SingleProductScreen';
 
 import PlaygroundScreen from '../screens/Playground';
 
-type StackParamList = {
-  Register: undefined;
-  Login: undefined;
-
-  Home: undefined;
-  Profile: undefined;
-  Products: undefined;
-  SingleProduct: undefined;
-
-  Playground: undefined;
-};
-
 const navigationTheme = {
   ...DarkTheme,
   colors: {
@@ -37,7 +27,7 @@ const navigationTheme = {
   },
 };
 
-const Stack = createNativeStackNavigator<StackParamList>();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AppNavigator = () => {
   const isAuthenicated = false;
