@@ -1,50 +1,36 @@
 import React from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Text } from '@theme';
+import { RectButton } from 'react-native-gesture-handler';
 import { theme } from '@theme';
-import { useTheme } from '@shopify/restyle';
 
-type ButtonProps = {
-  onPress?: () => void;
-  loading?: boolean;
-  children: React.ReactNode;
+type Props = {
+  onPress: () => void;
+  text: string;
 };
 
-const Button = ({ onPress, loading, children }: ButtonProps) => {
-  const theme = useTheme();
-  const { accent, main, background } = theme.colors;
+const AppButton = ({ onPress, text }: Props) => {
   return (
-    <Pressable
-      onPress={onPress}
-      disabled={loading}
-      style={({ pressed }) => [
-        {
-          backgroundColor: pressed ? background : main,
-        },
-        styles.button,
-      ]}>
-      {children}
-    </Pressable>
+    <RectButton onPress={onPress} style={styles.button}>
+      <Text>{text}</Text>
+    </RectButton>
   );
 };
 
 const styles = StyleSheet.create({
   button: {
     flexGrow: 1,
-    height: 48,
-    borderRadius: theme.borderRadii.s,
-    padding: theme.spacing.s,
+    height: 44,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: theme.colors.accent,
-    // shadowColor: theme.colors.text,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    borderRadius: 10,
+    backgroundColor: theme.colors.accent,
+    // shadowColor: theme.colors.main,
+    // shadowOpacity: 0.5,
+    // shadowOffset: { width: 0, height: 5 },
+    // shadowRadius: 5,
+    // elevation: 5,
   },
 });
 
-export { Button };
+export { AppButton };

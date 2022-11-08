@@ -5,6 +5,7 @@ import { Box, Text } from '@theme';
 import { Button } from '../../components/Button';
 import { Hamburger } from '../../components/Icons/Hamburger';
 import { Counter } from '../../features/counter/Counter';
+import { AppButton } from '../../components/Button';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -14,17 +15,19 @@ const HomeScreen = () => {
       <Text>Whereas recognition of the inherent dignity</Text>
 
       <Box>
-        <Button onPress={() => navigation.navigate('Profile')}>
-          <Text>Go to profile</Text>
-        </Button>
+        <AppButton
+          text="Go to profile"
+          onPress={() => navigation.navigate('Profile')}
+        />
       </Box>
 
       <Counter />
 
       <Box>
-        <Button onPress={() => navigation.navigate('Products')}>
-          <Text>Go to products</Text>
-        </Button>
+        <AppButton
+          text="Go to products"
+          onPress={() => navigation.navigate('Products')}
+        />
       </Box>
 
       <Hamburger color="red" />

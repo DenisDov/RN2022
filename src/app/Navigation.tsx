@@ -7,6 +7,7 @@ import { RootStackParamList } from '../@types/navigation';
 
 // Screens start
 // Auth screens
+import WelcomeScreen from '../screens/Auth/WelcomeScreen';
 import RegisterScreen from '../screens/Auth/RegisterScreen';
 import LoginScreen from '../screens/Auth/LoginScreen';
 // Home screeens
@@ -14,9 +15,9 @@ import HomeScreen from '../screens/Home/HomeScreen';
 import ProfileScreen from '../screens/Home/ProfileScreen';
 import ProductsScreen from '../screens/Home/ProductsScreen';
 import SingleProductScreen from '../screens/Home/SingleProductScreen';
+//Common screens
+import PlaygroundScreen from '../screens/Common/PlaygroundScreen';
 // Screens end
-
-import PlaygroundScreen from '../screens/Playground';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -38,6 +39,7 @@ const AppNavigator = () => {
           </Stack.Group>
         ) : (
           <Stack.Group screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Welcome" component={WelcomeScreen} />
             <Stack.Screen name="Register" component={RegisterScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
           </Stack.Group>

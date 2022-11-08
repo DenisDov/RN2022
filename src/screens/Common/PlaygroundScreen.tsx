@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollBox, Box, Text } from '@theme';
 
-const Playground = () => {
+const PlaygroundScreen = () => {
   return (
     <ScrollBox flexGrow={1} showsVerticalScrollIndicator={false}>
       <Box padding="m">
@@ -11,4 +11,4 @@ const Playground = () => {
   );
 };
 
-export default Playground;
+export default PlaygroundScreen;

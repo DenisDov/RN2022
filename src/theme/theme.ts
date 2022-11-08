@@ -53,7 +53,7 @@ const theme = createTheme({
   },
   cardVariants: {
     defaults: {
-      backgroundColor: 'accent',
+      backgroundColor: 'main',
       borderRadius: 's',
       padding: 's',
     },

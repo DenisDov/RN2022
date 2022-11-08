@@ -6,7 +6,7 @@ import { useAppSelector, useAppDispatch } from '../../hooks/redux';
 import { getCounterSelector, decrement, increment } from './counterSlice';
 //redux end
 
-import { Button } from '../../components/Button';
+import { AppButton } from '../../components/Button';
 
 const Counter = () => {
   const count = useAppSelector(getCounterSelector);
@@ -17,13 +17,9 @@ const Counter = () => {
         Conter: {count}
       </Text>
       <Box flexDirection="row" justifyContent="space-between">
-        <Button onPress={() => dispatch(decrement())}>
-          <Text>decrement</Text>
-        </Button>
+        <AppButton onPress={() => dispatch(decrement())} text="decrement" />
         <Box marginHorizontal="s" />
-        <Button onPress={() => dispatch(increment())}>
-          <Text>increment</Text>
-        </Button>
+        <AppButton onPress={() => dispatch(increment())} text="increment" />
       </Box>
     </Card>
   );
