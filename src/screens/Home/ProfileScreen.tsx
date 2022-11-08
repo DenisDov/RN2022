@@ -3,7 +3,7 @@ import { theme, Box, Text } from '@theme';
 
 const ProfileScreen = () => {
   return (
-    <Box padding="m" flex={1}>
+    <Box padding="m" flex={1} backgroundColor="background">
       <Box flexDirection="row" flexWrap="wrap">
         {Object.keys(theme.colors).map(key => {
           return (

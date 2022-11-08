@@ -4,16 +4,16 @@ import { AppButton } from '../../components/Button/RectButton';
 
 const RegisterScreen = () => {
   return (
-    <SafeAreaBox flex={1} backgroundColor="underlay">
+    <SafeAreaBox flex={1}>
       <Box
         flex={1}
-        backgroundColor="main"
+        backgroundColor="background"
         padding="m"
-        marginTop="xl"
+        // marginTop="xl"
         borderTopLeftRadius="l"
         borderTopRightRadius="l">
         <Text>RegisterScreen</Text>
-        <AppButton text="Rect button" />
+        <AppButton text="👉 Rect button" />
       </Box>
     </SafeAreaBox>
   );

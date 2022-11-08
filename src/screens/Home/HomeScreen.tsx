@@ -9,7 +9,7 @@ import { Counter } from '../../features/counter/Counter';
 const HomeScreen = () => {
   const navigation = useNavigation();
   return (
-    <Box padding="m" flex={1}>
+    <Box padding="m" flex={1} backgroundColor="background">
       <Text variant="header">Raleway</Text>
       <Text>Whereas recognition of the inherent dignity</Text>
 

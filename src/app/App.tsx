@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar, StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ThemeProvider } from '@shopify/restyle';
@@ -8,16 +8,17 @@ import {
 } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 
-import { theme } from '@theme';
+import { theme, darkTheme } from '@theme';
 import AppNavigator from './Navigation';
 import { store } from './store';
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
   return (
     <GestureHandlerRootView style={styles.root}>
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <StatusBar barStyle="light-content" backgroundColor="black" />
+        <ThemeProvider theme={darkMode ? darkTheme : theme}>
+          <StatusBar barStyle="dark-content" backgroundColor="black" />
           <SafeAreaProvider initialMetrics={initialWindowMetrics}>
             <AppNavigator />
           </SafeAreaProvider>

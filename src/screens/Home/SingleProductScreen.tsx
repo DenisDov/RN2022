@@ -16,7 +16,7 @@ const SingleProductScreen = () => {
   } = useGetSingleProductQuery(route.params?.productId);
 
   return (
-    <Box padding="m" flex={1}>
+    <Box flex={1} backgroundColor="background">
       {error ? (
         <Text>{error.status}</Text>
       ) : isLoading && !product ? (
@@ -24,7 +24,7 @@ const SingleProductScreen = () => {
           <ActivityIndicator />
         </Box>
       ) : product ? (
-        <Box backgroundColor="background" padding="m" flex={1}>
+        <Box>
           <Text>{route.name}</Text>
           <Text>{route.params?.productId}</Text>
         </Box>

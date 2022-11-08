@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { NavigationContainer, DarkTheme } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RNBootSplash from 'react-native-bootsplash';
-import { theme } from '@theme';
 
 import { RootStackParamList } from '../@types/navigation';
 
@@ -19,22 +18,12 @@ import SingleProductScreen from '../screens/Home/SingleProductScreen';
 
 import PlaygroundScreen from '../screens/Playground';
 
-const navigationTheme = {
-  ...DarkTheme,
-  colors: {
-    ...DarkTheme.colors,
-    background: theme.colors.background,
-  },
-};
-
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AppNavigator = () => {
-  const isAuthenicated = false;
+  const isAuthenicated = true;
   return (
-    <NavigationContainer
-      theme={navigationTheme}
-      onReady={() => RNBootSplash.hide({ fade: true })}>
+    <NavigationContainer onReady={() => RNBootSplash.hide({ fade: true })}>
       <Stack.Navigator>
         {/* <Stack.Screen name="Playground" component={PlaygroundScreen} /> */}
         {isAuthenicated ? (

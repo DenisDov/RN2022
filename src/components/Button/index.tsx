@@ -1,6 +1,7 @@
 import React from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 import { theme } from '@theme';
+import { useTheme } from '@shopify/restyle';
 
 type ButtonProps = {
   onPress?: () => void;
@@ -9,13 +10,15 @@ type ButtonProps = {
 };
 
 const Button = ({ onPress, loading, children }: ButtonProps) => {
+  const theme = useTheme();
+  const { accent, main, background } = theme.colors;
   return (
     <Pressable
       onPress={onPress}
       disabled={loading}
       style={({ pressed }) => [
         {
-          backgroundColor: pressed ? theme.colors.secondary : theme.colors.card,
+          backgroundColor: pressed ? background : main,
         },
         styles.button,
       ]}>
@@ -32,7 +35,8 @@ const styles = StyleSheet.create({
     padding: theme.spacing.s,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: theme.colors.text,
+    // backgroundColor: theme.colors.accent,
+    // shadowColor: theme.colors.text,
     shadowOffset: {
       width: 0,
       height: 2,
