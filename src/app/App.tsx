@@ -1,5 +1,6 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ThemeProvider } from '@shopify/restyle';
 import {
   SafeAreaProvider,
@@ -13,15 +14,23 @@ import { store } from './store';
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <StatusBar barStyle="light-content" backgroundColor="black" />
-        <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-          <AppNavigator />
-        </SafeAreaProvider>
-      </ThemeProvider>
-    </Provider>
+    <GestureHandlerRootView style={styles.root}>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <StatusBar barStyle="light-content" backgroundColor="black" />
+          <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+            <AppNavigator />
+          </SafeAreaProvider>
+        </ThemeProvider>
+      </Provider>
+    </GestureHandlerRootView>
   );
 };
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+});
 
 export default App;
