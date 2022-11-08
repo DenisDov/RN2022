@@ -30,7 +30,7 @@ const navigationTheme = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AppNavigator = () => {
-  const isAuthenicated = true;
+  const isAuthenicated = false;
   return (
     <NavigationContainer
       theme={navigationTheme}
