@@ -1,20 +1,20 @@
 import { createTheme } from '@shopify/restyle';
 
 // https://chir.ag/projects/name-that-color
-const palette = {
-  codGray: '#E9EFFE',
-  chambray: '#0091ea',
-  carnation: '#7D86AC',
-  black: '#121212',
-};
+// const palette = {
+//   codGray: '#E9EFFE',
+//   chambray: '#0091ea',
+//   carnation: '#7D86AC',
+//   black: '#121212',
+// };
 
 const theme = createTheme({
   colors: {
-    background: palette.codGray,
-    main: palette.chambray,
-    secondary: palette.carnation,
-    text: palette.black,
-    // headerText: palette.black,
+    background: '#0F1115',
+    main: '#161A20',
+    secondary: '#102330',
+    accent: '#2962ff',
+    text: '#F0F2F3',
   },
   spacing: {
     xs: 4,
@@ -45,12 +45,11 @@ const theme = createTheme({
     header: {
       fontFamily: 'Raleway-Bold',
       fontSize: 34,
-      // color: 'headerText',
     },
   },
   cardVariants: {
     defaults: {
-      backgroundColor: 'secondary',
+      backgroundColor: 'main',
       borderRadius: 's',
       padding: 's',
     },

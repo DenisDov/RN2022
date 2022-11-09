@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   box: {
     margin: GAP / 2,
     // borderWidth: StyleSheet.hairlineWidth,
-    backgroundColor: '#FCDC73',
+    backgroundColor: '#161A20',
     // borderColor: '#ccc',
     borderRadius: 11,
     overflow: 'hidden',

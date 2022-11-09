@@ -22,7 +22,7 @@ const ProductsCard = ({ item: product }) => {
       onPress={() =>
         navigation.navigate('SingleProduct', { productId: product.id })
       }
-      backgroundColor="accent"
+      backgroundColor="main"
       height={200}
       width={width / 2 - 8}
       borderRadius="s"

@@ -25,7 +25,7 @@ const AppNavigator = () => {
   const isAuthenicated = true;
   return (
     <NavigationContainer
-      // theme={DarkTheme}
+      theme={DarkTheme}
       onReady={() => RNBootSplash.hide({ fade: true })}>
       <Stack.Navigator>
         {/* <Stack.Screen name="Playground" component={PlaygroundScreen} /> */}
