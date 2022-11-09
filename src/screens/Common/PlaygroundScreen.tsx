@@ -44,6 +44,8 @@ const PlaygroundScreen = () => {
       <Box height={16} />
       {/* Buttons */}
       <Button text="Button" onPress={() => null} />
+      <Box height={16} />
+      <Button variant="outline" text="Outline Button" onPress={() => null} />
     </Box>
   );
 };
