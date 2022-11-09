@@ -25,11 +25,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     backgroundColor: theme.colors.secondary,
-    // shadowColor: theme.colors.main,
-    // shadowOpacity: 0.5,
-    // shadowOffset: { width: 0, height: 5 },
-    // shadowRadius: 5,
-    // elevation: 5,
+    shadowColor: theme.colors.main,
+    shadowOpacity: 0.5,
+    shadowOffset: { width: 5, height: 5 },
+    shadowRadius: 5,
+    elevation: 5,
   },
 });
 

@@ -10,22 +10,33 @@ const HomeScreen = () => {
   const navigation = useNavigation();
   return (
     <Box padding="m" flex={1} backgroundColor="background">
-      <Text variant="header">Raleway</Text>
-      <Text>Whereas recognition of the inherent dignity</Text>
+      <Text variant="title">Raleway</Text>
+      <Text marginBottom="m">Whereas recognition of the inherent dignity</Text>
 
       <Button
-        text="Go to profile"
-        onPress={() => navigation.navigate('Profile')}
+        text="Playground"
+        onPress={() => navigation.navigate('Playground')}
       />
 
       <Counter />
+
+      <Text marginBottom="m">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
+        mollitia reprehenderit, molestiae repellendus ipsum quas. Placeat
+        laudantium minus iure neque?
+      </Text>
 
       <Button
         text="Go to products"
         onPress={() => navigation.navigate('Products')}
       />
+      <Box height={16} />
+      <Button
+        text="Go to profile"
+        onPress={() => navigation.navigate('Profile')}
+      />
 
-      <Hamburger color="red" />
+      {/* <Hamburger color="red" /> */}
     </Box>
   );
 };

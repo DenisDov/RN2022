@@ -10,12 +10,12 @@ import { createTheme } from '@shopify/restyle';
 
 const theme = createTheme({
   colors: {
-    background: '#FDFDFD',
+    background: '#F5F5F6',
     main: '#2F365F',
     secondary: '#5065ED',
-    // accent: '#5065ED',
-    lightText: '#F0F2F3',
-    darkText: '#121212',
+
+    lightText: '#FFFFFF',
+    darkText: '#000000',
   },
   spacing: {
     xs: 4,
@@ -43,9 +43,14 @@ const theme = createTheme({
       fontSize: 16,
       color: 'darkText',
     },
-    header: {
+    title: {
       fontFamily: 'Raleway-Bold',
       fontSize: 34,
+    },
+    whiteTitle: {
+      fontFamily: 'Raleway-Bold',
+      fontSize: 34,
+      color: 'lightText',
     },
     button: {
       color: 'lightText',
@@ -75,10 +80,10 @@ const theme = createTheme({
         phone: 's',
         tablet: 'm',
       },
-      shadowColor: 'accent',
-      shadowOpacity: 0.2,
-      shadowOffset: { width: 0, height: 5 },
-      shadowRadius: 15,
+      shadowColor: 'main',
+      shadowOpacity: 0.5,
+      shadowOffset: { width: 5, height: 5 },
+      shadowRadius: 5,
       elevation: 5,
     },
   },

@@ -12,8 +12,8 @@ const Counter = () => {
   const count = useAppSelector(getCounterSelector);
   const dispatch = useAppDispatch();
   return (
-    <Card padding="m" marginVertical="m">
-      <Text variant="header" marginBottom="s">
+    <Card variant="elevated" padding="m" marginVertical="m">
+      <Text variant="whiteTitle" marginBottom="s">
         Conter: {count}
       </Text>
       <Box flexDirection="row" justifyContent="space-between">

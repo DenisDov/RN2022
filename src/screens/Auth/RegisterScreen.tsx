@@ -19,7 +19,7 @@ const RegisterScreen = () => {
         // marginTop="xl"
         borderTopLeftRadius="l"
         borderTopRightRadius="l">
-        <Text variant="header">Register account</Text>
+        <Text variant="title">Register account</Text>
         <Box flex={1} justifyContent="center">
           <TextInput
             style={styles.input}

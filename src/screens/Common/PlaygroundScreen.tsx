@@ -1,13 +1,33 @@
 import React from 'react';
-import { ScrollBox, Box, Text } from '@theme';
+import { theme, Box, Text } from '@theme';
 
 const PlaygroundScreen = () => {
   return (
-    <ScrollBox flexGrow={1} showsVerticalScrollIndicator={false}>
-      <Box padding="m">
-        <Text variant="header">FAQ</Text>
+    <Box flex={1} backgroundColor="background">
+      <Box flexDirection="row" flexWrap="wrap" margin="m">
+        {Object.keys(theme.colors).map(key => {
+          return (
+            <Box key={key} width={'33%'}>
+              <Text>{key}</Text>
+              <Box
+                // width={70}
+                height={88}
+                backgroundColor={key}
+                borderRadius="s"
+                borderWidth={1}
+              />
+            </Box>
+          );
+        })}
       </Box>
-    </ScrollBox>
+      <Box margin="m">
+        <Text variant="title">Title</Text>
+        <Text>regular text</Text>
+        <Box backgroundColor="secondary">
+          <Text variant="whiteTitle">WhiteTitle</Text>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
