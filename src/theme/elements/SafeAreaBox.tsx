@@ -3,7 +3,7 @@ import {
   SafeAreaViewProps,
 } from 'react-native-safe-area-context';
 import { createBox } from '@shopify/restyle';
-import { Theme } from './theme';
+import { Theme } from '../theme';
 
 const SafeAreaBox = createBox<
   Theme,

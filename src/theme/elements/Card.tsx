@@ -6,7 +6,7 @@ import {
   SpacingProps,
   VariantProps,
 } from '@shopify/restyle';
-import { Theme } from './theme';
+import { Theme } from '../theme';
 
 type CardProps = PropsWithChildren<
   SpacingProps<Theme> & VariantProps<Theme, 'cardVariants'>

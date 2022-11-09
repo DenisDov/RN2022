@@ -1,6 +1,6 @@
 import { ScrollView, ScrollViewProps } from 'react-native';
 import { createBox } from '@shopify/restyle';
-import { Theme } from './theme';
+import { Theme } from '../theme';
 
 const ScrollBox = createBox<
   Theme,

@@ -53,10 +53,8 @@ const theme = createTheme({
     welcomeTitle: {
       fontFamily: 'Raleway-Bold',
       fontSize: 34,
-      // color: 'lightText',
     },
     welcomeDescription: {
-      // color: 'lightText',
       marginVertical: 'l',
     },
   },
@@ -87,17 +85,5 @@ const theme = createTheme({
 });
 
 export type Theme = typeof theme;
-
-// const darkTheme: Theme = {
-//   ...theme,
-//   colors: {
-//     ...theme.colors,
-//     background: palette.codGray,
-//     main: palette.chambray,
-//     secondary: palette.carnation,
-//     accent: palette.cheese,
-//     text: palette.white,
-//   },
-// };
 
 export default theme;

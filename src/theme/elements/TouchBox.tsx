@@ -1,6 +1,6 @@
 import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import { createBox } from '@shopify/restyle';
-import { Theme } from './theme';
+import { Theme } from '../theme';
 
 const TouchBox = createBox<
   Theme,

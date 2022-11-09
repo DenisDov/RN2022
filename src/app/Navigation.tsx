@@ -22,7 +22,7 @@ import PlaygroundScreen from '../screens/Common/PlaygroundScreen';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AppNavigator = () => {
-  const isAuthenicated = false;
+  const isAuthenicated = true;
   return (
     <NavigationContainer
       // theme={DarkTheme}
