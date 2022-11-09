@@ -1,17 +1,18 @@
 import React from 'react';
-import { theme, Box, Text } from '@theme';
+import { theme, Box, Text, Card } from '@theme';
+import { Button } from '../../components/Button';
 
 const PlaygroundScreen = () => {
   return (
-    <Box flex={1} backgroundColor="background">
-      <Box flexDirection="row" flexWrap="wrap" margin="m">
+    <Box flex={1} backgroundColor="background" margin="m">
+      {/* Colors */}
+      <Box flexDirection="row" flexWrap="wrap">
         {Object.keys(theme.colors).map(key => {
           return (
-            <Box key={key} width={'33%'}>
+            <Box key={key} flexGrow={1} flexBasis={'33%'}>
               <Text>{key}</Text>
               <Box
-                // width={70}
-                height={88}
+                height={44}
                 backgroundColor={key}
                 borderRadius="s"
                 borderWidth={1}
@@ -20,13 +21,29 @@ const PlaygroundScreen = () => {
           );
         })}
       </Box>
-      <Box margin="m">
-        <Text variant="title">Title</Text>
-        <Text>regular text</Text>
-        <Box backgroundColor="secondary">
-          <Text variant="whiteTitle">WhiteTitle</Text>
-        </Box>
+      <Box height={16} />
+      {/* Typography */}
+      <Text variant="title">Title</Text>
+      <Text>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
+        reiciendis.
+      </Text>
+      <Box backgroundColor="secondary">
+        <Text variant="title" color="secondaryTextColor">
+          WhiteTitle
+        </Text>
       </Box>
+      <Box height={16} />
+      {/* Card */}
+      <Card>
+        <Text variant="title" color="secondaryTextColor">
+          Card
+        </Text>
+        <Text color="secondaryTextColor">regular text</Text>
+      </Card>
+      <Box height={16} />
+      {/* Buttons */}
+      <Button text="Button" onPress={() => null} />
     </Box>
   );
 };

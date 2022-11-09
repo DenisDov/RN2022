@@ -13,7 +13,7 @@ const Counter = () => {
   const dispatch = useAppDispatch();
   return (
     <Card variant="elevated" padding="m" marginVertical="m">
-      <Text variant="whiteTitle" marginBottom="s">
+      <Text variant="title" color="secondaryTextColor" marginBottom="s">
         Conter: {count}
       </Text>
       <Box flexDirection="row" justifyContent="space-between">

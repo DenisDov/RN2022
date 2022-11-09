@@ -14,8 +14,8 @@ const theme = createTheme({
     main: '#2F365F',
     secondary: '#5065ED',
 
-    lightText: '#FFFFFF',
-    darkText: '#000000',
+    primaryTextColor: '#000000',
+    secondaryTextColor: '#FFFFFF',
   },
   spacing: {
     xs: 4,
@@ -41,20 +41,20 @@ const theme = createTheme({
     defaults: {
       fontFamily: 'Raleway-Regular',
       fontSize: 16,
-      color: 'darkText',
+      color: 'primaryTextColor',
     },
     title: {
       fontFamily: 'Raleway-Bold',
       fontSize: 34,
     },
-    whiteTitle: {
-      fontFamily: 'Raleway-Bold',
-      fontSize: 34,
-      color: 'lightText',
-    },
-    button: {
-      color: 'lightText',
-    },
+    // whiteTitle: {
+    //   fontFamily: 'Raleway-Bold',
+    //   fontSize: 34,
+    //   color: 'secondaryTextColor',
+    // },
+    // button: {
+    //   color: 'secondaryTextColor',
+    // },
     welcomeTitle: {
       fontFamily: 'Raleway-Bold',
       fontSize: 34,

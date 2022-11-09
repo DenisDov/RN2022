@@ -28,7 +28,6 @@ const AppNavigator = () => {
       // theme={DarkTheme}
       onReady={() => RNBootSplash.hide({ fade: true })}>
       <Stack.Navigator>
-        <Stack.Screen name="Playground" component={PlaygroundScreen} />
         {isAuthenicated ? (
           <Stack.Group screenOptions={{ headerShown: true }}>
             <Stack.Screen name="Home" component={HomeScreen} />
@@ -46,6 +45,7 @@ const AppNavigator = () => {
             <Stack.Screen name="Login" component={LoginScreen} />
           </Stack.Group>
         )}
+        <Stack.Screen name="Playground" component={PlaygroundScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

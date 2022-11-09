@@ -12,7 +12,7 @@ type Props = {
 const Button = ({ onPress, text }: Props) => {
   return (
     <RectButton onPress={onPress} style={styles.button}>
-      <Text variant="button">{text}</Text>
+      <Text color="secondaryTextColor">{text}</Text>
     </RectButton>
   );
 };
