@@ -8,8 +8,6 @@ if (__DEV__) {
 }
 
 // TODO: need remove this log before release https://github.com/Shopify/flash-list/issues/616
-LogBox.ignoreLogs([
-  'Warning: Failed prop type: Invalid prop `externalScrollView` of type `object` supplied to `ProgressiveListView`, expected `function`.',
-]);
+LogBox.ignoreLogs(['Warning: ...']);
 
 AppRegistry.registerComponent(appName, () => App);
