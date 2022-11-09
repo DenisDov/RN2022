@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Text, TouchBox, ImageBox } from '@theme';
 
@@ -22,10 +22,12 @@ const ProductsCard = ({ item: product }) => {
       onPress={() =>
         navigation.navigate('SingleProduct', { productId: product.id })
       }
-      backgroundColor="main"
+      flex={1}
       height={200}
-      width={width / 2 - 8}
+      backgroundColor="background"
       borderRadius="s"
+      borderWidth={StyleSheet.hairlineWidth}
+      borderColor="main"
       padding="s"
       margin="xs">
       <ImageBox

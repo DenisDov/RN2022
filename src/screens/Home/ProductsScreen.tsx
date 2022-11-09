@@ -1,5 +1,6 @@
 import React from 'react';
 import { FlashList } from '@shopify/flash-list';
+import { StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Box, Text } from '@theme';
 
@@ -34,10 +35,18 @@ const ProductsScreen = () => {
           numColumns={2}
           ListEmptyComponent={<Text>no products available</Text>}
           keyExtractor={item => item.id}
+          contentContainerStyle={styles.flashList}
+          showsVerticalScrollIndicator={false}
         />
       ) : null}
     </Box>
   );
 };
+
+const styles = StyleSheet.create({
+  flashList: {
+    padding: 8,
+  },
+});
 
 export default ProductsScreen;
