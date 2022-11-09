@@ -7,6 +7,7 @@ const productsApi = rootApi.injectEndpoints({
       query: () => '/products?limit=40',
       transformResponse: (response: { products: IProduct[] }) =>
         response.products,
+      providesTags: ['Product'],
     }),
     getSingleProduct: builder.query<IProduct, string>({
       query: (id: string) => `/products/${id}`,

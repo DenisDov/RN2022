@@ -10,12 +10,7 @@ import { Skeleton } from '../../components/ProductsCard/Skeleton';
 import { ProductsCard } from '../../components/ProductsCard';
 
 const ProductsScreen = () => {
-  const {
-    data: allProducts,
-    isLoading,
-    isFetching,
-    error,
-  } = useGetAllProductsQuery();
+  const { data: allProducts, isLoading, error } = useGetAllProductsQuery();
   const navigation = useNavigation();
 
   return (
