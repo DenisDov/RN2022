@@ -11,6 +11,7 @@ export type RootStackParamList = {
   Products: undefined;
   SingleProduct: {
     productId: string;
+    brand: string;
   };
 
   Playground: undefined;

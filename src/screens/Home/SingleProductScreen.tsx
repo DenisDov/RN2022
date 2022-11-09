@@ -1,5 +1,5 @@
-import React from 'react';
-import { useRoute } from '@react-navigation/native';
+import React, { useEffect } from 'react';
+import { useRoute, useNavigation } from '@react-navigation/native';
 import { Box, Text } from '@theme';
 import { ActivityIndicator } from '../../components/ActivityIndicator';
 
@@ -9,11 +9,18 @@ import { SingleProductScreenRouteProp } from '../../@types/navigation';
 
 const SingleProductScreen = () => {
   const route = useRoute<SingleProductScreenRouteProp>();
+  const { productId, brand = '' } = route.params;
+  const navigation = useNavigation();
+  useEffect(() => {
+    navigation.setOptions({
+      title: brand,
+    });
+  }, [navigation, brand]);
   const {
     data: product,
     isLoading,
     error,
-  } = useGetSingleProductQuery(route.params?.productId);
+  } = useGetSingleProductQuery(productId);
 
   return (
     <Box flex={1} backgroundColor="background">
@@ -26,7 +33,7 @@ const SingleProductScreen = () => {
       ) : product ? (
         <Box>
           <Text>{route.name}</Text>
-          <Text>{route.params?.productId}</Text>
+          <Text>{productId}</Text>
         </Box>
       ) : null}
     </Box>

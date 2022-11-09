@@ -1,14 +1,10 @@
 import React from 'react';
-import { Dimensions, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Text, TouchBox, ImageBox } from '@theme';
-
-import { capitalize } from '../../utils/capitalize';
-// import { IProduct } from '../../@types/IProduct';
-
 import { Images } from '@assets';
 
-const { width } = Dimensions.get('window');
+import { capitalize } from '../../utils/capitalize';
 
 const ProductsCard = ({ item: product }) => {
   const navigation = useNavigation();
@@ -20,7 +16,10 @@ const ProductsCard = ({ item: product }) => {
   return (
     <TouchBox
       onPress={() =>
-        navigation.navigate('SingleProduct', { productId: product.id })
+        navigation.navigate('SingleProduct', {
+          productId: product.id,
+          brand: product.brand,
+        })
       }
       flex={1}
       height={200}
