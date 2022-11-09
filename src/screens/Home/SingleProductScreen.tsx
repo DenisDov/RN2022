@@ -23,7 +23,7 @@ const SingleProductScreen = () => {
   } = useGetSingleProductQuery(productId);
 
   return (
-    <Box flex={1} backgroundColor="background">
+    <Box flex={1} backgroundColor="background" padding="m">
       {error ? (
         <Text>{error.status}</Text>
       ) : isLoading && !product ? (

@@ -1,9 +1,9 @@
 import React from 'react';
-import { theme, Box, Text } from '@theme';
+import { Box, Text } from '@theme';
 
 const ProfileScreen = () => {
   return (
-    <Box flex={1} backgroundColor="background">
+    <Box flex={1} backgroundColor="background" padding="m">
       <Text>Profile</Text>
     </Box>
   );

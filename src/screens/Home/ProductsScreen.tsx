@@ -10,22 +10,18 @@ import { Skeleton } from '../../components/ProductsCard/Skeleton';
 import { ProductsCard } from '../../components/ProductsCard';
 
 const ProductsScreen = () => {
-  const {
-    data: allProducts,
-    isLoading,
-    // isFetching,
-    error,
-  } = useGetAllProductsQuery();
+  const { data: allProducts, isLoading, error } = useGetAllProductsQuery();
   const navigation = useNavigation();
+
   return (
     <Box flex={1} backgroundColor="background">
-      {error ? (
+      {error && (
         <Box padding="m">
           <Text>Oh no, there was an: {error.status}</Text>
         </Box>
-      ) : isLoading && !allProducts ? (
-        <Skeleton />
-      ) : allProducts ? (
+      )}
+      {isLoading && !allProducts && <Skeleton />}
+      {allProducts && (
         <FlashList
           data={allProducts}
           renderItem={({ item }) => (
@@ -38,7 +34,7 @@ const ProductsScreen = () => {
           contentContainerStyle={styles.flashList}
           showsVerticalScrollIndicator={false}
         />
-      ) : null}
+      )}
     </Box>
   );
 };
