@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaBox, Box, Text } from '@theme';
-import { AppButton } from '../../components/Button';
+import { Button } from '../../components/Button';
 
 const RegisterScreen = () => {
   return (
@@ -13,10 +13,7 @@ const RegisterScreen = () => {
         borderTopLeftRadius="l"
         borderTopRightRadius="l">
         <Text>RegisterScreen</Text>
-        <AppButton
-          text="👉 Rect button"
-          onPress={() => console.log('REGISTER')}
-        />
+        <Button text="👉 Rect button" onPress={() => console.log('REGISTER')} />
       </Box>
     </SafeAreaBox>
   );

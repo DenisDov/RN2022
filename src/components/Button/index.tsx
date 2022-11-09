@@ -9,7 +9,7 @@ type Props = {
   text: string;
 };
 
-const AppButton = ({ onPress, text }: Props) => {
+const Button = ({ onPress, text }: Props) => {
   return (
     <RectButton onPress={onPress} style={styles.button}>
       <Text>{text}</Text>
@@ -19,12 +19,12 @@ const AppButton = ({ onPress, text }: Props) => {
 
 const styles = StyleSheet.create({
   button: {
-    flexGrow: 1,
+    // flexGrow: 1,
     height: 44,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.main,
     // shadowColor: theme.colors.main,
     // shadowOpacity: 0.5,
     // shadowOffset: { width: 0, height: 5 },
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export { AppButton };
+export { Button };

@@ -1,24 +1,20 @@
 import { createTheme } from '@shopify/restyle';
 
+// https://chir.ag/projects/name-that-color
 const palette = {
-  // primary light theme
-  white: '#ffffff',
-  wildSand: '#f5f5f5',
-  silver: '#c2c2c2',
-  // primary dark theme
-  limitedSpruce: '#37464f',
-  nevada: '#62717b',
-  gableGreen: '#101f27',
-  // primary text color
-  black: '#000000',
+  codGray: '#E9EFFE',
+  chambray: '#0091ea',
+  carnation: '#7D86AC',
+  black: '#121212',
 };
 
 const theme = createTheme({
   colors: {
-    background: palette.white,
-    main: palette.wildSand,
-    accent: palette.silver,
+    background: palette.codGray,
+    main: palette.chambray,
+    secondary: palette.carnation,
     text: palette.black,
+    // headerText: palette.black,
   },
   spacing: {
     xs: 4,
@@ -49,11 +45,12 @@ const theme = createTheme({
     header: {
       fontFamily: 'Raleway-Bold',
       fontSize: 34,
+      // color: 'headerText',
     },
   },
   cardVariants: {
     defaults: {
-      backgroundColor: 'main',
+      backgroundColor: 'secondary',
       borderRadius: 's',
       padding: 's',
     },
@@ -79,15 +76,16 @@ const theme = createTheme({
 
 export type Theme = typeof theme;
 
-const darkTheme: Theme = {
-  ...theme,
-  colors: {
-    ...theme.colors,
-    background: palette.nevada,
-    main: palette.limitedSpruce,
-    accent: palette.gableGreen,
-    text: palette.white,
-  },
-};
+// const darkTheme: Theme = {
+//   ...theme,
+//   colors: {
+//     ...theme.colors,
+//     background: palette.codGray,
+//     main: palette.chambray,
+//     secondary: palette.carnation,
+//     accent: palette.cheese,
+//     text: palette.white,
+//   },
+// };
 
-export { theme, darkTheme };
+export default theme;

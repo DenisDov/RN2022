@@ -8,17 +8,16 @@ import {
 } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 
-import { theme, darkTheme } from '@theme';
+import { theme } from '@theme';
 import AppNavigator from './Navigation';
 import { store } from './store';
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
   return (
     <GestureHandlerRootView style={styles.root}>
       <Provider store={store}>
-        <ThemeProvider theme={darkMode ? darkTheme : theme}>
-          <StatusBar barStyle="dark-content" backgroundColor="black" />
+        <ThemeProvider theme={theme}>
+          <StatusBar barStyle="light-content" backgroundColor="black" />
           <SafeAreaProvider initialMetrics={initialWindowMetrics}>
             <AppNavigator />
           </SafeAreaProvider>
