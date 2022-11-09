@@ -6,3 +6,4 @@ export { default as ImageBox } from './ImageBox';
 export { default as TouchBox } from './TouchBox';
 export { default as ScrollBox } from './ScrollBox';
 export { default as SafeAreaBox } from './SafeAreaBox';
+export { default as ImageBackgroundBox } from './ImageBackgroundBox';

@@ -10,11 +10,12 @@ import { createTheme } from '@shopify/restyle';
 
 const theme = createTheme({
   colors: {
-    background: '#0F1115',
-    main: '#161A20',
-    secondary: '#102330',
-    accent: '#2962ff',
-    text: '#F0F2F3',
+    background: '#FDFDFD',
+    main: '#2F365F',
+    secondary: '#5065ED',
+    // accent: '#5065ED',
+    lightText: '#F0F2F3',
+    darkText: '#121212',
   },
   spacing: {
     xs: 4,
@@ -40,11 +41,23 @@ const theme = createTheme({
     defaults: {
       fontFamily: 'Raleway-Regular',
       fontSize: 16,
-      color: 'text',
+      color: 'darkText',
     },
     header: {
       fontFamily: 'Raleway-Bold',
       fontSize: 34,
+    },
+    button: {
+      color: 'lightText',
+    },
+    welcomeTitle: {
+      fontFamily: 'Raleway-Bold',
+      fontSize: 34,
+      // color: 'lightText',
+    },
+    welcomeDescription: {
+      // color: 'lightText',
+      marginVertical: 'l',
     },
   },
   cardVariants: {
@@ -56,7 +69,7 @@ const theme = createTheme({
     regular: {
       padding: {
         phone: 's',
-        tablet: 'm',
+        // tablet: 'm',
       },
     },
     elevated: {

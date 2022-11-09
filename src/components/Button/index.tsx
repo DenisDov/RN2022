@@ -12,7 +12,7 @@ type Props = {
 const Button = ({ onPress, text }: Props) => {
   return (
     <RectButton onPress={onPress} style={styles.button}>
-      <Text>{text}</Text>
+      <Text variant="button">{text}</Text>
     </RectButton>
   );
 };
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.secondary,
     // shadowColor: theme.colors.main,
     // shadowOpacity: 0.5,
     // shadowOffset: { width: 0, height: 5 },

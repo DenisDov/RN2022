@@ -22,10 +22,10 @@ import PlaygroundScreen from '../screens/Common/PlaygroundScreen';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AppNavigator = () => {
-  const isAuthenicated = true;
+  const isAuthenicated = false;
   return (
     <NavigationContainer
-      theme={DarkTheme}
+      // theme={DarkTheme}
       onReady={() => RNBootSplash.hide({ fade: true })}>
       <Stack.Navigator>
         {/* <Stack.Screen name="Playground" component={PlaygroundScreen} /> */}

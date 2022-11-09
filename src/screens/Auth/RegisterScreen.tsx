@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { StyleSheet, TextInput } from 'react-native';
 import { SafeAreaBox, Box, Text } from '@theme';
 import { Button } from '../../components/Button';
 
 const RegisterScreen = () => {
+  // const [name, setName] = useState('');
+  // const [password, setPassword] = useState('');
+
+  // const onChange = (v: string) => {
+  //   setValue(v);
+  // };
   return (
     <SafeAreaBox flex={1}>
       <Box
@@ -12,11 +19,49 @@ const RegisterScreen = () => {
         // marginTop="xl"
         borderTopLeftRadius="l"
         borderTopRightRadius="l">
-        <Text>RegisterScreen</Text>
-        <Button text="👉 Rect button" onPress={() => console.log('REGISTER')} />
+        <Text variant="header">Register account</Text>
+        <Box flex={1} justifyContent="center">
+          <TextInput
+            style={styles.input}
+            // onBlur={onBlur}
+            // onChangeText={onChange}
+            // value={name}
+            placeholder="Name*"
+            // placeholderTextColor="#707070"
+            underlineColorAndroid="transparent"
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+          <TextInput
+            style={styles.input}
+            // onBlur={onBlur}
+            // onChangeText={onChange}
+            // value={password}
+            placeholder="password*"
+            // placeholderTextColor="#707070"
+            underlineColorAndroid="transparent"
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+          <Button text="Submit" onPress={() => console.log('REGISTER')} />
+        </Box>
       </Box>
     </SafeAreaBox>
   );
 };
+
+const styles = StyleSheet.create({
+  input: {
+    marginBottom: 6,
+    fontSize: 18,
+    // color: '#ffffff',
+    paddingLeft: 10,
+    height: 44,
+    borderWidth: 1,
+    borderColor: '#707070',
+    borderRadius: 10,
+    backgroundColor: 'white',
+  },
+});
 
 export default RegisterScreen;
