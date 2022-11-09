@@ -30,7 +30,7 @@ const PlaygroundScreen = () => {
       </Text>
       <Box backgroundColor="secondary">
         <Text variant="title" color="secondaryTextColor">
-          WhiteTitle
+          White title
         </Text>
       </Box>
       <Box height={16} />
@@ -39,7 +39,7 @@ const PlaygroundScreen = () => {
         <Text variant="title" color="secondaryTextColor">
           Card
         </Text>
-        <Text color="secondaryTextColor">regular text</Text>
+        <Text color="secondaryTextColor">white text</Text>
       </Card>
       <Box height={16} />
       {/* Buttons */}
