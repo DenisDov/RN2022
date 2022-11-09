@@ -1,10 +1,10 @@
 import React from 'react';
-import { theme, Box, Text, Card } from '@theme';
+import { theme, Box, Text, Card, ScrollBox } from '@theme';
 import { Button } from '../../components/Button';
 
 const PlaygroundScreen = () => {
   return (
-    <Box flex={1} backgroundColor="background" margin="m">
+    <ScrollBox flex={1} backgroundColor="background" padding="m">
       {/* Colors */}
       <Box flexDirection="row" flexWrap="wrap">
         {Object.keys(theme.colors).map(key => {
@@ -46,7 +46,7 @@ const PlaygroundScreen = () => {
       <Button text="Button" onPress={() => null} />
       <Box height={16} />
       <Button variant="outline" text="Outline Button" onPress={() => null} />
-    </Box>
+    </ScrollBox>
   );
 };
 
