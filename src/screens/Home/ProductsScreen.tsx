@@ -6,7 +6,7 @@ import { Box, Text } from '@theme';
 
 import { useGetAllProductsQuery } from '../../services/productsApi';
 
-import { Skeleton } from '../../components/ProductsCard/Skeleton';
+import { ActivityIndicator } from '../../components/ActivityIndicator';
 import { ProductsCard } from '../../components/ProductsCard';
 
 const ProductsScreen = () => {
@@ -20,7 +20,11 @@ const ProductsScreen = () => {
           <Text>Oh no, there was an: {error.status}</Text>
         </Box>
       )}
-      {isLoading && !allProducts && <Skeleton />}
+      {isLoading && !allProducts && (
+        <Box padding="m">
+          <ActivityIndicator />
+        </Box>
+      )}
       {allProducts && (
         <FlashList
           data={allProducts}
