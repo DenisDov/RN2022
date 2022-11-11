@@ -1,5 +1,12 @@
 import { rootApi } from './rootApi';
-import { IProduct } from '../@types/IProduct';
+
+type IProduct = {
+  id: string;
+  brand: string;
+  title: string;
+  description: string;
+  price: number;
+};
 
 const productsApi = rootApi.injectEndpoints({
   endpoints: builder => ({

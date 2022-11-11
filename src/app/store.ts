@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import Reactotron from '../../ReactotronConfig';
 
 import { rootApi } from '../services/rootApi';
+import authReducer from '../features/auth/authSlice';
 import counterReducer from '../features/counter/counterSlice';
 
 export const store = configureStore({
   reducer: {
     [rootApi.reducerPath]: rootApi.reducer,
+    auth: authReducer,
     counter: counterReducer,
   },
 

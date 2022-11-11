@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StatusBar, StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ThemeProvider } from '@shopify/restyle';
@@ -17,7 +17,7 @@ const App = () => {
     <GestureHandlerRootView style={styles.root}>
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <StatusBar barStyle="light-content" backgroundColor="black" />
+          <StatusBar barStyle="dark-content" backgroundColor="black" />
           <SafeAreaProvider initialMetrics={initialWindowMetrics}>
             <AppNavigator />
           </SafeAreaProvider>

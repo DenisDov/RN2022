@@ -19,7 +19,7 @@ const WelcomeScreen = () => {
 
         <Button
           text="Get started"
-          onPress={() => navigation.navigate('Register')}
+          onPress={() => navigation.navigate('Login')}
         />
       </SafeAreaBox>
     </ImageBackgroundBox>
