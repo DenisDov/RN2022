@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Text } from '@theme';
-import { RectButton } from 'react-native-gesture-handler';
+import { TouchBox, Text } from '@theme';
+// import { RectButton } from 'react-native-gesture-handler';
 import { theme } from '@theme';
 
 type Props = {
@@ -11,9 +11,9 @@ type Props = {
 
 const Button = ({ onPress, text }: Props) => {
   return (
-    <RectButton onPress={onPress} style={styles.button}>
+    <TouchBox onPress={onPress} style={styles.button}>
       <Text color="secondaryTextColor">{text}</Text>
-    </RectButton>
+    </TouchBox>
   );
 };
 
