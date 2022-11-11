@@ -12,7 +12,7 @@ const Counter = () => {
   const count = useAppSelector(getCounterSelector);
   const dispatch = useAppDispatch();
   return (
-    <Card variant="elevated" padding="m" marginVertical="m">
+    <Card marginVertical="m">
       <Text variant="title" color="secondaryTextColor" marginBottom="s">
         Conter: {count}
       </Text>

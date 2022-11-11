@@ -17,13 +17,14 @@ const theme = createTheme({
     primaryTextColor: '#000000',
     secondaryTextColor: '#FFFFFF',
   },
+  //Spacing tends to follow multiples of a given base spacing number
   spacing: {
     xs: 4,
     s: 8,
     m: 16,
-    l: 22,
-    xl: 44,
-    xxl: 88,
+    l: 24,
+    xl: 40,
+    xxl: 64,
   },
   borderRadii: {
     xs: 4,
@@ -47,14 +48,6 @@ const theme = createTheme({
       fontFamily: 'Raleway-Bold',
       fontSize: 34,
     },
-    // whiteTitle: {
-    //   fontFamily: 'Raleway-Bold',
-    //   fontSize: 34,
-    //   color: 'secondaryTextColor',
-    // },
-    // button: {
-    //   color: 'secondaryTextColor',
-    // },
     welcomeTitle: {
       fontFamily: 'Raleway-Bold',
       fontSize: 34,
@@ -66,20 +59,8 @@ const theme = createTheme({
   cardVariants: {
     defaults: {
       backgroundColor: 'main',
-      borderRadius: 's',
-      padding: 's',
-    },
-    regular: {
-      padding: {
-        phone: 's',
-        // tablet: 'm',
-      },
-    },
-    elevated: {
-      padding: {
-        phone: 's',
-        tablet: 'm',
-      },
+      padding: 'm',
+      borderRadius: 'm',
       shadowColor: 'main',
       shadowOpacity: 0.5,
       shadowOffset: { width: 5, height: 5 },
