@@ -15,7 +15,7 @@ export interface LoginRequest {
   password: string;
 }
 
-const authApi = rootApi.injectEndpoints({
+export const authApi = rootApi.injectEndpoints({
   //   prepareHeaders: (headers, { getState }) => {
   //     // By default, if we have a token in the store, let's use that for authenticated requests
   //     const token = (getState() as RootState).auth.token;

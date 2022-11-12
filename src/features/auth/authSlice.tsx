@@ -1,6 +1,6 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { User } from '../../services/authApi';
+import { authApi, User } from '../../services/authApi';
 import type { RootState } from '../../app/store';
 
 type AuthState = {
@@ -11,17 +11,27 @@ type AuthState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState: { user: null, token: null } as AuthState,
-  reducers: {
-    setCredentials: (
-      state,
-      {
-        payload: { user, token },
-      }: PayloadAction<{ user: User; token: string }>,
-    ) => {
-      state.user = user;
-      state.token = token;
-    },
+  reducers: {},
+  extraReducers: builder => {
+    builder.addMatcher(
+      authApi.endpoints.login.matchFulfilled,
+      (state, { payload }) => {
+        state.user = payload.user;
+        state.token = payload.token;
+      },
+    );
   },
+  // reducers: {
+  //   setCredentials: (
+  //     state,
+  //     {
+  //       payload: { user, token },
+  //     }: PayloadAction<{ user: User; token: string }>,
+  //   ) => {
+  //     state.user = user;
+  //     state.token = token;
+  //   },
+  // },
 });
 
 export const { setCredentials } = authSlice.actions;

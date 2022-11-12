@@ -33,23 +33,22 @@ const LoginScreen = () => {
   //     password: '0lelplR',
   //   });
   const onSubmit = async credentials => {
-    try {
-      const userData = await login({
-        username: 'kminchelle',
-        password: '0lelplR',
-      });
-      console.log('userData: ', userData);
-      dispatch(setCredentials(userData));
-    } catch (err) {
-      console.log('err: ', err);
-      // toast({
-      //   status: 'error',
-      //   title: 'Error',
-      //   description: 'Oh no, there was an error!',
-      //   isClosable: true,
-      // });
-    }
+    login({
+      username: 'kminchelle',
+      password: '0lelplR',
+    });
+    // try {
+    //   const userData = await login({
+    //     username: 'kminchelle',
+    //     password: '0lelplR',
+    //   });
+    //   console.log('userData: ', userData);
+    //   dispatch(setCredentials(userData));
+    // } catch (err) {
+    //   console.log('err: ', err);
+    // }
   };
+
   if (loginError) {
     console.log('ERR', loginError);
   }
