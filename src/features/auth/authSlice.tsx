@@ -28,7 +28,7 @@ export const { setCredentials } = authSlice.actions;
 
 // Selectors start
 const selectSelf = (state: RootState) => state.auth;
-export const getCounterSelector = createSelector(selectSelf, auth => auth.user);
+export const selectCurrentUser = createSelector(selectSelf, auth => auth.user);
 // Selectors end
 
 export default authSlice.reducer;

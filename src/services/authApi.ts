@@ -27,15 +27,10 @@ const authApi = rootApi.injectEndpoints({
   endpoints: builder => ({
     login: builder.mutation<UserResponse, LoginRequest>({
       query: credentials => {
-        console.log('credentialsAUTHAPI: ', credentials);
         return {
           url: '/auth/login',
           method: 'POST',
-          // body: credentials,
-          body: {
-            username: 'kminchelle',
-            password: '0lelplR',
-          },
+          body: credentials,
         };
       },
     }),

@@ -6,8 +6,11 @@ import { useForm, Controller } from 'react-hook-form';
 import { Button } from '../../components/Button';
 
 import { useLoginMutation } from '../../services/authApi';
+import { setCredentials } from '../../features/auth/authSlice';
+import { useAppDispatch } from '../../hooks/redux';
 
 const LoginScreen = () => {
+  const dispatch = useAppDispatch();
   const {
     control,
     handleSubmit,
@@ -20,11 +23,37 @@ const LoginScreen = () => {
   });
 
   const [login, { isLoading, error: loginError }] = useLoginMutation();
-  const onSubmit = data => login(data);
-
+  // const useQueryStateResult = api.endpoints.login.useQueryState();
+  // console.log('useQueryStateResult: ', useQueryStateResult);
+  // console.log('data: ', data);
+  // const onSubmit = credentials => login(credentials);
+  // const onSubmit = credentials =>
+  //   login({
+  //     username: 'kminchelle',
+  //     password: '0lelplR',
+  //   });
+  const onSubmit = async credentials => {
+    try {
+      const userData = await login({
+        username: 'kminchelle',
+        password: '0lelplR',
+      });
+      console.log('userData: ', userData);
+      dispatch(setCredentials(userData));
+    } catch (err) {
+      console.log('err: ', err);
+      // toast({
+      //   status: 'error',
+      //   title: 'Error',
+      //   description: 'Oh no, there was an error!',
+      //   isClosable: true,
+      // });
+    }
+  };
   if (loginError) {
     console.log('ERR', loginError);
   }
+
   console.log('isLoading: ', isLoading);
 
   return (
