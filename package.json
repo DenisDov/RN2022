@@ -23,6 +23,7 @@
     "react-hook-form": "^7.39.3",
     "react-native": "0.70.4",
     "react-native-bootsplash": "^4.3.2",
+    "react-native-flash-message": "^0.3.1",
     "react-native-gesture-handler": "^2.8.0",
     "react-native-linear-gradient": "^2.6.2",
     "react-native-reanimated": "^2.12.0",
