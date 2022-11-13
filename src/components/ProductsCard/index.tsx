@@ -4,10 +4,11 @@ import { useNavigation } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 import { theme, Box, Text, ImageBox } from '@theme';
 import { Images } from '@assets';
+import { IProduct } from '../../services/productsApi';
 
 import { capitalize } from '../../utils/capitalize';
 
-const ProductsCard = ({ item: product }) => {
+const ProductsCard = ({ item: product }: any) => {
   const navigation = useNavigation();
   const intlPrice = new Intl.NumberFormat('en-US', {
     style: 'currency',
