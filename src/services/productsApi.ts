@@ -4,6 +4,7 @@ export interface IProduct {
   id: string;
   brand: string;
   title: string;
+  thumbnail: string;
   description: string;
   price: number;
 }
