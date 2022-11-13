@@ -1,16 +1,13 @@
 import React from 'react';
-import { View, TextInput, Alert, StyleSheet } from 'react-native';
+import { TextInput, StyleSheet } from 'react-native';
 import { SafeAreaBox, Box, Text } from '@theme';
 import { useForm, Controller } from 'react-hook-form';
 
 import { Button } from '../../components/Button';
 
 import { useLoginMutation } from '../../services/authApi';
-import { setCredentials } from '../../features/auth/authSlice';
-import { useAppDispatch } from '../../hooks/redux';
 
 const LoginScreen = () => {
-  const dispatch = useAppDispatch();
   const {
     control,
     handleSubmit,
@@ -23,40 +20,23 @@ const LoginScreen = () => {
   });
 
   const [login, { isLoading, error: loginError }] = useLoginMutation();
-  // const useQueryStateResult = api.endpoints.login.useQueryState();
-  // console.log('useQueryStateResult: ', useQueryStateResult);
-  // console.log('data: ', data);
-  // const onSubmit = credentials => login(credentials);
-  // const onSubmit = credentials =>
-  //   login({
-  //     username: 'kminchelle',
-  //     password: '0lelplR',
-  //   });
-  const onSubmit = async credentials => {
-    login({
-      username: 'kminchelle',
-      password: '0lelplR',
-    });
-    // try {
-    //   const userData = await login({
-    //     username: 'kminchelle',
-    //     password: '0lelplR',
-    //   });
-    //   console.log('userData: ', userData);
-    //   dispatch(setCredentials(userData));
-    // } catch (err) {
-    //   console.log('err: ', err);
-    // }
+
+  const testCredentials = {
+    username: 'kminchelle',
+    password: '0lelplR',
+  };
+
+  const onSubmit = (credentials = testCredentials) => {
+    login(credentials);
   };
 
   if (loginError) {
-    console.log('ERR', loginError);
+    console.log('loginError: ', loginError);
+    // alert(loginError?.status);
   }
 
-  console.log('isLoading: ', isLoading);
-
   return (
-    <SafeAreaBox flex={1}>
+    <SafeAreaBox flex={1} justifyContent="flex-end">
       <Box padding="m">
         <Controller
           control={control}
@@ -73,6 +53,7 @@ const LoginScreen = () => {
           )}
           name="username"
         />
+
         {errors.username && <Text>This is required.</Text>}
 
         <Controller
