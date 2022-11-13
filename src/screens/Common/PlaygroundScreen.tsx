@@ -52,7 +52,8 @@ const PlaygroundScreen = () => {
           id: '1',
           brand: 'Brand',
           title: 'title',
-          description: 'description text',
+          description:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, obcaecati.',
           price: 49.99,
         }}
       />

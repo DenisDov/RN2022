@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { TouchBox, Text } from '@theme';
+import { Text } from '@theme';
 import { RectButton } from 'react-native-gesture-handler';
 import { theme } from '@theme';
 import { ActivityIndicator } from '../ActivityIndicator';
