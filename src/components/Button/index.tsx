@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { TouchBox, Text } from '@theme';
-// import { RectButton } from 'react-native-gesture-handler';
+import { RectButton } from 'react-native-gesture-handler';
 import { theme } from '@theme';
 import { ActivityIndicator } from '../ActivityIndicator';
 
@@ -13,13 +13,13 @@ type Props = {
 
 const Button = ({ onPress, text, isLoading }: Props) => {
   return (
-    <TouchBox onPress={onPress} style={styles.button} enabled={!isLoading}>
+    <RectButton onPress={onPress} style={styles.button} enabled={!isLoading}>
       {isLoading ? (
         <ActivityIndicator color="#F5F5F6" />
       ) : (
         <Text color="secondaryTextColor">{text}</Text>
       )}
-    </TouchBox>
+    </RectButton>
   );
 };
 

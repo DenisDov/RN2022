@@ -1,10 +1,14 @@
 import React from 'react';
 import { theme, Box, Text, Card, ScrollBox } from '@theme';
 import { Button } from '../../components/Button';
+import { ProductsCard } from '../../components/ProductsCard';
 
 const PlaygroundScreen = () => {
   return (
-    <ScrollBox flex={1} backgroundColor="background" padding="m">
+    <ScrollBox
+      flex={1}
+      backgroundColor="background"
+      contentContainerStyle={{ padding: 16 }}>
       {/* Colors */}
       <Box flexDirection="row" flexWrap="wrap">
         {Object.keys(theme.colors).map(key => {
@@ -42,10 +46,21 @@ const PlaygroundScreen = () => {
         <Text color="secondaryTextColor">white text</Text>
       </Card>
       <Box height={16} />
+      {/* ProductsCard */}
+      <ProductsCard
+        item={{
+          id: '1',
+          brand: 'Brand',
+          title: 'title',
+          description: 'description text',
+          price: 49.99,
+        }}
+      />
+      <Box height={16} />
       {/* Buttons */}
       <Button text="Button" onPress={() => null} />
       <Box height={16} />
-      <Button variant="outline" text="Outline Button" onPress={() => null} />
+      <Button text="Outline Button" onPress={() => null} />
     </ScrollBox>
   );
 };

@@ -1,12 +1,12 @@
 import { rootApi } from './rootApi';
 
-type IProduct = {
+export interface IProduct {
   id: string;
   brand: string;
   title: string;
   description: string;
   price: number;
-};
+}
 
 const productsApi = rootApi.injectEndpoints({
   endpoints: builder => ({
