@@ -5,10 +5,13 @@ import * as React from 'react';
 import RNBootSplash from 'react-native-bootsplash';
 
 import { RootStackParamList } from '../@types/navigation';
+//Auth screens
 import LoginScreen from '../screens/Auth/LoginScreen';
 import RegisterScreen from '../screens/Auth/RegisterScreen';
 import WelcomeScreen from '../screens/Auth/WelcomeScreen';
+// Common screens
 import PlaygroundScreen from '../screens/Common/PlaygroundScreen';
+// Home screens
 import FeedScreen from '../screens/Home/FeedScreen';
 import HomeScreen from '../screens/Home/HomeScreen';
 import NoificationsScreen from '../screens/Home/NoificationsScreen';

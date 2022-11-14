@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TextInput,
 } from 'react-native';
+import { showMessage } from 'react-native-flash-message';
 
 import { Button } from '../../components/Button';
 import { useLoginMutation } from '../../services/authApi';
@@ -23,21 +24,29 @@ const LoginScreen = () => {
     },
   });
 
-  const [login, { isLoading, error: loginError }] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
 
   const testCredentials = {
     username: 'kminchelle',
-    password: '0lelplR',
+    password: '0lelpl',
   };
 
-  const onSubmit = (credentials = testCredentials) => {
-    login(credentials);
+  const onSubmit = async credentials => {
+    try {
+      await login(testCredentials).unwrap();
+    } catch (err) {
+      console.log('ERR LOGIN', err);
+      showMessage({
+        message: 'Warn',
+        description: 'Oh no, there was an error!',
+        type: 'warning',
+        autoHide: false,
+        hideOnPress: true,
+        position: 'bottom',
+        floating: true,
+      });
+    }
   };
-
-  if (loginError) {
-    console.log('loginError: ', loginError);
-    // alert(loginError?.status);
-  }
 
   return (
     <SafeAreaBox flex={1} justifyContent="flex-end">
