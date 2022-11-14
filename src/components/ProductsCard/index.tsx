@@ -10,6 +10,7 @@ import { capitalize } from '../../utils/capitalize';
 
 interface ProductItem {
   item: IProduct;
+  navigation: any;
 }
 
 const ProductsCard = ({ item: product }: ProductItem) => {
