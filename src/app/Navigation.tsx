@@ -42,7 +42,7 @@ const HomeTabStack = () => {
 };
 
 const AppNavigator = () => {
-  const isAuthenicated = true;
+  const isAuthenicated = false;
   return (
     <NavigationContainer
       // theme={DarkTheme}
