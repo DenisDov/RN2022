@@ -2,7 +2,7 @@ import React from 'react';
 import { FlashList } from '@shopify/flash-list';
 import { StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Box, Text } from '@theme';
+import { Box, Text } from '../../theme';
 
 import { useGetAllProductsQuery } from '../../services/productsApi';
 

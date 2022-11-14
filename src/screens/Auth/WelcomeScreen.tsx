@@ -1,7 +1,7 @@
 import React from 'react';
-import { ImageBackgroundBox, Box, Text, SafeAreaBox } from '@theme';
-import { Images } from '@assets';
 import { useNavigation } from '@react-navigation/native';
+import { ImageBackgroundBox, Box, Text, SafeAreaBox } from '../../theme';
+import { Images } from '../../assets';
 import { Button } from '../../components/Button';
 
 const WelcomeScreen = () => {

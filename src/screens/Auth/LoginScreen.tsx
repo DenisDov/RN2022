@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
-import { SafeAreaBox, Box, Text } from '@theme';
+import { SafeAreaBox, Box, Text } from '../../theme';
 import { useForm, Controller } from 'react-hook-form';
 
 import { Button } from '../../components/Button';

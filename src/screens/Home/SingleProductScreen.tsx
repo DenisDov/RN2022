@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useRoute, useNavigation } from '@react-navigation/native';
-import { Box, Text } from '@theme';
+import { Box, Text } from '../../theme';
 import { ActivityIndicator } from '../../components/ActivityIndicator';
 
 import { useGetSingleProductQuery } from '../../services/productsApi';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Card } from '@theme';
+import { Box, Text, Card } from '../../theme';
 
 //redux start
 import { useAppSelector, useAppDispatch } from '../../hooks/redux';

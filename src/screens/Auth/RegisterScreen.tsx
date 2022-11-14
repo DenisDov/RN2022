@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput } from 'react-native';
-import { SafeAreaBox, Box, Text } from '@theme';
+import { SafeAreaBox, Box, Text } from '../../theme';
 import { Button } from '../../components/Button';
 
 const RegisterScreen = () => {

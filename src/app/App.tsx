@@ -13,7 +13,7 @@ import { Provider } from 'react-redux';
 //   hideMessage,
 // } from 'react-native-flash-message';
 
-import { theme } from '@theme';
+import { theme } from '../theme';
 import AppNavigator from './Navigation';
 import { store } from './store';
 

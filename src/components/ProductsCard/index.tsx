@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
-import { theme, Box, Text, ImageBox } from '@theme';
-import { Images } from '@assets';
+import { theme, Box, Text, ImageBox } from '../../theme';
+import { Images } from '../../assets';
 import { IProduct } from '../../services/productsApi';
 
 import { capitalize } from '../../utils/capitalize';
