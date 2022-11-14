@@ -1,11 +1,10 @@
+import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect } from 'react';
-import { useRoute, useNavigation } from '@react-navigation/native';
-import { Box, Text } from '../../theme';
-import { ActivityIndicator } from '../../components/ActivityIndicator';
-
-import { useGetSingleProductQuery } from '../../services/productsApi';
 
 import { SingleProductScreenRouteProp } from '../../@types/navigation';
+import { ActivityIndicator } from '../../components/ActivityIndicator';
+import { useGetSingleProductQuery } from '../../services/productsApi';
+import { Box, Text } from '../../theme';
 
 const SingleProductScreen = () => {
   const route = useRoute<SingleProductScreenRouteProp>();

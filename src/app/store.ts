@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import Reactotron from '../../ReactotronConfig';
 
-import { rootApi } from '../services/rootApi';
+import Reactotron from '../../ReactotronConfig';
 import authReducer from '../features/auth/authSlice';
 import counterReducer from '../features/counter/counterSlice';
+import { rootApi } from '../services/rootApi';
 
 export const store = configureStore({
   reducer: {

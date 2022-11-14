@@ -1,10 +1,10 @@
-import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { Box, Text } from '../../theme';
+import React from 'react';
 
 import { Button } from '../../components/Button';
 import { Hamburger } from '../../components/Icons/Hamburger';
 import { Counter } from '../../features/counter/Counter';
+import { Box, Text } from '../../theme';
 
 const HomeScreen = () => {
   const navigation = useNavigation();

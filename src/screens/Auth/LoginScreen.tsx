@@ -1,16 +1,15 @@
 import React from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import {
-  TextInput,
-  StyleSheet,
   KeyboardAvoidingView,
   Platform,
+  StyleSheet,
+  TextInput,
 } from 'react-native';
-import { SafeAreaBox, Box, Text } from '../../theme';
-import { useForm, Controller } from 'react-hook-form';
 
 import { Button } from '../../components/Button';
-
 import { useLoginMutation } from '../../services/authApi';
+import { Box, SafeAreaBox, Text } from '../../theme';
 
 const LoginScreen = () => {
   const {

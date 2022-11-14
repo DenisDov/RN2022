@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Text } from '../../theme';
+
 import { BSheet } from '../../components/BottomSheet';
+import { Box, Text } from '../../theme';
 
 const ProfileScreen = () => {
   return (

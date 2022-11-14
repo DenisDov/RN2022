@@ -1,7 +1,8 @@
-import { createSlice, createSelector } from '@reduxjs/toolkit';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { authApi, User } from '../../services/authApi';
+
 import type { RootState } from '../../app/store';
+import { User, authApi } from '../../services/authApi';
 
 type AuthState = {
   user: User | null;

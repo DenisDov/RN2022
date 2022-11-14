@@ -1,8 +1,9 @@
-import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { ImageBackgroundBox, Box, Text, SafeAreaBox } from '../../theme';
+import React from 'react';
+
 import { Images } from '../../assets';
 import { Button } from '../../components/Button';
+import { Box, ImageBackgroundBox, SafeAreaBox, Text } from '../../theme';
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();

@@ -1,18 +1,18 @@
+import { ThemeProvider } from '@shopify/restyle';
 import React from 'react';
 import { StatusBar, StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { ThemeProvider } from '@shopify/restyle';
 import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
+
 // import { useNetInfo } from '@react-native-community/netinfo';
 // import FlashMessage, {
 //   showMessage,
 //   hideMessage,
 // } from 'react-native-flash-message';
-
 import { theme } from '../theme';
 import AppNavigator from './Navigation';
 import { store } from './store';

@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
-import { theme, Text } from '../../theme';
+
+import { Text, theme } from '../../theme';
 import { ActivityIndicator } from '../ActivityIndicator';
 
 type Props = {

@@ -1,29 +1,22 @@
-import * as React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import * as React from 'react';
 import RNBootSplash from 'react-native-bootsplash';
 
 import { RootStackParamList } from '../@types/navigation';
-
-// Screens start
-// Auth screens
-import WelcomeScreen from '../screens/Auth/WelcomeScreen';
-import RegisterScreen from '../screens/Auth/RegisterScreen';
 import LoginScreen from '../screens/Auth/LoginScreen';
-// Home screeens
+import RegisterScreen from '../screens/Auth/RegisterScreen';
+import WelcomeScreen from '../screens/Auth/WelcomeScreen';
+import PlaygroundScreen from '../screens/Common/PlaygroundScreen';
+import FeedScreen from '../screens/Home/FeedScreen';
 import HomeScreen from '../screens/Home/HomeScreen';
-import ProfileScreen from '../screens/Home/ProfileScreen';
+import NoificationsScreen from '../screens/Home/NoificationsScreen';
 import ProductsScreen from '../screens/Home/ProductsScreen';
+import ProfileScreen from '../screens/Home/ProfileScreen';
+import SettingsScreen from '../screens/Home/SettingsScreen';
 import SingleProductScreen from '../screens/Home/SingleProductScreen';
 
-//Tabs
-import FeedScreen from '../screens/Home/FeedScreen';
-import NoificationsScreen from '../screens/Home/NoificationsScreen';
-import SettingsScreen from '../screens/Home/SettingsScreen';
-
-//Common screens
-import PlaygroundScreen from '../screens/Common/PlaygroundScreen';
 // Screens end
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

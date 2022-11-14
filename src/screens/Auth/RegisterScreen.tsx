@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput } from 'react-native';
-import { SafeAreaBox, Box, Text } from '../../theme';
+
 import { Button } from '../../components/Button';
+import { Box, SafeAreaBox, Text } from '../../theme';
 
 const RegisterScreen = () => {
   // const [name, setName] = useState('');

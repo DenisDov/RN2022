@@ -1,11 +1,12 @@
-import { PropsWithChildren } from 'react';
 import {
+  SpacingProps,
+  VariantProps,
   createRestyleComponent,
   createVariant,
   spacing,
-  SpacingProps,
-  VariantProps,
 } from '@shopify/restyle';
+import { PropsWithChildren } from 'react';
+
 import { Theme } from '../theme';
 
 type CardProps = PropsWithChildren<

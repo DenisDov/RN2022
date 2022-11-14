@@ -1,7 +1,8 @@
 import React from 'react';
-import { theme, Box, Text, Card, ScrollBox } from '../../theme';
+
 import { Button } from '../../components/Button';
 import { ProductsCard } from '../../components/ProductsCard';
+import { Box, Card, ScrollBox, Text, theme } from '../../theme';
 
 const PlaygroundScreen = () => {
   return (
