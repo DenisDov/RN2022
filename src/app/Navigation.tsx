@@ -38,7 +38,7 @@ const HomeTabStack = () => {
 };
 
 const AppNavigator = () => {
-  const isAuthenicated = false;
+  const isAuthenicated = true;
   return (
     <NavigationContainer
       // theme={DarkTheme}

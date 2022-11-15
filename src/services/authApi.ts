@@ -1,13 +1,18 @@
 import { rootApi } from './rootApi';
 
 export interface User {
-  first_name: string;
-  last_name: string;
+  email: string;
+  firstName: string;
+  gender: string;
+  id: number;
+  image: string;
+  lastName: string;
+  token: string;
+  username: string;
 }
 
 export interface UserResponse {
   user: User;
-  token: string;
 }
 
 export interface LoginRequest {
@@ -25,6 +30,7 @@ export const authApi = rootApi.injectEndpoints({
           body: credentials,
         };
       },
+      // transformResponse: response => console.log('response', response),
     }),
   }),
   overrideExisting: false,

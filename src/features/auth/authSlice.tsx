@@ -6,19 +6,19 @@ import { User, authApi } from '../../services/authApi';
 
 type AuthState = {
   user: User | null;
-  token: string | null;
+  // token: string | null;
 };
 
 const authSlice = createSlice({
   name: 'auth',
-  initialState: { user: null, token: null } as AuthState,
+  initialState: { user: null } as AuthState,
   reducers: {},
   extraReducers: builder => {
     builder.addMatcher(
       authApi.endpoints.login.matchFulfilled,
       (state, { payload }) => {
-        state.user = payload.user;
-        state.token = payload.token;
+        state.user = payload;
+        // state.token = payload.token;
       },
     );
   },

@@ -28,7 +28,7 @@ const LoginScreen = () => {
 
   const testCredentials = {
     username: 'kminchelle',
-    password: '0lelpl',
+    password: '0lelplR',
   };
 
   const onSubmit = async credentials => {
