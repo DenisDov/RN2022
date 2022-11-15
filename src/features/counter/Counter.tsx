@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Button } from '../../components/Button';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { Box, Card, Text } from '../../theme';
 import { decrement, getCounterSelector, increment } from './counterSlice';
 

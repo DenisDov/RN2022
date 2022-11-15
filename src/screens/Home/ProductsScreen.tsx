@@ -10,6 +10,7 @@ import { Box, Text } from '../../theme';
 
 const ProductsScreen = () => {
   const { data: allProducts, isLoading, error } = useGetAllProductsQuery();
+  console.log('error: ', error);
   const navigation = useNavigation();
 
   return (

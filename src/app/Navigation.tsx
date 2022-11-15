@@ -5,6 +5,7 @@ import * as React from 'react';
 import RNBootSplash from 'react-native-bootsplash';
 
 import { RootStackParamList } from '../@types/navigation';
+import { useAuth } from '../hooks/useAuth';
 //Auth screens
 import LoginScreen from '../screens/Auth/LoginScreen';
 import RegisterScreen from '../screens/Auth/RegisterScreen';
@@ -19,8 +20,6 @@ import ProductsScreen from '../screens/Home/ProductsScreen';
 import ProfileScreen from '../screens/Home/ProfileScreen';
 import SettingsScreen from '../screens/Home/SettingsScreen';
 import SingleProductScreen from '../screens/Home/SingleProductScreen';
-
-// Screens end
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
@@ -38,7 +37,8 @@ const HomeTabStack = () => {
 };
 
 const AppNavigator = () => {
-  const isAuthenicated = true;
+  const auth = useAuth();
+  const isAuthenicated = !!auth?.user?.token || false;
   return (
     <NavigationContainer
       // theme={DarkTheme}

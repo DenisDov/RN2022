@@ -16,6 +16,8 @@ const theme = createTheme({
 
     primaryTextColor: '#000000',
     secondaryTextColor: '#FFFFFF',
+
+    lightCard: '#FFFFFF',
   },
   //Spacing tends to follow multiples of a given base spacing number
   spacing: {
@@ -58,9 +60,9 @@ const theme = createTheme({
   },
   cardVariants: {
     defaults: {
-      backgroundColor: 'main',
-      padding: 'm',
-      borderRadius: 'm',
+      // backgroundColor: 'main',
+      // padding: 'm',
+      // borderRadius: 'm',
       shadowColor: 'main',
       shadowOpacity: 0.5,
       shadowOffset: { width: 5, height: 5 },
