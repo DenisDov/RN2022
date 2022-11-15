@@ -60,14 +60,19 @@ const theme = createTheme({
   },
   cardVariants: {
     defaults: {
-      // backgroundColor: 'main',
-      // padding: 'm',
-      // borderRadius: 'm',
       shadowColor: 'main',
       shadowOpacity: 0.5,
       shadowOffset: { width: 5, height: 5 },
       shadowRadius: 5,
       elevation: 5,
+    },
+    main: {
+      backgroundColor: 'main',
+      borderRadius: 'm',
+    },
+    submitForm: {
+      backgroundColor: 'lightCard',
+      borderRadius: 'xl',
     },
   },
 });

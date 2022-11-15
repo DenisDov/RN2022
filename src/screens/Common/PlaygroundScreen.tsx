@@ -40,9 +40,9 @@ const PlaygroundScreen = () => {
       </Box>
       <Box height={16} />
       {/* Card */}
-      <Card>
+      <Card variant="main" padding="m">
         <Text variant="title" color="secondaryTextColor">
-          Card
+          Card have default shadow
         </Text>
         <Text color="secondaryTextColor">white text</Text>
       </Card>
@@ -53,6 +53,7 @@ const PlaygroundScreen = () => {
           id: '1',
           brand: 'Brand',
           title: 'title',
+          thumbnail: 'https://logo.svg',
           description:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, obcaecati.',
           price: 49.99,

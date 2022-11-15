@@ -13,7 +13,7 @@ import * as yup from 'yup';
 import { Images } from '../../assets';
 import { Button } from '../../components/Button';
 import { useLoginMutation } from '../../services/authApi';
-import { Box, ImageBackgroundBox, SafeAreaBox, Text } from '../../theme';
+import { Box, Card, ImageBackgroundBox, SafeAreaBox, Text } from '../../theme';
 
 const schema = yup
   .object({
@@ -70,15 +70,13 @@ const LoginScreen = () => {
       <SafeAreaBox flex={1} justifyContent="center">
         <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-          <Box
+          <Card
+            variant="submitForm"
             margin="m"
             paddingHorizontal="m"
-            paddingTop="l"
-            paddingBottom="xxl"
-            backgroundColor="lightCard"
-            borderRadius="xl">
+            paddingVertical="xl">
             <Text variant="title" marginBottom="m">
-              Welcome
+              👋 Welcome
             </Text>
             <Box marginBottom="m">
               <Controller
@@ -133,7 +131,7 @@ const LoginScreen = () => {
               onPress={handleSubmit(handleLogin)}
               isLoading={isLoading}
             />
-          </Box>
+          </Card>
         </KeyboardAvoidingView>
       </SafeAreaBox>
     </ImageBackgroundBox>
