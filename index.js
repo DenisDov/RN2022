@@ -1,7 +1,8 @@
-import 'react-native-gesture-handler';
 import { AppRegistry, LogBox } from 'react-native';
-import App from './src/app/App';
+import 'react-native-gesture-handler';
+
 import { name as appName } from './app.json';
+import App from './src/app/App';
 
 if (__DEV__) {
   import('./ReactotronConfig').then(() => console.log('Reactotron Configured'));

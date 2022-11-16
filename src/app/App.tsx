@@ -9,10 +9,11 @@ import {
   initialWindowMetrics,
 } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import { theme } from '../theme';
 import AppNavigator from './Navigation';
-import { store } from './store';
+import { persistor, store } from './store';
 
 // import { useNetworkStatus } from '../hooks/useNetworkStatus';
 
@@ -23,13 +24,15 @@ const App = () => {
   return (
     <GestureHandlerRootView style={styles.root}>
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <StatusBar barStyle="dark-content" backgroundColor="black" />
-          <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-            <AppNavigator />
-          </SafeAreaProvider>
-          <FlashMessage position="bottom" />
-        </ThemeProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <ThemeProvider theme={theme}>
+            <StatusBar barStyle="dark-content" backgroundColor="black" />
+            <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+              <AppNavigator />
+            </SafeAreaProvider>
+            <FlashMessage position="bottom" />
+          </ThemeProvider>
+        </PersistGate>
       </Provider>
     </GestureHandlerRootView>
   );
