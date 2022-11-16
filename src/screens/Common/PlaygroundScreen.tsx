@@ -11,10 +11,11 @@ const PlaygroundScreen = () => {
       backgroundColor="background"
       contentContainerStyle={{ padding: 16 }}>
       {/* Colors */}
+      <Text variant="title">Colors</Text>
       <Box flexDirection="row" flexWrap="wrap">
         {Object.keys(theme.colors).map(key => {
           return (
-            <Box key={key} flexGrow={1} flexBasis={'33%'}>
+            <Box key={key} flexGrow={1} marginRight="s">
               <Text>{key}</Text>
               <Box
                 height={44}
@@ -28,7 +29,7 @@ const PlaygroundScreen = () => {
       </Box>
       <Box height={16} />
       {/* Typography */}
-      <Text variant="title">Title</Text>
+      <Text variant="title">Typography</Text>
       <Text>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
         reiciendis.
@@ -40,6 +41,7 @@ const PlaygroundScreen = () => {
       </Box>
       <Box height={16} />
       {/* Card */}
+      <Text variant="title">Cards</Text>
       <Card variant="main" padding="m">
         <Text variant="title" color="secondaryTextColor">
           Card have default shadow
@@ -60,7 +62,9 @@ const PlaygroundScreen = () => {
         }}
       />
       <Box height={16} />
+
       {/* Buttons */}
+      <Text variant="title">Buttons</Text>
       <Button text="Button" onPress={() => null} />
       <Box height={16} />
       <Button text="Outline Button" onPress={() => null} />

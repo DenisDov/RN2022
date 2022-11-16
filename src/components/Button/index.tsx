@@ -25,11 +25,10 @@ const Button = ({ onPress, text, isLoading }: Props) => {
 
 const styles = StyleSheet.create({
   button: {
-    // flexGrow: 1,
     height: 44,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
+    borderRadius: theme.borderRadii.s,
     backgroundColor: theme.colors.secondary,
     shadowColor: theme.colors.main,
     shadowOpacity: 0.5,
