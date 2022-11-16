@@ -76,6 +76,21 @@ const theme = createTheme({
       borderRadius: 'xl',
     },
   },
+  buttonVariants: {
+    defaults: {
+      // shadowColor: 'main',
+      // shadowOpacity: 0.5,
+      // shadowOffset: { width: 5, height: 5 },
+      // shadowRadius: 5,
+      // elevation: 5,
+      backgroundColor: 'error',
+      height: 70,
+    },
+    outline: {
+      backgroundColor: 'main',
+      borderRadius: 'm',
+    },
+  },
 });
 
 export type Theme = typeof theme;
