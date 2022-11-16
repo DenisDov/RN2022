@@ -15,6 +15,7 @@ const productsApi = rootApi.injectEndpoints({
       query: () => '/products',
       transformResponse: (response: { products: IProduct[] }) =>
         response.products,
+      transformErrorResponse: response => `Oh no: ${response.status}`,
       providesTags: ['Product'],
     }),
     getSingleProduct: builder.query<IProduct, string>({

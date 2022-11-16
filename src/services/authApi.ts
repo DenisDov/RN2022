@@ -31,6 +31,7 @@ export const authApi = rootApi.injectEndpoints({
         };
       },
       // transformResponse: response => console.log('response', response),
+      // transformErrorResponse: (response, meta, arg) => response.status,
     }),
   }),
   overrideExisting: false,
