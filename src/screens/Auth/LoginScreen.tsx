@@ -13,7 +13,14 @@ import * as yup from 'yup';
 import { Images } from '../../assets';
 import { Button } from '../../components/Button';
 import { useLoginMutation } from '../../services/authApi';
-import { Box, Card, ImageBackgroundBox, SafeAreaBox, Text } from '../../theme';
+import {
+  Box,
+  Card,
+  ImageBackgroundBox,
+  SafeAreaBox,
+  Text,
+  theme,
+} from '../../theme';
 
 const schema = yup
   .object({
@@ -74,7 +81,8 @@ const LoginScreen = () => {
             variant="submitForm"
             margin="m"
             paddingHorizontal="m"
-            paddingVertical="xl">
+            paddingTop="l"
+            paddingBottom="xl">
             <Text variant="title" marginBottom="m">
               👋 Welcome
             </Text>
@@ -88,7 +96,7 @@ const LoginScreen = () => {
                     onChangeText={onChange}
                     value={value}
                     placeholder="username*"
-                    placeholderTextColor="#707070"
+                    placeholderTextColor="rgba(0,0,0,0.5)"
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                     autoCorrect={false}
@@ -112,7 +120,7 @@ const LoginScreen = () => {
                     onChangeText={onChange}
                     value={value}
                     placeholder="password*"
-                    placeholderTextColor="#707070"
+                    placeholderTextColor="rgba(0,0,0,0.5)"
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                     autoCorrect={false}
@@ -140,17 +148,16 @@ const LoginScreen = () => {
 
 const styles = StyleSheet.create({
   input: {
-    marginBottom: 4,
+    marginBottom: theme.spacing.xs,
     fontSize: 18,
     fontFamily: 'Raleway-Regular',
     height: 44,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: '#707070',
-    borderRadius: 10,
+    borderColor: theme.colors.main,
   },
   error: {
     fontSize: 14,
-    color: 'red',
+    color: theme.colors.error,
   },
 });
 

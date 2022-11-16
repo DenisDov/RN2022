@@ -13,6 +13,7 @@ const theme = createTheme({
     background: '#F5F5F6',
     main: '#2F365F',
     secondary: '#5065ED',
+    error: '#DE3030',
 
     primaryTextColor: '#000000',
     secondaryTextColor: '#FFFFFF',
