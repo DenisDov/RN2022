@@ -5,6 +5,9 @@
   "scripts": {
     "a": "npx react-native run-android",
     "s": "npx react-native run-ios --simulator='iPhone SE (3rd generation)'",
+    "install-modules": "rm -rf node_modules yarn.lock && yarn",
+    "install-arch64": "yarn install-modules && cd ios && rm -rf Pods Podfile.lock && pod install && cd ..",
+    "install-m1": "yarn install-modules && cd ios && rm -rf Pods Podfile.lock && arch -x86_64 pod install && cd ..",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
@@ -12,6 +15,7 @@
   "dependencies": {
     "@gorhom/bottom-sheet": "^4",
     "@hookform/resolvers": "^2.9.10",
+    "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-native-community/netinfo": "^9.3.6",
     "@react-navigation/bottom-tabs": "^6.4.0",
     "@react-navigation/native": "^6.0.13",
@@ -22,7 +26,7 @@
     "react": "18.1.0",
     "react-content-loader": "^6.2.0",
     "react-hook-form": "^7.39.3",
-    "react-native": "0.70.4",
+    "react-native": "^0.70.5",
     "react-native-bootsplash": "^4.3.2",
     "react-native-flash-message": "^0.3.1",
     "react-native-gesture-handler": "^2.8.0",
@@ -32,6 +36,7 @@
     "react-native-screens": "^3.18.2",
     "react-native-svg": "^13.4.0",
     "react-redux": "^8.0.4",
+    "redux-persist": "^6.0.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {

@@ -12,7 +12,7 @@ export interface IProduct {
 const productsApi = rootApi.injectEndpoints({
   endpoints: builder => ({
     getAllProducts: builder.query<IProduct[], void>({
-      query: () => '/products?limit=40',
+      query: () => '/products',
       transformResponse: (response: { products: IProduct[] }) =>
         response.products,
       providesTags: ['Product'],
