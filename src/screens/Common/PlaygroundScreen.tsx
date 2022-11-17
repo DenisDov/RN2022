@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Button } from '../../components/Button';
-import { ProductsCard } from '../../components/ProductsCard';
 import { Box, Card, ScrollBox, Text, theme } from '../../theme';
 
 const PlaygroundScreen = () => {
@@ -14,6 +13,7 @@ const PlaygroundScreen = () => {
       <Text variant="title">Colors</Text>
       <Box flexDirection="row" flexWrap="wrap">
         {Object.keys(theme.colors).map(key => {
+          console.log('key: ', key);
           return (
             <Box key={key} flexGrow={1} marginRight="s">
               <Text>{key}</Text>
@@ -41,7 +41,7 @@ const PlaygroundScreen = () => {
       </Box>
       <Box height={16} />
       {/* Card */}
-      <Text variant="title">Cards</Text>
+      <Text variant="title">Card</Text>
       <Card variant="main" padding="m">
         <Text variant="title" color="secondaryTextColor">
           Card have default shadow
@@ -49,28 +49,15 @@ const PlaygroundScreen = () => {
         <Text color="secondaryTextColor">white text</Text>
       </Card>
       <Box height={16} />
-      {/* ProductsCard */}
-      <ProductsCard
-        item={{
-          id: '1',
-          brand: 'Brand',
-          title: 'title',
-          thumbnail: 'https://logo.svg',
-          description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, obcaecati.',
-          price: 49.99,
-        }}
-      />
-      <Box height={16} />
 
       {/* Buttons */}
       <Text variant="title">Buttons</Text>
-      <Button text="Button" onPress={() => null} />
+      <Button text="Primary button" onPress={() => null} />
       <Box height={16} />
       <Button
         outline={true}
         // isLoading
-        text="Outline Button"
+        text="Outline button"
         onPress={() => null}
       />
     </ScrollBox>

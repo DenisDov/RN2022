@@ -32,6 +32,7 @@ const HomeScreen = () => {
       />
       <Box height={16} />
       <Button
+        outline
         text="Go to profile"
         onPress={() => navigation.navigate('Profile')}
       />

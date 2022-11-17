@@ -3,8 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import RNBootSplash from 'react-native-bootsplash';
+import { BaseButton, RectButton } from 'react-native-gesture-handler';
 
 import { RootStackParamList } from '../@types/navigation';
+import { Hamburger } from '../components/Icons/Hamburger';
 import { useAuth } from '../hooks/useAuth';
 //Auth screens
 import LoginScreen from '../screens/Auth/LoginScreen';
@@ -45,8 +47,38 @@ const AppNavigator = () => {
       onReady={() => RNBootSplash.hide({ fade: true })}>
       {isAuthenicated ? (
         <Tab.Navigator
-        // screenOptions={{ headerShown: false }}
-        >
+          screenOptions={({ route }) => ({
+            // headerShown: false,
+            tabBarShowLabel: false,
+            tabBarIcon: ({ focused, color, size }) => {
+              console.log('color: ', color);
+              // let iconName;
+
+              // if (route.name === 'Home') {
+              //   iconName = focused
+              //     ? 'ios-information-circle'
+              //     : 'ios-information-circle-outline';
+              // } else if (route.name === 'Settings') {
+              //   iconName = focused ? 'ios-list' : 'ios-list-outline';
+              // }
+
+              // You can return any component that you like here!
+              // return <Ionicons name={iconName} size={size} color={color} />;
+              return (
+                <RectButton
+                  style={{
+                    width: '100%',
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Hamburger color={focused ? '#5065ED' : '#2F365F'} />
+                </RectButton>
+              );
+            },
+            // tabBarActiveTintColor: 'blue',
+            // tabBarInactiveTintColor: 'green',
+          })}>
           <Tab.Screen
             name="HomeTab"
             component={HomeTabStack}
