@@ -7,7 +7,7 @@ export interface IProduct {
   title: string;
   thumbnail: string;
   description: string;
-  price: string; //TODO: add type to price
+  price: string;
 }
 
 const productsApi = rootApi.injectEndpoints({
@@ -22,7 +22,7 @@ const productsApi = rootApi.injectEndpoints({
             price: new Intl.NumberFormat('en-US', {
               style: 'currency',
               currency: 'USD',
-            }).format(product.price),
+            }).format(+product.price),
           };
         }),
       transformErrorResponse: response => `Oh no: ${response.status}`,
