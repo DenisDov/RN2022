@@ -1,4 +1,5 @@
 import { createTheme } from '@shopify/restyle';
+import { StyleSheet } from 'react-native';
 
 // https://chir.ag/projects/name-that-color
 // const palette = {
@@ -18,7 +19,7 @@ const theme = createTheme({
     primaryTextColor: '#000000',
     secondaryTextColor: '#FFFFFF',
 
-    lightCard: '#FFFFFF',
+    light: '#FFFFFF',
   },
   //Spacing tends to follow multiples of a given base spacing number
   spacing: {
@@ -31,11 +32,11 @@ const theme = createTheme({
   },
   borderRadii: {
     xs: 4,
-    s: 11,
+    s: 8,
     m: 16,
-    l: 22,
-    xl: 36,
-    xxl: 85,
+    l: 24,
+    xl: 40,
+    xxl: 64,
   },
   breakpoints: {
     phone: 0,
@@ -72,23 +73,8 @@ const theme = createTheme({
       borderRadius: 'm',
     },
     submitForm: {
-      backgroundColor: 'lightCard',
+      backgroundColor: 'light',
       borderRadius: 'xl',
-    },
-  },
-  buttonVariants: {
-    defaults: {
-      // shadowColor: 'main',
-      // shadowOpacity: 0.5,
-      // shadowOffset: { width: 5, height: 5 },
-      // shadowRadius: 5,
-      // elevation: 5,
-      backgroundColor: 'error',
-      height: 70,
-    },
-    outline: {
-      backgroundColor: 'main',
-      borderRadius: 'm',
     },
   },
 });

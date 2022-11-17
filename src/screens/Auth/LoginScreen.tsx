@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.xs,
     fontSize: 18,
     fontFamily: 'Raleway-Regular',
-    height: 44,
+    height: theme.spacing.xl,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.main,
   },

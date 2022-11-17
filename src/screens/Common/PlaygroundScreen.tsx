@@ -67,7 +67,12 @@ const PlaygroundScreen = () => {
       <Text variant="title">Buttons</Text>
       <Button text="Button" onPress={() => null} />
       <Box height={16} />
-      <Button text="Outline Button" onPress={() => null} />
+      <Button
+        outline={true}
+        // isLoading
+        text="Outline Button"
+        onPress={() => null}
+      />
     </ScrollBox>
   );
 };

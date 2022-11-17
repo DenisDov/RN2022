@@ -9,23 +9,32 @@ type Props = {
   onPress: () => void;
   text: string;
   isLoading?: boolean;
+  outline?: boolean;
 };
 
-const Button = ({ onPress, text, isLoading }: Props) => {
+const Button = ({ onPress, text, isLoading, outline }: Props) => {
   return (
-    <RectButton onPress={onPress} style={styles.button} enabled={!isLoading}>
+    <RectButton
+      onPress={onPress}
+      style={[styles.primaryButton, outline && styles.outlineButton]}
+      enabled={!isLoading}>
       {isLoading ? (
-        <ActivityIndicator color="#F5F5F6" />
+        <ActivityIndicator
+          color={outline ? theme.colors.main : theme.colors.light}
+        />
       ) : (
-        <Text color="secondaryTextColor">{text}</Text>
+        <Text
+          style={[styles.primaryTextColor, outline && styles.outlineTextColor]}>
+          {text}
+        </Text>
       )}
     </RectButton>
   );
 };
 
 const styles = StyleSheet.create({
-  button: {
-    height: 44,
+  primaryButton: {
+    height: theme.spacing.xl,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: theme.borderRadii.s,
@@ -35,6 +44,18 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 5, height: 5 },
     shadowRadius: 5,
     elevation: 5,
+  },
+  primaryTextColor: {
+    color: theme.colors.light,
+  },
+  outlineButton: {
+    shadowOpacity: 0,
+    backgroundColor: theme.colors.light,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: theme.colors.main,
+  },
+  outlineTextColor: {
+    color: theme.colors.main,
   },
 });
 
