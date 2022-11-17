@@ -26,9 +26,33 @@ import ProductsScreen from '../screens/Home/ProductsScreen';
 import ProfileScreen from '../screens/Home/ProfileScreen';
 import SettingsScreen from '../screens/Home/SettingsScreen';
 import SingleProductScreen from '../screens/Home/SingleProductScreen';
+import { Text } from '../theme';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
+
+// const TabBarIcons = ({ route, focused }) => {
+//   // console.log('color: ', color);
+//   // let iconName;
+//   let icon;
+//   if (route.name === 'HomeTab') {
+//     icon = focused ? <Home /> : <HomeOutline />;
+//   } else if (route.name === 'SettingsTab') {
+//     icon = focused ? <Grid /> : <GridOutline />;
+//   }
+
+//   return (
+//     <RectButton
+//       style={{
+//         width: '100%',
+//         flex: 1,
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//       }}>
+//       {icon}
+//     </RectButton>
+//   );
+// };
 
 const HomeTabStack = () => {
   return (
@@ -58,10 +82,13 @@ const AppNavigator = () => {
               console.log('color: ', color);
               // let iconName;
               let icon;
+              let label;
               if (route.name === 'HomeTab') {
                 icon = focused ? <Home /> : <HomeOutline />;
+                label = 'Home';
               } else if (route.name === 'SettingsTab') {
                 icon = focused ? <Grid /> : <GridOutline />;
+                label = 'Settings';
               }
 
               return (
@@ -73,6 +100,9 @@ const AppNavigator = () => {
                     alignItems: 'center',
                   }}>
                   {icon}
+                  <Text fontSize={10} color="secondary">
+                    {label}
+                  </Text>
                 </RectButton>
               );
             },

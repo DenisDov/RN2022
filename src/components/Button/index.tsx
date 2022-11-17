@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
   },
   outlineButton: {
     shadowOpacity: 0,
-    backgroundColor: theme.colors.light,
+    elevation: 0,
+    backgroundColor: 'transparent',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.main,
   },
