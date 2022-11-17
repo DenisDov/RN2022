@@ -6,7 +6,6 @@ import { RectButton } from 'react-native-gesture-handler';
 import { Images } from '../../assets';
 import { IProduct } from '../../services/productsApi';
 import { Box, ImageBox, Text, theme } from '../../theme';
-import { capitalize } from '../../utils/capitalize';
 
 interface ProductItem {
   item: IProduct;
@@ -15,10 +14,6 @@ interface ProductItem {
 
 const ProductsCard = ({ item: product }: ProductItem) => {
   const navigation = useNavigation();
-  const intlPrice = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  }).format(product.price);
 
   return (
     // RectButton borderColor propery not working on Android devices, thats why we need to wrap RectButton in outer View
@@ -38,9 +33,9 @@ const ProductsCard = ({ item: product }: ProductItem) => {
           borderRadius="s"
           defaultSource={Images.dummy}
         />
-        <Text numberOfLines={1}>{capitalize(product.brand)}</Text>
+        <Text numberOfLines={1}>{product.brand}</Text>
         <Text numberOfLines={3}>{product.description}</Text>
-        <Text numberOfLines={1}>{intlPrice}</Text>
+        <Text numberOfLines={1}>{product.price}</Text>
       </RectButton>
     </Box>
   );
