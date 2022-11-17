@@ -7,6 +7,10 @@ import { BaseButton, RectButton } from 'react-native-gesture-handler';
 
 import { RootStackParamList } from '../@types/navigation';
 import { Hamburger } from '../components/Icons/Hamburger';
+import Grid from '../components/Icons/tabs/Grid';
+import GridOutline from '../components/Icons/tabs/GridOutline';
+import Home from '../components/Icons/tabs/Home';
+import HomeOutline from '../components/Icons/tabs/HomeOutline';
 import { useAuth } from '../hooks/useAuth';
 //Auth screens
 import LoginScreen from '../screens/Auth/LoginScreen';
@@ -53,17 +57,13 @@ const AppNavigator = () => {
             tabBarIcon: ({ focused, color, size }) => {
               console.log('color: ', color);
               // let iconName;
+              let icon;
+              if (route.name === 'HomeTab') {
+                icon = focused ? <Home /> : <HomeOutline />;
+              } else if (route.name === 'SettingsTab') {
+                icon = focused ? <Grid /> : <GridOutline />;
+              }
 
-              // if (route.name === 'Home') {
-              //   iconName = focused
-              //     ? 'ios-information-circle'
-              //     : 'ios-information-circle-outline';
-              // } else if (route.name === 'Settings') {
-              //   iconName = focused ? 'ios-list' : 'ios-list-outline';
-              // }
-
-              // You can return any component that you like here!
-              // return <Ionicons name={iconName} size={size} color={color} />;
               return (
                 <RectButton
                   style={{
@@ -72,12 +72,10 @@ const AppNavigator = () => {
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}>
-                  <Hamburger color={focused ? '#5065ED' : '#2F365F'} />
+                  {icon}
                 </RectButton>
               );
             },
-            // tabBarActiveTintColor: 'blue',
-            // tabBarInactiveTintColor: 'green',
           })}>
           <Tab.Screen
             name="HomeTab"

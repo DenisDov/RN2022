@@ -1,16 +1,10 @@
 import * as React from 'react';
-import Svg, { Path } from 'react-native-svg';
+import Svg, { Path, SvgProps } from 'react-native-svg';
 
 /* SVGR has dropped some elements not supported by react-native-svg: title */
 
-const HomeOutline = props => (
-  <Svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="ionicon"
-    viewBox="0 0 512 512"
-    width={24}
-    height={24}
-    {...props}>
+const HomeOutline = (props: SvgProps) => (
+  <Svg viewBox="0 0 512 512" width={24} height={24} {...props}>
     <Path
       d="M80 212v236a16 16 0 0 0 16 16h96V328a24 24 0 0 1 24-24h80a24 24 0 0 1 24 24v136h96a16 16 0 0 0 16-16V212"
       fill="none"
