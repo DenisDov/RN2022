@@ -1,5 +1,4 @@
 import { createTheme } from '@shopify/restyle';
-import { StyleSheet } from 'react-native';
 
 // https://chir.ag/projects/name-that-color
 // const palette = {

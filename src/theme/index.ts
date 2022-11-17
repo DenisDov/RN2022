@@ -6,3 +6,4 @@ export { default as ImageBox } from './elements/ImageBox';
 export { default as ScrollBox } from './elements/ScrollBox';
 export { default as SafeAreaBox } from './elements/SafeAreaBox';
 export { default as ImageBackgroundBox } from './elements/ImageBackgroundBox';
+export { default as RectButtonBox } from './elements/RectButtonBox';
