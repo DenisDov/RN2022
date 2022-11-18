@@ -1,10 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { StyleSheet } from 'react-native';
-import Video from 'react-native-video';
+import VideoPlayer from 'react-native-media-console';
 
+// import Video from 'react-native-video';
 import { Box, Text } from '../../../theme';
 
-const VideoScreen = () => {
+const VideoScreen = props => {
   const [error, setError] = useState('');
   // const videoRef = useRef<Video>(null);
 
@@ -13,7 +14,12 @@ const VideoScreen = () => {
   };
   return (
     <Box flex={1} backgroundColor="background" padding="m">
-      <Video
+      <VideoPlayer
+        source={{ uri: 'https://vjs.zencdn.net/v/oceans.mp4' }}
+        navigator={props.navigation}
+        // style={styles.backgroundVideo}
+      />
+      {/* <Video
         // ref={videoRef}
         source={{
           uri: 'https://file-examples.com/storage/fe7589721d63762859d6962/2017/04/file_example_MP4_1920_18MG.mp4',
@@ -22,7 +28,7 @@ const VideoScreen = () => {
         style={styles.backgroundVideo}
         repeat
       />
-      {error && <Text>{error}</Text>}
+      {error && <Text>{error}</Text>} */}
     </Box>
   );
 };

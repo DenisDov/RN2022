@@ -1977,7 +1977,15 @@
   dependencies:
     ts-toolbelt "^6.15.1"
 
-"@types/react-native@^0.70.6":
+"@types/react-native-video@^5.0.14":
+  version "5.0.14"
+  resolved "https://registry.yarnpkg.com/@types/react-native-video/-/react-native-video-5.0.14.tgz#275d08f836280ace088462b2cb267925a6a915f3"
+  integrity sha512-KdcyY4HY/Q1l6f5qQA337BNVN+GsdZy836j9CXbWHZ008VVNzSlnJypJQPsnUgI0EPBw/uG/lyJk6cg9Jj1syg==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+
+"@types/react-native@*", "@types/react-native@^0.70.6":
   version "0.70.6"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.70.6.tgz#0d1bc3014111f64f13e0df643aec2ab03f021fdb"
   integrity sha512-ynQ2jj0km9d7dbnyKqVdQ6Nti7VQ8SLTA/KKkkS5+FnvGyvij2AOo1/xnkBR/jnSNXuzrvGVzw2n0VWfppmfKw==
@@ -6807,6 +6815,11 @@ react-native-linear-gradient@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.6.2.tgz#56598a76832724b2afa7889747635b5c80948f38"
   integrity sha512-Z8Xxvupsex+9BBFoSYS87bilNPWcRfRsGC0cpJk72Nxb5p2nEkGSBv73xZbEHnW2mUFvP+huYxrVvjZkr/gRjQ==
+
+react-native-media-console@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-media-console/-/react-native-media-console-2.0.1.tgz#17a75f9ffac8d9dd517a461dd0b5b6bc724c58c3"
+  integrity sha512-tj/5YRjoGypvazhCCOAyG85lKxMeBKOyKmYJ7fZHxNQJFUt3wghTZTB7KVgEaOWtjTPbdpXXpa0R3aOa0xuZWg==
 
 react-native-reanimated@^2.13.0:
   version "2.13.0"
