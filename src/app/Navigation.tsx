@@ -5,7 +5,7 @@ import * as React from 'react';
 import RNBootSplash from 'react-native-bootsplash';
 
 import { RootStackParamList } from '../@types/navigation';
-import TabIcons from '../components/TabIcons';
+import { TabIcon } from '../components/TabIcon';
 import { useAuth } from '../hooks/useAuth';
 //Auth screens
 import LoginScreen from '../screens/Auth/LoginScreen';
@@ -63,7 +63,7 @@ const AppNavigator = () => {
             // headerShown: false,
             tabBarShowLabel: false,
             tabBarIcon: ({ focused }) => (
-              <TabIcons routeName={route.name} isFocused={focused} />
+              <TabIcon routeName={route.name} isFocused={focused} />
             ),
           })}>
           <Tab.Screen

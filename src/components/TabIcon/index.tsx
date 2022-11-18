@@ -17,7 +17,7 @@ type Props = {
   isFocused: boolean;
 };
 
-const TabIcons = ({ routeName, isFocused }: Props) => {
+const TabIcon = ({ routeName, isFocused }: Props) => {
   let icon;
   switch (routeName) {
     case 'HomeTab':
@@ -62,4 +62,4 @@ const TabIcons = ({ routeName, isFocused }: Props) => {
   );
 };
 
-export default TabIcons;
+export { TabIcon };
