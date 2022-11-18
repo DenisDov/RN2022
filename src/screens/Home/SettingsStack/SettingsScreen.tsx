@@ -11,9 +11,12 @@ const SettingsScreen = () => {
       <Box padding="m">
         <SettingsItem
           label="react-native-render-html"
-          onPress={() => navigation.navigate('HTML')}
+          onPress={() => navigation.navigate('HTMLScreen')}
         />
-        <SettingsItem label="lol" onPress={() => null} />
+        <SettingsItem
+          label="react-native-video"
+          onPress={() => navigation.navigate('VideoScreen')}
+        />
       </Box>
     </ScrollBox>
   );

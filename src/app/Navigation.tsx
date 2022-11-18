@@ -27,6 +27,7 @@ import SingleProductScreen from '../screens/Home/HomeStack/SingleProductScreen';
 import NoificationsScreen from '../screens/Home/NoificationsScreen';
 import HTMLScreen from '../screens/Home/SettingsStack/HTMLScreen';
 import SettingsScreen from '../screens/Home/SettingsStack/SettingsScreen';
+import VideoScreen from '../screens/Home/SettingsStack/VideoScreen';
 import { Text } from '../theme';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -71,7 +72,8 @@ const SettingsTabStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Settings" component={SettingsScreen} />
-      <Stack.Screen name="HTML" component={HTMLScreen} />
+      <Stack.Screen name="HTMLScreen" component={HTMLScreen} />
+      <Stack.Screen name="VideoScreen" component={VideoScreen} />
     </Stack.Navigator>
   );
 };
