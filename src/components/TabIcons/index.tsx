@@ -19,17 +19,38 @@ type Props = {
 
 const TabIcons = ({ routeName, isFocused }: Props) => {
   let icon;
-  if (routeName === 'HomeTab') {
-    icon = isFocused ? <Home /> : <HomeOutline />;
-  } else if (routeName === 'GalleryTab') {
-    icon = isFocused ? <Gallery /> : <GalleryOutline />;
-  } else if (routeName === 'MapTab') {
-    icon = isFocused ? <Map /> : <MapOutline />;
-  } else if (routeName === 'CameraTab') {
-    icon = isFocused ? <Camera /> : <CameraOutline />;
-  } else if (routeName === 'SettingsTab') {
-    icon = isFocused ? <Grid /> : <GridOutline />;
+  switch (routeName) {
+    case 'HomeTab':
+      icon = isFocused ? <Home /> : <HomeOutline />;
+      break;
+    case 'GalleryTab':
+      icon = isFocused ? <Gallery /> : <GalleryOutline />;
+      break;
+    case 'MapTab':
+      icon = isFocused ? <Map /> : <MapOutline />;
+      break;
+    case 'CameraTab':
+      icon = isFocused ? <Camera /> : <CameraOutline />;
+      break;
+    case 'SettingsTab':
+      icon = isFocused ? <Grid /> : <GridOutline />;
+      break;
+    default:
+      break;
   }
+
+  // let icon;
+  // if (routeName === 'HomeTab') {
+  //   icon = isFocused ? <Home /> : <HomeOutline />;
+  // } else if (routeName === 'GalleryTab') {
+  //   icon = isFocused ? <Gallery /> : <GalleryOutline />;
+  // } else if (routeName === 'MapTab') {
+  //   icon = isFocused ? <Map /> : <MapOutline />;
+  // } else if (routeName === 'CameraTab') {
+  //   icon = isFocused ? <Camera /> : <CameraOutline />;
+  // } else if (routeName === 'SettingsTab') {
+  //   icon = isFocused ? <Grid /> : <GridOutline />;
+  // }
   return (
     <RectButtonBox
       flex={1}
