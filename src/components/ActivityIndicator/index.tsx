@@ -128,7 +128,7 @@ const ActivityIndicator = ({
     }
   }, [animating, fade, hidesWhenStopped, startRotation, scale, timer]);
 
-  const color = indicatorColor || '#4FADC0';
+  const color = indicatorColor || '#5065ED';
   const size =
     typeof indicatorSize === 'string'
       ? indicatorSize === 'small'
