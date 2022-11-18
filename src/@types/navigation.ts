@@ -14,6 +14,10 @@ export type RootStackParamList = {
     brand: string;
   };
 
+  Settings: undefined;
+  HTMLScreen: undefined;
+  VideoScreen: undefined;
+
   Playground: undefined;
 };
 

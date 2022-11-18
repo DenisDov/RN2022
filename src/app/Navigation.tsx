@@ -7,14 +7,11 @@ import RNBootSplash from 'react-native-bootsplash';
 import { RootStackParamList } from '../@types/navigation';
 import { TabIcon } from '../components/TabIcon';
 import { useAuth } from '../hooks/useAuth';
-//Auth screens
 import LoginScreen from '../screens/Auth/LoginScreen';
 import RegisterScreen from '../screens/Auth/RegisterScreen';
 import WelcomeScreen from '../screens/Auth/WelcomeScreen';
-// Common screens
 import PlaygroundScreen from '../screens/Common/PlaygroundScreen';
 import CameraScreen from '../screens/Home/CameraScreen';
-// Home screens
 import GalleryScreen from '../screens/Home/GalleryScreen';
 import HomeScreen from '../screens/Home/HomeStack/HomeScreen';
 import ProductsScreen from '../screens/Home/HomeStack/ProductsScreen';
