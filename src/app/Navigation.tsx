@@ -112,9 +112,9 @@ const AppNavigator = () => {
                     alignItems: 'center',
                   }}>
                   {icon}
-                  <Text fontSize={10} color="secondary">
+                  {/* <Text fontSize={10} color="secondary">
                     {label}
-                  </Text>
+                  </Text> */}
                 </RectButton>
               );
             },

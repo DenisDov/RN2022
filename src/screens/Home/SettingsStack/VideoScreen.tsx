@@ -5,7 +5,7 @@ import Video from 'react-native-video';
 import { Box, Text } from '../../../theme';
 
 const VideoScreen = () => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   // const videoRef = useRef<Video>(null);
 
   const videoError = ({ error: { localizedDescription } }: string) => {
