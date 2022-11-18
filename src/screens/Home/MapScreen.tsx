@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Box, Text } from '../../theme';
 
-const FeedScreen = () => {
+const MapScreen = () => {
   return (
     <Box>
-      <Text>FeedScreen</Text>
+      <Text>MapScreen</Text>
     </Box>
   );
 };
 
-export default FeedScreen;
+export default MapScreen;

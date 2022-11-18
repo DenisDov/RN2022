@@ -1,9 +1,7 @@
 import * as React from 'react';
-import Svg, { Rect } from 'react-native-svg';
+import Svg, { Rect, SvgProps } from 'react-native-svg';
 
-/* SVGR has dropped some elements not supported by react-native-svg: title */
-
-const GridOutline = props => (
+const GridOutline = (props: SvgProps) => (
   <Svg viewBox="0 0 512 512" width={24} height={24} {...props}>
     <Rect
       x={48}

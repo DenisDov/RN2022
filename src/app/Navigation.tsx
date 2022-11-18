@@ -3,14 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import RNBootSplash from 'react-native-bootsplash';
-import { BaseButton, RectButton } from 'react-native-gesture-handler';
 
 import { RootStackParamList } from '../@types/navigation';
-import { Hamburger } from '../components/Icons/Hamburger';
-import Grid from '../components/Icons/tabs/Grid';
-import GridOutline from '../components/Icons/tabs/GridOutline';
-import Home from '../components/Icons/tabs/Home';
-import HomeOutline from '../components/Icons/tabs/HomeOutline';
+import TabIcons from '../components/TabIcons';
 import { useAuth } from '../hooks/useAuth';
 //Auth screens
 import LoginScreen from '../screens/Auth/LoginScreen';
@@ -18,43 +13,20 @@ import RegisterScreen from '../screens/Auth/RegisterScreen';
 import WelcomeScreen from '../screens/Auth/WelcomeScreen';
 // Common screens
 import PlaygroundScreen from '../screens/Common/PlaygroundScreen';
+import CameraScreen from '../screens/Home/CameraScreen';
 // Home screens
-import FeedScreen from '../screens/Home/FeedScreen';
+import GalleryScreen from '../screens/Home/GalleryScreen';
 import HomeScreen from '../screens/Home/HomeStack/HomeScreen';
 import ProductsScreen from '../screens/Home/HomeStack/ProductsScreen';
 import ProfileScreen from '../screens/Home/HomeStack/ProfileScreen';
 import SingleProductScreen from '../screens/Home/HomeStack/SingleProductScreen';
-import NoificationsScreen from '../screens/Home/NoificationsScreen';
+import MapScreen from '../screens/Home/MapScreen';
 import HTMLScreen from '../screens/Home/SettingsStack/HTMLScreen';
 import SettingsScreen from '../screens/Home/SettingsStack/SettingsScreen';
 import VideoScreen from '../screens/Home/SettingsStack/VideoScreen';
-import { Text } from '../theme';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
-
-// const TabBarIcons = ({ route, focused }) => {
-//   // console.log('color: ', color);
-//   // let iconName;
-//   let icon;
-//   if (route.name === 'HomeTab') {
-//     icon = focused ? <Home /> : <HomeOutline />;
-//   } else if (route.name === 'SettingsTab') {
-//     icon = focused ? <Grid /> : <GridOutline />;
-//   }
-
-//   return (
-//     <RectButton
-//       style={{
-//         width: '100%',
-//         flex: 1,
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//       }}>
-//       {icon}
-//     </RectButton>
-//   );
-// };
 
 const HomeTabStack = () => {
   return (
@@ -90,42 +62,18 @@ const AppNavigator = () => {
           screenOptions={({ route }) => ({
             // headerShown: false,
             tabBarShowLabel: false,
-            tabBarIcon: ({ focused, color, size }) => {
-              // console.log('color: ', color);
-              // let iconName;
-              let icon;
-              let label;
-              if (route.name === 'HomeTab') {
-                icon = focused ? <Home /> : <HomeOutline />;
-                label = 'Home';
-              } else if (route.name === 'SettingsTab') {
-                icon = focused ? <Grid /> : <GridOutline />;
-                label = 'Settings';
-              }
-
-              return (
-                <RectButton
-                  style={{
-                    width: '100%',
-                    flex: 1,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
-                  {icon}
-                  {/* <Text fontSize={10} color="secondary">
-                    {label}
-                  </Text> */}
-                </RectButton>
-              );
-            },
+            tabBarIcon: ({ focused }) => (
+              <TabIcons routeName={route.name} isFocused={focused} />
+            ),
           })}>
           <Tab.Screen
             name="HomeTab"
             component={HomeTabStack}
             options={{ headerShown: false }}
           />
-          <Tab.Screen name="FeedTab" component={FeedScreen} />
-          <Tab.Screen name="NoificationsTab" component={NoificationsScreen} />
+          <Tab.Screen name="GalleryTab" component={GalleryScreen} />
+          <Tab.Screen name="MapTab" component={MapScreen} />
+          <Tab.Screen name="CameraTab" component={CameraScreen} />
           <Tab.Screen
             name="SettingsTab"
             component={SettingsTabStack}

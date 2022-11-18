@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Svg, { Path, SvgProps } from 'react-native-svg';
 
-/* SVGR has dropped some elements not supported by react-native-svg: title */
-
 const HomeOutline = (props: SvgProps) => (
   <Svg viewBox="0 0 512 512" width={24} height={24} {...props}>
     <Path

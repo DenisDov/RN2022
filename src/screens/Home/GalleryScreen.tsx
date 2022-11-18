@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Box, Text } from '../../theme';
 
-const NoificationsScreen = () => {
+const GalleryScreen = () => {
   return (
     <Box>
-      <Text>NoificationsScreen</Text>
+      <Text>GalleryScreen</Text>
     </Box>
   );
 };
 
-export default NoificationsScreen;
+export default GalleryScreen;

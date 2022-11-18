@@ -1,9 +1,7 @@
 import * as React from 'react';
-import Svg, { Circle, Path, Rect } from 'react-native-svg';
+import Svg, { Circle, Path, Rect, SvgProps } from 'react-native-svg';
 
-/* SVGR has dropped some elements not supported by react-native-svg: title */
-
-const SvgComponent = props => (
+const GalleryOutline = (props: SvgProps) => (
   <Svg viewBox="0 0 512 512" width={24} height={24} {...props}>
     <Rect
       x={48}
@@ -37,4 +35,4 @@ const SvgComponent = props => (
   </Svg>
 );
 
-export default SvgComponent;
+export default GalleryOutline;
