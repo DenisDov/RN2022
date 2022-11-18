@@ -3,10 +3,10 @@ import { FlashList } from '@shopify/flash-list';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-import { ActivityIndicator } from '../../components/ActivityIndicator';
-import { ProductsCard } from '../../components/ProductsCard';
-import { useGetAllProductsQuery } from '../../services/productsApi';
-import { Box, Text } from '../../theme';
+import { ActivityIndicator } from '../../../components/ActivityIndicator';
+import { ProductsCard } from '../../../components/ProductsCard';
+import { useGetAllProductsQuery } from '../../../services/productsApi';
+import { Box, Text } from '../../../theme';
 
 const ProductsScreen = () => {
   const { data: allProducts, isLoading, error } = useGetAllProductsQuery();

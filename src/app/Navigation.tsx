@@ -20,12 +20,13 @@ import WelcomeScreen from '../screens/Auth/WelcomeScreen';
 import PlaygroundScreen from '../screens/Common/PlaygroundScreen';
 // Home screens
 import FeedScreen from '../screens/Home/FeedScreen';
-import HomeScreen from '../screens/Home/HomeScreen';
+import HomeScreen from '../screens/Home/HomeStack/HomeScreen';
+import ProductsScreen from '../screens/Home/HomeStack/ProductsScreen';
+import ProfileScreen from '../screens/Home/HomeStack/ProfileScreen';
+import SingleProductScreen from '../screens/Home/HomeStack/SingleProductScreen';
 import NoificationsScreen from '../screens/Home/NoificationsScreen';
-import ProductsScreen from '../screens/Home/ProductsScreen';
-import ProfileScreen from '../screens/Home/ProfileScreen';
-import SettingsScreen from '../screens/Home/SettingsScreen';
-import SingleProductScreen from '../screens/Home/SingleProductScreen';
+import HTMLScreen from '../screens/Home/SettingsStack/HTMLScreen';
+import SettingsScreen from '../screens/Home/SettingsStack/SettingsScreen';
 import { Text } from '../theme';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -66,6 +67,15 @@ const HomeTabStack = () => {
   );
 };
 
+const SettingsTabStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen name="HTML" component={HTMLScreen} />
+    </Stack.Navigator>
+  );
+};
+
 const AppNavigator = () => {
   const auth = useAuth();
   const isAuthenicated = !!auth?.user?.token || false;
@@ -79,7 +89,7 @@ const AppNavigator = () => {
             // headerShown: false,
             tabBarShowLabel: false,
             tabBarIcon: ({ focused, color, size }) => {
-              console.log('color: ', color);
+              // console.log('color: ', color);
               // let iconName;
               let icon;
               let label;
@@ -114,7 +124,11 @@ const AppNavigator = () => {
           />
           <Tab.Screen name="FeedTab" component={FeedScreen} />
           <Tab.Screen name="NoificationsTab" component={NoificationsScreen} />
-          <Tab.Screen name="SettingsTab" component={SettingsScreen} />
+          <Tab.Screen
+            name="SettingsTab"
+            component={SettingsTabStack}
+            options={{ headerShown: false }}
+          />
         </Tab.Navigator>
       ) : (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
