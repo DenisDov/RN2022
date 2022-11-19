@@ -2,6 +2,7 @@ import React from 'react';
 import { WebView } from 'react-native-webview';
 
 import { ProgressBar } from '../../../components/ProgressBar';
+import { Box } from '../../../theme';
 
 const WebViewScreen = () => {
   return (
@@ -10,16 +11,9 @@ const WebViewScreen = () => {
       startInLoadingState
       onError={() => null}
       renderLoading={() => (
-        <ProgressBar
-          indeterminate
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            // right: 0,
-            // zIndex: 1,
-          }}
-        />
+        <Box position="absolute" left={0} right={0}>
+          <ProgressBar indeterminate />
+        </Box>
       )}
     />
   );

@@ -13,7 +13,6 @@ const PlaygroundScreen = () => {
       <Text variant="title">Colors</Text>
       <Box flexDirection="row" flexWrap="wrap">
         {Object.keys(theme.colors).map(key => {
-          console.log('key: ', key);
           return (
             <Box key={key} flexGrow={1} marginRight="s">
               <Text>{key}</Text>
