@@ -17,6 +17,7 @@ export type RootStackParamList = {
   Settings: undefined;
   HTMLScreen: undefined;
   VideoScreen: undefined;
+  WebViewScreen: undefined;
 
   Playground: undefined;
 };

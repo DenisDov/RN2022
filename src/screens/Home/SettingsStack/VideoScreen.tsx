@@ -38,7 +38,7 @@ const VideoScreen = props => {
           controls={true}
           resizeMode="cover"
           hideShutterView={true}
-          paused={true}
+          // paused={true}
         />
         {error && <Text>{error}</Text>}
       </Box>

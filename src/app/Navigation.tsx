@@ -21,6 +21,7 @@ import MapScreen from '../screens/Home/MapScreen';
 import HTMLScreen from '../screens/Home/SettingsStack/HTMLScreen';
 import SettingsScreen from '../screens/Home/SettingsStack/SettingsScreen';
 import VideoScreen from '../screens/Home/SettingsStack/VideoScreen';
+import WebViewScreen from '../screens/Home/SettingsStack/WebViewScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
@@ -43,6 +44,7 @@ const SettingsTabStack = () => {
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="HTMLScreen" component={HTMLScreen} />
       <Stack.Screen name="VideoScreen" component={VideoScreen} />
+      <Stack.Screen name="WebViewScreen" component={WebViewScreen} />
     </Stack.Navigator>
   );
 };
