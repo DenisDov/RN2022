@@ -18,7 +18,7 @@ const productsApi = rootApi.injectEndpoints({
         response.products.map(product => {
           return {
             ...product,
-            brand: capitalize(product.brand),
+            brand: capitalize(product.brand, true),
             price: new Intl.NumberFormat('en-US', {
               style: 'currency',
               currency: 'USD',
