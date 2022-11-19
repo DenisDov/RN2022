@@ -6,11 +6,11 @@ import Video from 'react-native-video';
 import { Box, Text } from '../../../theme';
 
 const VideoScreen = () => {
-  const [error, setError] = useState('');
+  const [videoError, setVideoError] = useState('');
   // const videoRef = useRef<Video>(null);
 
-  const videoError = ({ error: { localizedDescription } }: string) => {
-    setError(localizedDescription);
+  const onVideoError = (error: { [key: string]: string }) => {
+    setVideoError(error.localizedDescription);
   };
   return (
     <Box flex={1} backgroundColor="background" padding="m">
@@ -23,10 +23,10 @@ const VideoScreen = () => {
           controls={true}
           resizeMode="cover"
           hideShutterView={true}
-          onError={videoError}
+          onError={onVideoError}
           // paused={true}
         />
-        {error && <Text>{error}</Text>}
+        {videoError && <Text>{videoError}</Text>}
       </Box>
     </Box>
   );
