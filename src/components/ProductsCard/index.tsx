@@ -7,10 +7,10 @@ import { Images } from '../../assets';
 import { IProduct } from '../../services/productsApi';
 import { Box, ImageBox, Text, theme } from '../../theme';
 
-interface ProductItem {
+type ProductItem = {
   item: IProduct;
   navigation: any;
-}
+};
 
 const ProductsCard = ({ item: product }: ProductItem) => {
   const navigation = useNavigation();

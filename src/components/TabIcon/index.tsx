@@ -39,18 +39,6 @@ const TabIcon = ({ routeName, isFocused }: Props) => {
       break;
   }
 
-  // let icon;
-  // if (routeName === 'HomeTab') {
-  //   icon = isFocused ? <Home /> : <HomeOutline />;
-  // } else if (routeName === 'GalleryTab') {
-  //   icon = isFocused ? <Gallery /> : <GalleryOutline />;
-  // } else if (routeName === 'MapTab') {
-  //   icon = isFocused ? <Map /> : <MapOutline />;
-  // } else if (routeName === 'CameraTab') {
-  //   icon = isFocused ? <Camera /> : <CameraOutline />;
-  // } else if (routeName === 'SettingsTab') {
-  //   icon = isFocused ? <Grid /> : <GridOutline />;
-  // }
   return (
     <RectButtonBox
       flex={1}

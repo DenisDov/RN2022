@@ -4,12 +4,12 @@ import React from 'react';
 import { SettingsItem } from '../../../components/SettingsItem';
 import { Box, ScrollBox } from '../../../theme';
 
-type Props = {
+type Settings = {
   label: string;
   navTo: string;
-}[];
+};
 
-const ROUTES: Props = [
+const ROUTES: Array<Settings> = [
   {
     label: 'react-native-render-html',
     navTo: 'HTMLScreen',
