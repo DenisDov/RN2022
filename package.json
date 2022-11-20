@@ -10,7 +10,8 @@
     "install-m1": "yarn install-modules && cd ios && rm -rf Pods Podfile.lock && arch -x86_64 pod install && cd ..",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "clean": "react-native-clean-project"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4",
@@ -60,6 +61,7 @@
     "eslint": "^7.32.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "0.72.3",
+    "react-native-clean-project": "^4.0.1",
     "react-test-renderer": "18.1.0",
     "reactotron-react-native": "^5.0.3",
     "reactotron-redux": "^3.1.3",
