@@ -150,8 +150,11 @@ const ProgressBar = ({
   }, [fade, scale]);
 
   React.useEffect(() => {
-    if (visible) startAnimation();
-    else stopAnimation();
+    if (visible) {
+      startAnimation();
+    } else {
+      stopAnimation();
+    }
   }, [visible, startAnimation, stopAnimation]);
 
   React.useEffect(() => {
