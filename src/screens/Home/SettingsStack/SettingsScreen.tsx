@@ -22,6 +22,10 @@ const ROUTES: Array<Settings> = [
     label: 'react-native-webview',
     navTo: 'WebViewScreen',
   },
+  {
+    label: '@react-native-camera-roll/camera-roll',
+    navTo: 'CameraRollScreen',
+  },
 ];
 
 const SettingsScreen = () => {
