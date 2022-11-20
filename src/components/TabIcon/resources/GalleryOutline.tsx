@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Svg, { Circle, Path, Rect, SvgProps } from 'react-native-svg';
+import Svg, { Circle, Path, Rect } from 'react-native-svg';
 
-const GalleryOutline = (props: SvgProps) => (
-  <Svg viewBox="0 0 512 512" width={24} height={24} {...props}>
+const GalleryOutline = () => (
+  <Svg viewBox="0 0 512 512" width={24} height={24}>
     <Rect
       x={48}
       y={80}

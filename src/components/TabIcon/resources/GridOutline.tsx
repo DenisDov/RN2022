@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Svg, { Rect, SvgProps } from 'react-native-svg';
+import Svg, { Rect } from 'react-native-svg';
 
-const GridOutline = (props: SvgProps) => (
-  <Svg viewBox="0 0 512 512" width={24} height={24} {...props}>
+const GridOutline = () => (
+  <Svg viewBox="0 0 512 512" width={24} height={24}>
     <Rect
       x={48}
       y={48}
