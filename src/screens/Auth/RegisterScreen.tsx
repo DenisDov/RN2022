@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 
 import { Button } from '../../components/Button';
 import { Box, SafeAreaBox, Text } from '../../theme';
 
 const RegisterScreen = () => {
-  // const [name, setName] = useState('');
-  // const [password, setPassword] = useState('');
-
-  // const onChange = (v: string) => {
-  //   setValue(v);
-  // };
   return (
     <SafeAreaBox flex={1}>
       <Box

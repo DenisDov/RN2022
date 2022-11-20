@@ -6,7 +6,7 @@ import Video from 'react-native-video';
 import { Box, Text } from '../../../theme';
 
 const VideoScreen = () => {
-  const [videoError, setVideoError] = useState('');
+  const [videoError, setVideoError] = useState<string>('');
   // const videoRef = useRef<Video>(null);
 
   const onVideoError = (error: { [key: string]: string }) => {

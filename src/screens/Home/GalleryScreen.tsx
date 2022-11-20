@@ -6,8 +6,8 @@ import { ActivityIndicator } from '../../components/ActivityIndicator';
 import { Box, ImageBox } from '../../theme';
 
 const GalleryScreen = () => {
-  const [photos, setPhotos] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [photos, setPhotos] = useState<[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     setLoading(true);
