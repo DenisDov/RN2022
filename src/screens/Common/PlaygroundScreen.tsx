@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 
 import { Button } from '../../components/Button';
 import { Box, Card, ScrollBox, Text, theme } from '../../theme';
@@ -8,7 +9,7 @@ const PlaygroundScreen = () => {
     <ScrollBox
       flex={1}
       backgroundColor="background"
-      contentContainerStyle={{ padding: 16 }}>
+      contentContainerStyle={styles.scrollContent}>
       {/* Colors */}
       <Text variant="title">Colors</Text>
       <Box flexDirection="row" flexWrap="wrap">
@@ -62,5 +63,11 @@ const PlaygroundScreen = () => {
     </ScrollBox>
   );
 };
+
+const styles = StyleSheet.create({
+  scrollContent: {
+    padding: theme.spacing.m,
+  },
+});
 
 export default PlaygroundScreen;
