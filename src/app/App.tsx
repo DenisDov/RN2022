@@ -1,9 +1,9 @@
 import { ThemeProvider } from '@shopify/restyle';
 import React from 'react';
 import { StatusBar, StyleSheet } from 'react-native';
-// import { useNetInfo } from '@react-native-community/netinfo';
 import FlashMessage from 'react-native-flash-message';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { ModalProvider, createModalStack } from 'react-native-modalfy';
 import {
   SafeAreaProvider,
   initialWindowMetrics,
@@ -11,16 +11,16 @@ import {
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import { ConfirmModal } from '../components/Modals/ConfirmModal';
 import { theme } from '../theme';
 import AppNavigator from './Navigation';
 import { persistor, store } from './store';
 
-// import { useNetworkStatus } from '../hooks/useNetworkStatus';
+const modalConfig = { ConfirmModal };
+const defaultOptions = { backdropOpacity: 0.6 };
+const stack = createModalStack(modalConfig, defaultOptions);
 
 const App = () => {
-  // const netInfo = useNetInfo();
-  // console.log('netInfo: ', netInfo);
-
   return (
     <GestureHandlerRootView style={styles.root}>
       <Provider store={store}>
@@ -28,7 +28,9 @@ const App = () => {
           <ThemeProvider theme={theme}>
             <StatusBar barStyle="dark-content" backgroundColor="black" />
             <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-              <AppNavigator />
+              <ModalProvider stack={stack}>
+                <AppNavigator />
+              </ModalProvider>
             </SafeAreaProvider>
             <FlashMessage position="bottom" />
           </ThemeProvider>

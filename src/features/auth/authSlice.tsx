@@ -12,30 +12,22 @@ type AuthState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState: { user: null } as AuthState,
-  reducers: {},
+  reducers: {
+    logOut: state => {
+      state.user = null;
+    },
+  },
   extraReducers: builder => {
     builder.addMatcher(
       authApi.endpoints.login.matchFulfilled,
       (state, { payload }) => {
         state.user = payload;
-        // state.token = payload.token;
       },
     );
   },
-  // reducers: {
-  //   setCredentials: (
-  //     state,
-  //     {
-  //       payload: { user, token },
-  //     }: PayloadAction<{ user: User; token: string }>,
-  //   ) => {
-  //     state.user = user;
-  //     state.token = token;
-  //   },
-  // },
 });
 
-export const { setCredentials } = authSlice.actions;
+export const { logOut } = authSlice.actions;
 
 // Selectors start
 const selectSelf = (state: RootState) => state.auth;
