@@ -2,7 +2,7 @@ import { CameraRoll } from '@react-native-camera-roll/camera-roll';
 import React, { useEffect, useState } from 'react';
 import { ScrollView } from 'react-native';
 
-import { ActivityIndicator } from '../../components/ActivityIndicator';
+import { ProgressBar } from '../../components/ProgressBar';
 import { Box, ImageBox } from '../../theme';
 
 const GalleryScreen = () => {
@@ -24,7 +24,9 @@ const GalleryScreen = () => {
   return (
     <Box flex={1} backgroundColor="background" padding="m" alignItems="center">
       {loading ? (
-        <ActivityIndicator />
+        <Box position="absolute" left={0} right={0}>
+          <ProgressBar indeterminate />
+        </Box>
       ) : (
         <ScrollView>
           {photos.map((p, i) => {
