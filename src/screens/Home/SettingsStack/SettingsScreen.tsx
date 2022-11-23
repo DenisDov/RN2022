@@ -22,6 +22,10 @@ const ROUTES: Array<Settings> = [
     label: 'react-native-webview',
     navTo: 'WebViewScreen',
   },
+  {
+    label: 'image-picker',
+    navTo: 'ImagePickerScreen',
+  },
 ];
 
 const SettingsScreen = () => {

@@ -63,7 +63,6 @@ const GalleryScreen = () => {
 
       getPermissionAndroid();
       if (isActive) {
-        setLoading(true);
         CameraRoll.getPhotos({ first: 60 })
           .then(r => {
             console.log('r: ', r);
@@ -79,6 +78,7 @@ const GalleryScreen = () => {
 
       return () => {
         isActive = false;
+        setLoading(true);
       };
     }, []),
   );
