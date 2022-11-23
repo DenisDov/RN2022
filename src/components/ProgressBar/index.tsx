@@ -179,7 +179,7 @@ const ProgressBar = ({
   //   const trackTintColor = setColor(tintColor).alpha(0.38).rgb().string();
   const tintColor = color || '#5065ED';
   //   const trackTintColor = setColor(tintColor).alpha(0.38).rgb().string();
-  const trackTintColor = 'rgba(80, 101, 237, 0.38)';
+  const trackTintColor = '#5065ED38';
 
   return (
     <View

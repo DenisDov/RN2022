@@ -19,6 +19,7 @@ const WelcomeScreen = () => {
         </Box>
 
         <Button
+          primary
           text="❖ Get started ❖"
           onPress={() => navigation.navigate('Login')}
         />

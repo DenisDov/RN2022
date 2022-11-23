@@ -21,7 +21,7 @@ const ConfirmModal = ({ modal: { getParam, closeModal } }) => {
         <Text marginBottom="m">{message}</Text>
         <Box flexDirection="row">
           <Box flex={1}>
-            <Button onPress={closeModal} text={button1} />
+            <Button primary onPress={closeModal} text={button1} />
           </Box>
 
           {button2 && (
@@ -29,7 +29,7 @@ const ConfirmModal = ({ modal: { getParam, closeModal } }) => {
               <Box width={16} />
 
               <Box flex={1}>
-                <Button onPress={onSubmit} text={button2} />
+                <Button primary onPress={onSubmit} text={button2} />
               </Box>
             </>
           )}

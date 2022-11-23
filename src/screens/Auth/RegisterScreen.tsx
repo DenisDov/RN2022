@@ -38,7 +38,11 @@ const RegisterScreen = () => {
             autoCapitalize="none"
             autoCorrect={false}
           />
-          <Button text="Submit" onPress={() => console.log('REGISTER')} />
+          <Button
+            primary
+            text="Submit"
+            onPress={() => console.log('REGISTER')}
+          />
         </Box>
       </Box>
     </SafeAreaBox>

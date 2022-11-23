@@ -52,10 +52,10 @@ const PlaygroundScreen = () => {
 
       {/* Buttons */}
       <Text variant="title">Buttons</Text>
-      <Button text="Primary button" onPress={() => null} />
+      <Button primary text="Primary button" onPress={() => null} />
       <Box height={16} />
       <Button
-        outline={true}
+        outline
         // isLoading
         text="Outline button"
         onPress={() => null}

@@ -32,6 +32,7 @@ const HomeScreen = () => {
       <Text marginBottom="m">Whereas recognition of the inherent dignity</Text>
 
       <Button
+        primary
         text="Playground"
         onPress={() => navigation.navigate('Playground')}
       />
@@ -45,11 +46,13 @@ const HomeScreen = () => {
       </Text>
 
       <Button
+        primary
         text="Go to products"
         onPress={() => navigation.navigate('Products')}
       />
       <Box height={16} />
       <Button
+        primary
         text="Go to profile"
         onPress={() => navigation.navigate('Profile')}
       />
