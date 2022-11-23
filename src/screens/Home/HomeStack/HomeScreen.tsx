@@ -1,12 +1,13 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { useModal } from 'react-native-modalfy';
 
 import { Button } from '../../../components/Button';
 import { logOut } from '../../../features/auth/authSlice';
 import { Counter } from '../../../features/counter/Counter';
 import { useAppDispatch } from '../../../hooks/store';
-import { Box, Text } from '../../../theme';
+import { Box, ScrollBox, Text, theme } from '../../../theme';
 
 const HomeScreen = () => {
   const dispatch = useAppDispatch();
@@ -27,7 +28,12 @@ const HomeScreen = () => {
   };
 
   return (
-    <Box padding="m" flex={1} backgroundColor="background">
+    <ScrollBox
+      flex={1}
+      backgroundColor="background"
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.scrollContent}>
+      {/* <Box padding="m" flex={1} backgroundColor="background"> */}
       <Text variant="title">Raleway</Text>
       <Text marginBottom="m">Whereas recognition of the inherent dignity</Text>
 
@@ -60,8 +66,15 @@ const HomeScreen = () => {
       <Button outline text="Logout" onPress={handleLogout} />
 
       {/* <Hamburger color="red" /> */}
-    </Box>
+      {/* </Box> */}
+    </ScrollBox>
   );
 };
+
+const styles = StyleSheet.create({
+  scrollContent: {
+    padding: theme.spacing.m,
+  },
+});
 
 export default HomeScreen;

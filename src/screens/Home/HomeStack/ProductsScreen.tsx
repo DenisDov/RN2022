@@ -31,7 +31,7 @@ const ProductsScreen = () => {
           renderItem={({ item }) => (
             <ProductsCard item={item} navigation={navigation} />
           )}
-          estimatedItemSize={40}
+          estimatedItemSize={30}
           numColumns={2}
           ListEmptyComponent={<Text>no products available</Text>}
           keyExtractor={item => item.id}

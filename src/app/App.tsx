@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@shopify/restyle';
 import React from 'react';
-import { StatusBar, StyleSheet } from 'react-native';
+import { Platform, StatusBar, StyleSheet } from 'react-native';
 import FlashMessage from 'react-native-flash-message';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ModalProvider, createModalStack } from 'react-native-modalfy';
@@ -17,8 +17,7 @@ import AppNavigator from './Navigation';
 import { persistor, store } from './store';
 
 const modalConfig = { ConfirmModal };
-const defaultOptions = { backdropOpacity: 0.6 };
-const stack = createModalStack(modalConfig, defaultOptions);
+const stack = createModalStack(modalConfig);
 
 const App = () => {
   return (
@@ -26,7 +25,12 @@ const App = () => {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ThemeProvider theme={theme}>
-            <StatusBar barStyle="dark-content" backgroundColor="black" />
+            <StatusBar
+              barStyle={`${
+                Platform.OS === 'android' ? 'light' : 'dark'
+              }-content`}
+              backgroundColor="black"
+            />
             <SafeAreaProvider initialMetrics={initialWindowMetrics}>
               <ModalProvider stack={stack}>
                 <AppNavigator />
