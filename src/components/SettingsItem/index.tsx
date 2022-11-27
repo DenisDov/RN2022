@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import { Box, RectButtonBox, Text } from '../../theme';
@@ -37,16 +38,20 @@ function SettingsItem({ onPress, label }: Props) {
         borderTopWidth={2}
         borderRightWidth={2}
         borderColor="light"
-        style={{
-          transform: [
-            {
-              rotate: '45deg',
-            },
-          ],
-        }}
+        style={styles.arrowRight}
       />
     </RectButtonBox>
   );
 }
+
+const styles = StyleSheet.create({
+  arrowRight: {
+    transform: [
+      {
+        rotate: '45deg',
+      },
+    ],
+  },
+});
 
 export { SettingsItem };

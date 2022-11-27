@@ -6,7 +6,6 @@ import { User, authApi } from '../../services/authApi';
 
 type AuthState = {
   user: User | null;
-  // token: string | null;
 };
 
 const authSlice = createSlice({
