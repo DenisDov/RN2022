@@ -135,7 +135,6 @@ const LoginScreen = () => {
             </Box>
 
             <Button
-              primary
               text="Login"
               onPress={handleSubmit(handleLogin)}
               isLoading={isLoading}

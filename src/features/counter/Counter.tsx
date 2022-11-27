@@ -15,19 +15,11 @@ const Counter = () => {
       </Text>
       <Box flexDirection="row" justifyContent="space-between">
         <Box flex={1}>
-          <Button
-            primary
-            onPress={() => dispatch(decrement())}
-            text="decrement"
-          />
+          <Button onPress={() => dispatch(decrement())} text="decrement" />
         </Box>
         <Box marginHorizontal="s" />
         <Box flex={1}>
-          <Button
-            primary
-            onPress={() => dispatch(increment())}
-            text="increment"
-          />
+          <Button onPress={() => dispatch(increment())} text="increment" />
         </Box>
       </Box>
     </Card>

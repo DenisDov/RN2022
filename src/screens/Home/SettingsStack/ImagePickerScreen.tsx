@@ -33,7 +33,7 @@ const ImagePickerScreen = () => {
             />
           </Box>
         ))}
-      <Button text="Pick image" primary onPress={handlePickImage} />
+      <Button text="Pick image" onPress={handlePickImage} />
     </Box>
   );
 };

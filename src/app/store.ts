@@ -19,7 +19,7 @@ import { rootApi } from '../services/rootApi';
 
 const storage = new MMKV();
 
-export const reduxStorage: Storage = {
+const reduxStorage: Storage = {
   setItem: (key, value) => {
     storage.set(key, value);
     return Promise.resolve(true);

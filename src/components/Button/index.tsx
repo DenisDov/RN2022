@@ -9,31 +9,31 @@ type Props = {
   onPress: () => void;
   text: string;
   isLoading?: boolean;
-  primary?: boolean;
-  outline?: boolean;
+  type?: 'primary' | 'outline';
 };
 
 // RectButton from react-native-gesture-handler has no border styling for Android, so we need wrap ReactButton in View
-const Button = ({ onPress, text, isLoading, primary, outline }: Props) => {
+const Button = ({ onPress, text, isLoading, type = 'primary' }: Props) => {
   return (
-    <Box style={[styles.container, outline && styles.outlineContiner]}>
+    <Box
+      style={[styles.container, type === 'outline' && styles.outlineContiner]}>
       <RectButton
         onPress={onPress}
         style={[
           styles.button,
-          primary && styles.primaryButton,
-          outline && styles.outlineButton,
+          type === 'primary' && styles.primaryButton,
+          type === 'outline' && styles.outlineButton,
         ]}
         enabled={!isLoading}>
         {isLoading ? (
           <ActivityIndicator
-            color={outline ? theme.colors.main : theme.colors.light}
+            color={type === 'outline' ? theme.colors.main : theme.colors.light}
           />
         ) : (
           <Text
             style={[
               styles.primaryTextColor,
-              outline && styles.outlineTextColor,
+              type === 'outline' && styles.outlineTextColor,
             ]}>
             {text}
           </Text>
