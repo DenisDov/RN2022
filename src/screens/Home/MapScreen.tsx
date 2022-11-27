@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Region } from 'react-native-maps';
 
 import { Box, Text } from '../../theme';
 
@@ -12,7 +12,7 @@ const MapScreen = () => {
     longitudeDelta: 0.0421,
   });
 
-  const handleRegionChange = (coords: any) => {
+  const handleRegionChange = (coords: Region) => {
     setRegion(coords);
   };
 

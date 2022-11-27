@@ -10,11 +10,13 @@ const SingleProductScreen = () => {
   const route = useRoute<SingleProductScreenRouteProp>();
   const navigation = useNavigation();
   const { productId, brand = '' } = route.params;
+
   useEffect(() => {
     navigation.setOptions({
       title: brand,
     });
   }, [navigation, brand]);
+
   const {
     data: product,
     isLoading,

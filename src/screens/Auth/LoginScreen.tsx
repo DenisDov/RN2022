@@ -12,7 +12,7 @@ import * as yup from 'yup';
 
 import { Images } from '../../assets';
 import { Button } from '../../components/Button';
-import { useLoginMutation } from '../../services/authApi';
+import { LoginRequest, useLoginMutation } from '../../services/authApi';
 import {
   Box,
   Card,
@@ -42,22 +42,17 @@ const LoginScreen = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      username: '',
-      password: '',
+      username: 'kminchelle',
+      password: '0lelplR',
     },
     resolver: yupResolver(schema),
   });
 
   const [login, { isLoading }] = useLoginMutation();
 
-  const testCredentials = {
-    username: 'kminchelle',
-    password: '0lelplR',
-  };
-
-  const handleLogin = async credentials => {
+  const handleLogin = async (credentials: LoginRequest) => {
     try {
-      await login(testCredentials).unwrap();
+      await login(credentials).unwrap();
     } catch (error) {
       // console.log(JSON.stringify(error, null, 2));
       showMessage({
@@ -96,7 +91,7 @@ const LoginScreen = () => {
                     onChangeText={onChange}
                     value={value}
                     placeholder="username*"
-                    placeholderTextColor="rgba(0,0,0,0.5)"
+                    placeholderTextColor="#00000050"
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                     autoCorrect={false}
@@ -120,7 +115,7 @@ const LoginScreen = () => {
                     onChangeText={onChange}
                     value={value}
                     placeholder="password*"
-                    placeholderTextColor="rgba(0,0,0,0.5)"
+                    placeholderTextColor="#00000050"
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                     autoCorrect={false}

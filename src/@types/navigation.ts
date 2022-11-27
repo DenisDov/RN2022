@@ -1,5 +1,11 @@
 import type { RouteProp } from '@react-navigation/native';
 
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackParamList {}
+  }
+}
+
 export type RootStackParamList = {
   Welcome: undefined;
 

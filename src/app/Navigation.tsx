@@ -87,7 +87,7 @@ const AppNavigator = () => {
             name="Welcome"
             component={WelcomeScreen}
             options={{
-              // Prevent duplication animate after logout
+              // Prevent double animation after logout
               animation: 'none',
             }}
           />
