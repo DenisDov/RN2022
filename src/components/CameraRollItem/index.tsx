@@ -1,27 +1,9 @@
+import { PhotoIdentifier } from '@react-native-camera-roll/camera-roll';
 import React from 'react';
 
 import { Card, ImageBox, RectButtonBox } from '../../theme';
 
-export interface Image {
-  fileSize: number;
-  filename: string;
-  height: number;
-  playableDuration?: any;
-  uri: string;
-  width: number;
-}
-
-export interface ImageNode {
-  node: {
-    group_name: string;
-    image: Image;
-    location?: any;
-    timestamp: number;
-    type: string;
-  };
-}
-
-const CameraRollItem = ({ item }: { item: ImageNode }) => {
+const CameraRollItem = ({ item }: { item: PhotoIdentifier }) => {
   return (
     <RectButtonBox
       flex={1}

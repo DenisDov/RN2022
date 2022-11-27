@@ -1,17 +1,21 @@
-import { CameraRoll } from '@react-native-camera-roll/camera-roll';
+import {
+  CameraRoll,
+  PhotoIdentifier,
+  PhotoIdentifiersPage,
+} from '@react-native-camera-roll/camera-roll';
 import { useFocusEffect } from '@react-navigation/native';
 import { FlashList } from '@shopify/flash-list';
 import React, { useState } from 'react';
 import { Platform, StyleSheet } from 'react-native';
 
-import { CameraRollItem, ImageNode } from '../../components/CameraRollItem';
+import { CameraRollItem } from '../../components/CameraRollItem';
 import { hasAndroidPermission } from '../../components/CameraRollItem/androidPermission';
 import { ProgressBar } from '../../components/ProgressBar';
 import { Box, theme } from '../../theme';
 
 const GalleryScreen = () => {
-  const [photos, setPhotos] = useState<ImageNode[]>([]);
-  const [loading, setLoading] = useState<boolean | boolean>(true);
+  const [photos, setPhotos] = useState<PhotoIdentifier[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const getPermissionAndroid = async () => {
     if (Platform.OS === 'android' && !(await hasAndroidPermission())) {
@@ -27,8 +31,7 @@ const GalleryScreen = () => {
       getPermissionAndroid();
       if (isActive) {
         CameraRoll.getPhotos({ first: 60 })
-          .then(r => {
-            console.log('r: ', r);
+          .then((r: PhotoIdentifiersPage) => {
             if ('edges' in r) {
               setPhotos(r.edges);
             }
