@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import Video from 'react-native-video';
+import Video, { LoadError } from 'react-native-video';
 
-// import Video from 'react-native-video';
 import { Box, Text } from '../../../theme';
 
 const VideoScreen = () => {
   const [videoError, setVideoError] = useState<string>('');
-  // const videoRef = useRef<Video>(null);
 
-  const onVideoError = (error: { [key: string]: string }) => {
-    setVideoError(error.localizedDescription);
+  const onVideoError = ({ error }: LoadError) => {
+    setVideoError(error.errorString);
   };
   return (
     <Box flex={1} backgroundColor="background" padding="m">
