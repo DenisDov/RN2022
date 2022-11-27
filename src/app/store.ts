@@ -1,5 +1,5 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { MMKV } from 'react-native-mmkv';
 import {
   FLUSH,
   PAUSE,
@@ -7,6 +7,7 @@ import {
   PURGE,
   REGISTER,
   REHYDRATE,
+  Storage,
   persistReducer,
   persistStore,
 } from 'redux-persist';
@@ -15,6 +16,23 @@ import Reactotron from '../../ReactotronConfig';
 import authReducer from '../features/auth/authSlice';
 import counterReducer from '../features/counter/counterSlice';
 import { rootApi } from '../services/rootApi';
+
+const storage = new MMKV();
+
+export const reduxStorage: Storage = {
+  setItem: (key, value) => {
+    storage.set(key, value);
+    return Promise.resolve(true);
+  },
+  getItem: key => {
+    const value = storage.getString(key);
+    return Promise.resolve(value);
+  },
+  removeItem: key => {
+    storage.delete(key);
+    return Promise.resolve();
+  },
+};
 
 const rootReducer = combineReducers({
   [rootApi.reducerPath]: rootApi.reducer,
@@ -25,7 +43,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'root',
   version: 1,
-  storage: AsyncStorage,
+  storage: reduxStorage,
   whitelist: ['auth'],
   blacklist: [rootApi.reducerPath],
 };
