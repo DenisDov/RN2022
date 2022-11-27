@@ -1,5 +1,5 @@
 ## Installation
 
 ```bash
-yarn install && npx pod-install
+yarn install && cd ios && pod install && cd ..
 ```

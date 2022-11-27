@@ -5,9 +5,6 @@
   "scripts": {
     "a": "npx react-native run-android",
     "s": "npx react-native run-ios --simulator='iPhone SE (3rd generation)'",
-    "install-modules": "rm -rf node_modules yarn.lock && yarn",
-    "install-arch64": "yarn install-modules && cd ios && rm -rf Pods Podfile.lock && pod install && cd ..",
-    "install-m1": "yarn install-modules && cd ios && rm -rf Pods Podfile.lock && arch -x86_64 pod install && cd ..",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
@@ -33,6 +30,7 @@
     "react-native-flash-message": "^0.3.1",
     "react-native-gesture-handler": "^2.8.0",
     "react-native-haptic-feedback": "^1.14.0",
+    "react-native-image-picker": "^4.10.1",
     "react-native-linear-gradient": "^2.6.2",
     "react-native-maps": "^1.3.2",
     "react-native-modalfy": "^3.3.2",
