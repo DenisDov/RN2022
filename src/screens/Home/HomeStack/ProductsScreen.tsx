@@ -17,7 +17,7 @@ const ProductsScreen = () => {
     <Box flex={1} backgroundColor="background">
       {error && (
         <Box padding="m">
-          <Text>{`${error}`}</Text>
+          <Text>{error.toString()}</Text>
         </Box>
       )}
       {isLoading && !allProducts && (

@@ -1,3 +1,5 @@
+import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
+
 import { capitalize } from '../utils/capitalize';
 import { rootApi } from './rootApi';
 
@@ -9,6 +11,9 @@ export interface IProduct {
   description: string;
   price: string;
 }
+
+const transformErrorResponse = (response: FetchBaseQueryError) =>
+  `Oh no: ${response.status}`;
 
 const productsApi = rootApi.injectEndpoints({
   endpoints: builder => ({
@@ -25,11 +30,12 @@ const productsApi = rootApi.injectEndpoints({
             }).format(+product.price),
           };
         }),
-      transformErrorResponse: response => `Oh no: ${response.status}`,
+      transformErrorResponse,
       providesTags: ['Product'],
     }),
     getSingleProduct: builder.query<IProduct, string>({
       query: (id: string) => `/products/${id}`,
+      transformErrorResponse,
     }),
   }),
   overrideExisting: false,

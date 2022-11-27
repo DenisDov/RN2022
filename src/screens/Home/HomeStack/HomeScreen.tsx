@@ -33,7 +33,6 @@ const HomeScreen = () => {
       backgroundColor="background"
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.scrollContent}>
-      {/* <Box padding="m" flex={1} backgroundColor="background"> */}
       <Text variant="title">Raleway</Text>
       <Text marginBottom="m">Whereas recognition of the inherent dignity</Text>
 
@@ -61,9 +60,6 @@ const HomeScreen = () => {
       />
       <Box height={16} />
       <Button type="outline" text="Logout" onPress={handleLogout} />
-
-      {/* <Hamburger color="red" /> */}
-      {/* </Box> */}
     </ScrollBox>
   );
 };

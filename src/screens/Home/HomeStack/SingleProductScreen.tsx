@@ -26,7 +26,7 @@ const SingleProductScreen = () => {
   return (
     <Box flex={1} backgroundColor="background" padding="m">
       {error ? (
-        <Text>{error.status}</Text>
+        <Text>{error.toString()}</Text>
       ) : isLoading && !product ? (
         <Box margin="xl">
           <ActivityIndicator />
