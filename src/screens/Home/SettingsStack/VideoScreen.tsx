@@ -30,7 +30,7 @@ const VideoScreen = () => {
   );
 };
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   video: {
     position: 'absolute',
     top: 0,

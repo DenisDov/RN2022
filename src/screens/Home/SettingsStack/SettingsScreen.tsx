@@ -15,16 +15,24 @@ const ROUTES: Array<Settings> = [
     navTo: 'HTMLScreen',
   },
   {
-    label: 'react-native-video',
-    navTo: 'VideoScreen',
-  },
-  {
     label: 'react-native-webview',
     navTo: 'WebViewScreen',
   },
   {
     label: 'image-picker',
     navTo: 'ImagePickerScreen',
+  },
+  {
+    label: 'react-native-video',
+    navTo: 'VideoScreen',
+  },
+  {
+    label: 'react-native-youtube-iframe',
+    navTo: 'YoutubeScreen',
+  },
+  {
+    label: 'react-native-vimeo-iframe',
+    navTo: 'VimeoScreen',
   },
 ];
 

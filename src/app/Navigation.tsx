@@ -22,7 +22,9 @@ import HTMLScreen from '../screens/Home/SettingsStack/HTMLScreen';
 import ImagePickerScreen from '../screens/Home/SettingsStack/ImagePickerScreen';
 import SettingsScreen from '../screens/Home/SettingsStack/SettingsScreen';
 import VideoScreen from '../screens/Home/SettingsStack/VideoScreen';
+import VimeoScreen from '../screens/Home/SettingsStack/VimeoScreen';
 import WebViewScreen from '../screens/Home/SettingsStack/WebViewScreen';
+import YoutubeScreen from '../screens/Home/SettingsStack/YoutubeScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
@@ -44,9 +46,11 @@ const SettingsTabStack = () => {
     <Stack.Navigator>
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="HTMLScreen" component={HTMLScreen} />
-      <Stack.Screen name="VideoScreen" component={VideoScreen} />
       <Stack.Screen name="WebViewScreen" component={WebViewScreen} />
       <Stack.Screen name="ImagePickerScreen" component={ImagePickerScreen} />
+      <Stack.Screen name="VideoScreen" component={VideoScreen} />
+      <Stack.Screen name="YoutubeScreen" component={YoutubeScreen} />
+      <Stack.Screen name="VimeoScreen" component={VimeoScreen} />
     </Stack.Navigator>
   );
 };

@@ -8,7 +8,6 @@ declare global {
 
 export type RootStackParamList = {
   Welcome: undefined;
-
   Register: undefined;
   Login: undefined;
 
@@ -22,10 +21,12 @@ export type RootStackParamList = {
 
   Settings: undefined;
   HTMLScreen: undefined;
-  VideoScreen: undefined;
   WebViewScreen: undefined;
   CameraRollScreen: undefined;
   ImagePickerScreen: undefined;
+  VideoScreen: undefined;
+  YoutubeScreen: undefined;
+  VimeoScreen: undefined;
 
   Playground: undefined;
 };
