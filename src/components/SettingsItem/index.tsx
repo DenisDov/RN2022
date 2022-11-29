@@ -35,8 +35,8 @@ function SettingsItem({ onPress, label }: Props) {
       <Box
         width={10}
         height={10}
-        borderTopWidth={2}
-        borderRightWidth={2}
+        borderTopWidth={1}
+        borderRightWidth={1}
         borderColor="light"
         style={styles.arrowRight}
       />
