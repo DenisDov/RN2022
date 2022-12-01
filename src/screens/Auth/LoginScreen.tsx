@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTheme } from '@shopify/restyle';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import {
@@ -36,6 +37,7 @@ const schema = yup
   .required();
 
 const LoginScreen = () => {
+  const theme = useTheme();
   const {
     control,
     handleSubmit,
@@ -91,7 +93,7 @@ const LoginScreen = () => {
                     onChangeText={onChange}
                     value={value}
                     placeholder="username*"
-                    placeholderTextColor="#00000050"
+                    placeholderTextColor={theme.colors.inputPlaceholder}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                     autoCorrect={false}
@@ -115,7 +117,7 @@ const LoginScreen = () => {
                     onChangeText={onChange}
                     value={value}
                     placeholder="password*"
-                    placeholderTextColor="#00000050"
+                    placeholderTextColor={theme.colors.inputPlaceholder}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                     autoCorrect={false}
@@ -148,7 +150,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Raleway-Regular',
     height: theme.spacing.xl,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: theme.colors.main,
+    borderColor: theme.colors.dark,
   },
   error: {
     fontSize: 14,

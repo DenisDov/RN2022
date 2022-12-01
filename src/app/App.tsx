@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@shopify/restyle';
-import React from 'react';
-import { Platform, StatusBar, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { StatusBar, StyleSheet, useColorScheme } from 'react-native';
 import FlashMessage from 'react-native-flash-message';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ModalProvider, createModalStack } from 'react-native-modalfy';
@@ -12,7 +12,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { ConfirmModal } from '../components/Modals/ConfirmModal';
-import { theme } from '../theme';
+import { darkTheme, theme } from '../theme';
 import AppNavigator from './Navigation';
 import { persistor, store } from './store';
 
@@ -20,16 +20,16 @@ const modalConfig = { ConfirmModal };
 const stack = createModalStack(modalConfig);
 
 const App = () => {
+  const isDarkMode = useColorScheme() === 'dark';
+  const [darkMode] = useState(!isDarkMode);
+  console.log('darkMode: ', darkMode);
   return (
     <GestureHandlerRootView style={styles.root}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <ThemeProvider theme={theme}>
+          <ThemeProvider theme={isDarkMode ? darkTheme : theme}>
             <StatusBar
-              barStyle={`${
-                Platform.OS === 'android' ? 'light' : 'dark'
-              }-content`}
-              backgroundColor="black"
+              barStyle={isDarkMode ? 'light-content' : 'dark-content'}
             />
             <SafeAreaProvider initialMetrics={initialWindowMetrics}>
               <ModalProvider stack={stack}>

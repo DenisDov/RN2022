@@ -16,7 +16,7 @@ type Props = {
 const Button = ({ onPress, text, isLoading, type = 'primary' }: Props) => {
   return (
     <Box
-      style={[styles.container, type === 'outline' && styles.outlineContiner]}>
+      style={[styles.container, type === 'outline' && styles.outlineContainer]}>
       <RectButton
         onPress={onPress}
         style={[
@@ -26,13 +26,11 @@ const Button = ({ onPress, text, isLoading, type = 'primary' }: Props) => {
         ]}
         enabled={!isLoading}>
         {isLoading ? (
-          <ActivityIndicator
-            color={type === 'outline' ? theme.colors.main : theme.colors.light}
-          />
+          <ActivityIndicator color="main" />
         ) : (
           <Text
             style={[
-              styles.primaryTextColor,
+              styles.buttonText,
               type === 'outline' && styles.outlineTextColor,
             ]}>
             {text}
@@ -48,7 +46,7 @@ const styles = StyleSheet.create({
     height: theme.spacing.xl,
     borderRadius: theme.borderRadii.s,
   },
-  outlineContiner: {
+  outlineContainer: {
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.main,
   },
@@ -59,15 +57,15 @@ const styles = StyleSheet.create({
     borderRadius: theme.borderRadii.s,
   },
   primaryButton: {
-    backgroundColor: theme.colors.secondary,
-    shadowColor: theme.colors.main,
+    backgroundColor: theme.colors.main,
+    shadowColor: theme.colors.shadow,
     shadowOpacity: 0.5,
-    shadowOffset: { width: 5, height: 5 },
-    shadowRadius: 5,
-    elevation: 5,
+    shadowOffset: { width: 2, height: 2 },
+    shadowRadius: 2,
+    elevation: 2,
   },
-  primaryTextColor: {
-    color: theme.colors.light,
+  buttonText: {
+    color: theme.colors.buttonText,
   },
   outlineButton: {
     shadowOpacity: 0,
@@ -75,7 +73,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   outlineTextColor: {
-    color: theme.colors.main,
+    color: theme.colors.outlineButtonText,
   },
 });
 

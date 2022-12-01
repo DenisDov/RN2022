@@ -25,13 +25,23 @@ import VideoScreen from '../screens/Home/SettingsStack/VideoScreen';
 import VimeoScreen from '../screens/Home/SettingsStack/VimeoScreen';
 import WebViewScreen from '../screens/Home/SettingsStack/WebViewScreen';
 import YoutubeScreen from '../screens/Home/SettingsStack/YoutubeScreen';
+import { theme } from '../theme';
+
+// const navigationTheme = {
+//   ...DarkTheme,
+//   colors: {
+//     ...DarkTheme.colors,
+//     card: theme.colors.main,
+//   },
+// };
+// console.log('navigationTheme: ', navigationTheme);
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
 
 const HomeTabStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="Products" component={ProductsScreen} />
@@ -43,7 +53,7 @@ const HomeTabStack = () => {
 
 const SettingsTabStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="HTMLScreen" component={HTMLScreen} />
       <Stack.Screen name="WebViewScreen" component={WebViewScreen} />
@@ -59,23 +69,21 @@ const AppNavigator = () => {
   const auth = useAuth();
   const isAuthenicated = !!auth?.user?.token || false;
   return (
-    <NavigationContainer
-      // theme={DarkTheme}
-      onReady={() => RNBootSplash.hide({ fade: true })}>
+    <NavigationContainer onReady={() => RNBootSplash.hide({ fade: true })}>
       {isAuthenicated ? (
         <Tab.Navigator
           screenOptions={({ route }) => ({
-            // headerShown: false,
+            headerShown: false,
             tabBarShowLabel: false,
             tabBarIcon: ({ focused }) => (
               <TabIcon routeName={route.name} isFocused={focused} />
             ),
+            tabBarStyle: {
+              backgroundColor: '#1A1B1E',
+              borderTopColor: theme.colors.muted,
+            },
           })}>
-          <Tab.Screen
-            name="HomeTab"
-            component={HomeTabStack}
-            options={{ headerShown: false }}
-          />
+          <Tab.Screen name="HomeTab" component={HomeTabStack} />
           <Tab.Screen name="GalleryTab" component={GalleryScreen} />
           <Tab.Screen name="MapTab" component={MapScreen} />
           <Tab.Screen name="CameraTab" component={CameraScreen} />

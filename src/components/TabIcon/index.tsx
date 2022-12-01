@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RectButtonBox } from '../../theme';
+import { RectBox, Text } from '../../theme';
 import Camera from './resources/Camera';
 import CameraOutline from './resources/CameraOutline';
 import Gallery from './resources/Gallery';
@@ -19,34 +19,43 @@ type Props = {
 
 const TabIcon = ({ routeName, isFocused }: Props) => {
   let icon;
+  let label;
   switch (routeName) {
     case 'HomeTab':
       icon = isFocused ? <Home /> : <HomeOutline />;
+      label = 'Home';
       break;
     case 'GalleryTab':
       icon = isFocused ? <Gallery /> : <GalleryOutline />;
+      label = 'Gallery';
       break;
     case 'MapTab':
       icon = isFocused ? <Map /> : <MapOutline />;
+      label = 'Map';
       break;
     case 'CameraTab':
       icon = isFocused ? <Camera /> : <CameraOutline />;
+      label = 'Camera';
       break;
     case 'SettingsTab':
       icon = isFocused ? <Grid /> : <GridOutline />;
+      label = 'Settings';
       break;
     default:
       break;
   }
 
   return (
-    <RectButtonBox
+    <RectBox
       flex={1}
       width={'100%'}
       justifyContent="center"
       alignItems="center">
       {icon}
-    </RectButtonBox>
+      <Text fontSize={12} color="inputPlaceholder" marginTop="xs">
+        {label}
+      </Text>
+    </RectBox>
   );
 };
 

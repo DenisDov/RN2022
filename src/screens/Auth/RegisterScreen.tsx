@@ -9,7 +9,7 @@ const RegisterScreen = () => {
     <SafeAreaBox flex={1}>
       <Box
         flex={1}
-        backgroundColor="background"
+        backgroundColor="surface"
         padding="m"
         // marginTop="xl"
         borderTopLeftRadius="l"

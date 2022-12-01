@@ -1,33 +1,30 @@
 import BottomSheet from '@gorhom/bottom-sheet';
+import { useTheme } from '@shopify/restyle';
 import React, { useMemo, useRef } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { Box, Text } from '../../theme';
 
 const BSheet = () => {
+  const theme = useTheme();
   const bottomSheetRef = useRef<BottomSheet>(null);
 
   const snapPoints = useMemo(() => ['10%', '10%', '100%'], []);
 
   return (
-    <View style={styles.container}>
-      <BottomSheet ref={bottomSheetRef} index={1} snapPoints={snapPoints}>
-        <View style={styles.contentContainer}>
+    <Box flex={1} backgroundColor="surface">
+      <BottomSheet
+        ref={bottomSheetRef}
+        index={1}
+        snapPoints={snapPoints}
+        backgroundStyle={{
+          backgroundColor: theme.colors.background,
+        }}>
+        <Box flex={1} alignItems="center">
           <Text>Awesome 🎉</Text>
-        </View>
+        </Box>
       </BottomSheet>
-    </View>
+    </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: 'grey',
-  },
-  contentContainer: {
-    flex: 1,
-    alignItems: 'center',
-  },
-});
 
 export { BSheet };

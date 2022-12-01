@@ -26,7 +26,7 @@ export type Props = React.ComponentPropsWithRef<typeof View> & {
    */
   progress?: number;
   /**
-   * Color of the progress bar. The background color will be calculated based on this but you can change it by passing `backgroundColor` to `style` prop.
+   * Color of the progress bar. The surface color will be calculated based on this but you can change it by passing `backgroundColor` to `style` prop.
    */
   color?: string;
   /**

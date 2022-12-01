@@ -16,7 +16,11 @@ const ConfirmModal = ({ modal: { getParam, closeModal } }) => {
 
   return (
     <Card>
-      <Box backgroundColor="light" borderRadius="m" padding="m" width={320}>
+      <Box
+        backgroundColor="background"
+        borderRadius="m"
+        padding="m"
+        width={320}>
         <Text>{title}</Text>
         <Text marginBottom="m">{message}</Text>
         <Box flexDirection="row">

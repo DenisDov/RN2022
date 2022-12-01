@@ -20,7 +20,7 @@ const ImagePickerScreen = () => {
   };
 
   return (
-    <Box padding="m">
+    <Box flex={1} backgroundColor="surface" padding="m">
       {response?.assets &&
         response?.assets.map(({ uri }: { uri: string }) => (
           <Box key={uri} alignItems="center" marginBottom="m">

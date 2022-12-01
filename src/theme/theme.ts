@@ -10,17 +10,22 @@ import { createTheme } from '@shopify/restyle';
 
 const theme = createTheme({
   colors: {
-    background: '#F5F5F6',
-    main: '#2F365F',
-    secondary: '#5065ED',
+    surface: '#F5F5F6',
+    background: '#ffffff',
+
+    main: '#5065ED',
+    inputPlaceholder: '#97989E',
+    muted: '#303134',
     error: '#DE3030',
+    shadow: '#121212',
+    buttonText: '#E9EFFE',
 
-    primaryTextColor: '#000000',
-    secondaryTextColor: '#FFFFFF',
-
-    light: '#FFFFFF',
+    primaryText: '#000000',
+    outlineButtonBorder: '#121212',
+    outlineButtonText: '#121212',
+    tabLabel: '#91969D',
   },
-  //Spacing tends to follow multiples of a given base spacing number
+  // Spacing tends to follow multiples of a given base spacing number
   spacing: {
     xs: 4,
     s: 8,
@@ -45,7 +50,7 @@ const theme = createTheme({
     defaults: {
       fontFamily: 'Raleway-Regular',
       fontSize: 16,
-      color: 'primaryTextColor',
+      color: 'primaryText',
     },
     title: {
       fontFamily: 'Raleway-Bold',
@@ -61,23 +66,36 @@ const theme = createTheme({
   },
   cardVariants: {
     defaults: {
-      shadowColor: 'main',
+      shadowColor: 'shadow',
       shadowOpacity: 0.5,
-      shadowOffset: { width: 5, height: 5 },
-      shadowRadius: 5,
-      elevation: 5,
+      shadowOffset: { width: 2, height: 2 },
+      shadowRadius: 2,
+      elevation: 2,
     },
     main: {
-      backgroundColor: 'main',
+      backgroundColor: 'background',
       borderRadius: 'm',
     },
     submitForm: {
-      backgroundColor: 'light',
+      backgroundColor: 'background',
       borderRadius: 'xl',
     },
   },
 });
 
+const darkTheme: Theme = {
+  ...theme,
+  colors: {
+    ...theme.colors,
+    surface: '#1A1B1E',
+    background: '#313235',
+
+    primaryText: '#FFFFFF',
+    outlineButtonBorder: '#E9EFFE',
+    outlineButtonText: '#E9EFFE',
+  },
+};
+
 export type Theme = typeof theme;
 
-export default theme;
+export { theme, darkTheme };

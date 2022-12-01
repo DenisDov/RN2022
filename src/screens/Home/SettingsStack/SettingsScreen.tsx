@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
+import { Header } from '../../../components/Header';
 import { SettingsItem } from '../../../components/SettingsItem';
 import { Box, ScrollBox } from '../../../theme';
 
@@ -39,17 +40,20 @@ const ROUTES: Array<Settings> = [
 const SettingsScreen = () => {
   const navigation = useNavigation();
   return (
-    <ScrollBox flex={1} backgroundColor="background">
-      <Box padding="m">
-        {ROUTES.map(({ label, navTo }) => (
-          <SettingsItem
-            key={label}
-            label={label}
-            onPress={() => navigation.navigate(navTo)}
-          />
-        ))}
-      </Box>
-    </ScrollBox>
+    <Box flex={1} backgroundColor="surface">
+      <Header textTitle="SettingsStack" noBack />
+      <ScrollBox flex={1}>
+        <Box padding="m">
+          {ROUTES.map(({ label, navTo }) => (
+            <SettingsItem
+              key={label}
+              label={label}
+              onPress={() => navigation.navigate(navTo)}
+            />
+          ))}
+        </Box>
+      </ScrollBox>
+    </Box>
   );
 };
 

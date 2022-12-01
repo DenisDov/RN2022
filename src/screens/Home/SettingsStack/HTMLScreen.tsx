@@ -2,6 +2,8 @@ import React from 'react';
 import { useWindowDimensions } from 'react-native';
 import RenderHtml from 'react-native-render-html';
 
+import { Box } from '../../../theme';
+
 const source = {
   html: `
 <p style='text-align:center;'>
@@ -11,7 +13,11 @@ const source = {
 
 const HTMLScreen = () => {
   const { width } = useWindowDimensions();
-  return <RenderHtml contentWidth={width} source={source} />;
+  return (
+    <Box flex={1} backgroundColor="surface">
+      <RenderHtml contentWidth={width} source={source} />
+    </Box>
+  );
 };
 
 export default HTMLScreen;

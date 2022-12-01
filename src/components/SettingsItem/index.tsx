@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
-import { Box, RectButtonBox, Text } from '../../theme';
+import { Box, RectBox, Text } from '../../theme';
 
 type Props = {
   onPress: () => void;
@@ -20,27 +20,27 @@ function SettingsItem({ onPress, label }: Props) {
     onPress();
   };
   return (
-    <RectButtonBox
+    <RectBox
       onPress={handlePress}
       marginBottom="xs"
       padding="m"
-      backgroundColor="main"
+      backgroundColor="background"
       borderRadius="s"
       flexDirection="row"
       alignItems="center"
       justifyContent="center">
       <Box flex={1}>
-        <Text color="secondaryTextColor">{label}</Text>
+        <Text>{label}</Text>
       </Box>
       <Box
         width={10}
         height={10}
         borderTopWidth={1}
         borderRightWidth={1}
-        borderColor="light"
+        borderColor="primaryText"
         style={styles.arrowRight}
       />
-    </RectButtonBox>
+    </RectBox>
   );
 }
 
