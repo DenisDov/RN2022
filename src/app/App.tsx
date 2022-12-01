@@ -21,8 +21,8 @@ const stack = createModalStack(modalConfig);
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
-  const [darkMode] = useState(!isDarkMode);
-  console.log('darkMode: ', darkMode);
+  // const [darkMode] = useState(!isDarkMode);
+  // console.log('darkMode: ', darkMode);
   return (
     <GestureHandlerRootView style={styles.root}>
       <Provider store={store}>

@@ -1,12 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
-import { useTheme } from '@shopify/restyle';
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
 
 import { Images } from '../../assets';
 import { IProduct } from '../../services/productsApi';
-import { Box, ImageBox, RectBox, Text, theme } from '../../theme';
+import { ImageBox, RectBox, Text } from '../../theme';
 
 type ProductItem = {
   item: IProduct;
