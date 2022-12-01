@@ -6,7 +6,7 @@ import {
 import { useFocusEffect } from '@react-navigation/native';
 import { FlashList } from '@shopify/flash-list';
 import React, { useState } from 'react';
-import { Platform, StyleSheet } from 'react-native';
+import { Alert, Platform, StyleSheet } from 'react-native';
 
 import { CameraRollItem } from '../../components/CameraRollItem';
 import { hasAndroidPermission } from '../../components/CameraRollItem/androidPermission';
@@ -19,7 +19,7 @@ const GalleryScreen = () => {
 
   const getPermissionAndroid = async () => {
     if (Platform.OS === 'android' && !(await hasAndroidPermission())) {
-      alert('Permission not granted');
+      Alert.alert('Permission not granted');
       return;
     }
   };
