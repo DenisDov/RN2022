@@ -6911,6 +6911,11 @@ react-native-vimeo-iframe@^1.2.0:
   resolved "https://registry.yarnpkg.com/react-native-vimeo-iframe/-/react-native-vimeo-iframe-1.2.0.tgz#c85d0a96dff6b29d6c9bcd71b08a5e834cf02549"
   integrity sha512-BCEPg0rMqW5RRRW3xO08jvuEr7upaf1uu1vrO9GR6IeFhb/cl0tNCayHt6n2jp6vyY+CR9Xzr3LZ2H3mvdRlYw==
 
+react-native-vision-camera@^2.15.2:
+  version "2.15.2"
+  resolved "https://registry.yarnpkg.com/react-native-vision-camera/-/react-native-vision-camera-2.15.2.tgz#96a17c8b4e557df317734897853a861e0cfbc3ed"
+  integrity sha512-pkVj0r2nbZaj3+bB9CGPNistCUyoCgS2SmawzugrZs5oMlFWlgZYuJj+6s3Q98xTGgV/8/ST0njohB6soDi0VA==
+
 react-native-webview@^11.23.1:
   version "11.23.1"
   resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-11.23.1.tgz#6a4bf2620e491dd4fecf4e6dc079005117fae12c"
