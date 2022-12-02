@@ -21,16 +21,12 @@ const stack = createModalStack(modalConfig);
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
-  // const [darkMode] = useState(!isDarkMode);
-  // console.log('darkMode: ', darkMode);
   return (
     <GestureHandlerRootView style={styles.root}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ThemeProvider theme={isDarkMode ? darkTheme : theme}>
-            <StatusBar
-              barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-            />
+            <StatusBar barStyle="light-content" />
             <SafeAreaProvider initialMetrics={initialWindowMetrics}>
               <ModalProvider stack={stack}>
                 <AppNavigator />

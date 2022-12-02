@@ -26,7 +26,7 @@ const OutlineButton = ({ onPress, label, isLoading }: Props) => {
         alignItems="center"
         borderRadius="s">
         {isLoading ? (
-          <ActivityIndicator color="main" />
+          <ActivityIndicator color="#121212" />
         ) : (
           <Text color="outlineButtonText">{label}</Text>
         )}

@@ -26,7 +26,7 @@ const PrimaryButton = ({ onPress, label, isLoading }: Props) => {
       shadowRadius={2}
       elevation={2}>
       {isLoading ? (
-        <ActivityIndicator color="main" />
+        <ActivityIndicator color="white" />
       ) : (
         <Text color="primaryButtonText">{label}</Text>
       )}

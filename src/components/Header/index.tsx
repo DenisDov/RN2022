@@ -1,4 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
+import { useTheme } from '@shopify/restyle';
 import React from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -15,17 +16,27 @@ type Props = {
 };
 
 const Header = ({ noBack, textTitle, translucent }: Props) => {
+  const theme = useTheme();
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
-  const marginTop = insets.top;
   return (
-    <Box
-      style={[{ marginTop }, styles.header, translucent && styles.translucent]}
-      backgroundColor={!translucent ? 'main' : undefined}>
+    <>
       <Box
+        height={insets.top}
+        style={{
+          backgroundColor: !translucent ? theme.colors.statusBar : undefined,
+        }}
+      />
+      <Box
+        backgroundColor={!translucent ? 'main' : undefined}
         flexDirection="row"
         justifyContent="space-between"
-        alignItems="center">
+        alignItems="center"
+        style={[
+          styles.header,
+          { marginTop: translucent ? insets.top : undefined },
+          translucent && styles.translucent,
+        ]}>
         <Box width={56}>
           <Pressable
             hitSlop={16}
@@ -46,7 +57,7 @@ const Header = ({ noBack, textTitle, translucent }: Props) => {
         </Box>
         <Box width={56} alignItems="flex-end" />
       </Box>
-    </Box>
+    </>
   );
 };
 
@@ -71,7 +82,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 1,
-    // backgroundColor: 'transparent',
   },
   backButton: {
     transform: [

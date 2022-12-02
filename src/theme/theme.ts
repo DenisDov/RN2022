@@ -25,6 +25,7 @@ const theme = createTheme({
     outlineButtonText: '#121212',
     outlineButtonBorder: '#121212',
     tabBarLabel: '#97989E',
+    statusBar: '#2F365F',
   },
   // Spacing tends to follow multiples of a given base spacing number
   spacing: {
