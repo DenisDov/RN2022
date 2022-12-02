@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 
 import { Box, RectBox, Text } from '../../theme';
+import { BUTTON_HEIGHT } from '../../utils/constants';
 import { ActivityIndicator } from '../ActivityIndicator';
 
 type Props = {
@@ -13,7 +14,7 @@ type Props = {
 const OutlineButton = ({ onPress, label, isLoading }: Props) => {
   return (
     <Box
-      height={40}
+      height={BUTTON_HEIGHT}
       borderRadius="s"
       borderWidth={StyleSheet.hairlineWidth}
       borderColor="main">

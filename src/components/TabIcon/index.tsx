@@ -18,8 +18,8 @@ type Props = {
 };
 
 const TabIcon = ({ routeName, isFocused }: Props) => {
-  let icon;
-  let label;
+  let icon: React.ReactNode = null;
+  let label: string = '';
   switch (routeName) {
     case 'HomeTab':
       icon = isFocused ? <Home /> : <HomeOutline />;
@@ -52,7 +52,7 @@ const TabIcon = ({ routeName, isFocused }: Props) => {
       justifyContent="center"
       alignItems="center">
       {icon}
-      <Text fontSize={12} color="inputPlaceholder" marginTop="xs">
+      <Text fontSize={12} color="tabBarLabel" marginTop="xs">
         {label}
       </Text>
     </RectBox>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { RectBox, Text } from '../../theme';
+import { BUTTON_HEIGHT } from '../../utils/constants';
 import { ActivityIndicator } from '../ActivityIndicator';
 
 type Props = {
@@ -14,7 +15,7 @@ const PrimaryButton = ({ onPress, label, isLoading }: Props) => {
     <RectBox
       onPress={onPress}
       enabled={!isLoading}
-      height={40}
+      height={BUTTON_HEIGHT}
       justifyContent="center"
       alignItems="center"
       borderRadius="s"

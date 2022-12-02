@@ -24,7 +24,7 @@ const theme = createTheme({
     primaryButtonText: '#E9EFFE',
     outlineButtonText: '#121212',
     outlineButtonBorder: '#121212',
-    tabLabel: '#91969D',
+    tabBarLabel: '#97989E',
   },
   // Spacing tends to follow multiples of a given base spacing number
   spacing: {

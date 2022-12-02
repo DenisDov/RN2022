@@ -5,6 +5,7 @@ import {
 } from 'react-native-image-picker';
 
 import { PrimaryButton } from '../../../components/Button';
+import { Header } from '../../../components/Header';
 import { Box, ImageBox } from '../../../theme';
 
 const options: ImageLibraryOptions = {
@@ -20,20 +21,24 @@ const ImagePickerScreen = () => {
   };
 
   return (
-    <Box flex={1} backgroundColor="surface" padding="m">
-      {response?.assets &&
-        response?.assets.map(({ uri }: { uri: string }) => (
-          <Box key={uri} alignItems="center" marginBottom="m">
-            <ImageBox
-              resizeMode="cover"
-              resizeMethod="scale"
-              source={{ uri }}
-              width={200}
-              height={200}
-            />
-          </Box>
-        ))}
-      <PrimaryButton label="Pick image" onPress={handlePickImage} />
+    <Box flex={1} backgroundColor="surface">
+      <Header textTitle="Image picker" />
+      <Box flex={1} padding="m">
+        {response?.assets &&
+          response?.assets.map(({ uri }: { uri: string }) => (
+            <Box key={uri} alignItems="center" marginBottom="m">
+              <ImageBox
+                resizeMode="cover"
+                resizeMethod="scale"
+                source={{ uri }}
+                width={200}
+                height={200}
+              />
+            </Box>
+          ))}
+
+        <PrimaryButton label="Pick image" onPress={handlePickImage} />
+      </Box>
     </Box>
   );
 };
