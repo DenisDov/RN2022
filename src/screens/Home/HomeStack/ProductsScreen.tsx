@@ -4,6 +4,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 
 import { ActivityIndicator } from '../../../components/ActivityIndicator';
+import { Header } from '../../../components/Header';
 import { ProductsCard } from '../../../components/ProductsCard';
 import { useGetAllProductsQuery } from '../../../services/productsApi';
 import { Box, Text } from '../../../theme';
@@ -14,7 +15,8 @@ const ProductsScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <Box flex={1} backgroundColor="background">
+    <Box flex={1} backgroundColor="surface">
+      <Header textTitle="Products" />
       {error && (
         <Box padding="m">
           <Text>{error.toString()}</Text>

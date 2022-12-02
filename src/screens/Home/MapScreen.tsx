@@ -24,25 +24,26 @@ const MapScreen = () => {
         initialRegion={region}
         onRegionChange={handleRegionChange}
       />
-      <Box style={styles.overlay}>
-        <Text color="secondaryTextColor">{region.latitude.toFixed(6)}</Text>
-        <Text color="secondaryTextColor">{region.longitude.toFixed(6)}</Text>
+      <Box
+        backgroundColor="background"
+        position="absolute"
+        left={16}
+        right={16}
+        bottom={16}
+        borderRadius="m"
+        padding="m"
+        justifyContent="center"
+        alignItems="center"
+        shadowColor="shadow"
+        shadowOpacity={0.25}
+        shadowOffset={{ width: 2, height: 2 }}
+        shadowRadius={2}
+        elevation={2}>
+        <Text>{region.latitude.toFixed(6)}</Text>
+        <Text>{region.longitude.toFixed(6)}</Text>
       </Box>
     </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  overlay: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: '#00000099',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-  },
-});
 
 export default MapScreen;

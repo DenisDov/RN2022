@@ -6,10 +6,11 @@ import {
 import { useFocusEffect } from '@react-navigation/native';
 import { FlashList } from '@shopify/flash-list';
 import React, { useState } from 'react';
-import { Platform, StyleSheet } from 'react-native';
+import { Alert, Platform, StyleSheet } from 'react-native';
 
 import { CameraRollItem } from '../../components/CameraRollItem';
 import { hasAndroidPermission } from '../../components/CameraRollItem/androidPermission';
+import { Header } from '../../components/Header';
 import { ProgressBar } from '../../components/ProgressBar';
 import { Box, theme } from '../../theme';
 
@@ -19,7 +20,7 @@ const GalleryScreen = () => {
 
   const getPermissionAndroid = async () => {
     if (Platform.OS === 'android' && !(await hasAndroidPermission())) {
-      alert('Permission not granted');
+      Alert.alert('Permission not granted');
       return;
     }
   };
@@ -50,22 +51,25 @@ const GalleryScreen = () => {
   );
 
   return (
-    <Box flex={1} backgroundColor="background">
-      {loading ? (
-        <Box position="absolute" left={0} right={0}>
-          <ProgressBar indeterminate />
-        </Box>
-      ) : (
-        <FlashList
-          data={photos}
-          renderItem={CameraRollItem}
-          estimatedItemSize={60}
-          keyExtractor={item => item.node.image.uri}
-          numColumns={3}
-          contentContainerStyle={styles.content}
-          showsVerticalScrollIndicator={false}
-        />
-      )}
+    <Box flex={1} backgroundColor="surface">
+      <Header textTitle="Gallery" noBack />
+      <Box flex={1}>
+        {loading ? (
+          <Box position="absolute" left={0} right={0}>
+            <ProgressBar indeterminate />
+          </Box>
+        ) : (
+          <FlashList
+            data={photos}
+            renderItem={CameraRollItem}
+            estimatedItemSize={60}
+            keyExtractor={item => item.node.image.uri}
+            numColumns={3}
+            contentContainerStyle={styles.content}
+            showsVerticalScrollIndicator={false}
+          />
+        )}
+      </Box>
     </Box>
   );
 };

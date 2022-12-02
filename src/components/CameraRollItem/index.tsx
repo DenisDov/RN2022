@@ -1,11 +1,11 @@
 import { PhotoIdentifier } from '@react-native-camera-roll/camera-roll';
 import React from 'react';
 
-import { Card, ImageBox, RectButtonBox } from '../../theme';
+import { Card, ImageBox, RectBox } from '../../theme';
 
 const CameraRollItem = ({ item }: { item: PhotoIdentifier }) => {
   return (
-    <RectButtonBox
+    <RectBox
       flex={1}
       margin="xs"
       borderRadius="m"
@@ -17,7 +17,7 @@ const CameraRollItem = ({ item }: { item: PhotoIdentifier }) => {
           borderRadius="m"
         />
       </Card>
-    </RectButtonBox>
+    </RectBox>
   );
 };
 

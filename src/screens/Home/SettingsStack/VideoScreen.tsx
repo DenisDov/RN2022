@@ -11,7 +11,7 @@ const VideoScreen = () => {
     setVideoError(error.errorString);
   };
   return (
-    <Box flex={1} backgroundColor="background" padding="m">
+    <Box flex={1} backgroundColor="surface" padding="m">
       <Box height={250}>
         <Video
           source={{
