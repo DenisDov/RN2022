@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from '../../components/Button';
+import { PrimaryButton } from '../../components/Button';
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { Box, Card, Text } from '../../theme';
 import { decrement, getCounterSelector, increment } from './counterSlice';
@@ -15,11 +15,17 @@ const Counter = () => {
       </Text>
       <Box flexDirection="row" justifyContent="space-between">
         <Box flex={1}>
-          <Button onPress={() => dispatch(decrement())} text="decrement" />
+          <PrimaryButton
+            onPress={() => dispatch(decrement())}
+            label="decrement"
+          />
         </Box>
         <Box marginHorizontal="s" />
         <Box flex={1}>
-          <Button onPress={() => dispatch(increment())} text="increment" />
+          <PrimaryButton
+            onPress={() => dispatch(increment())}
+            label="increment"
+          />
         </Box>
       </Box>
     </Card>

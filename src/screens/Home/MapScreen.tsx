@@ -33,7 +33,12 @@ const MapScreen = () => {
         borderRadius="m"
         padding="m"
         justifyContent="center"
-        alignItems="center">
+        alignItems="center"
+        shadowColor="shadow"
+        shadowOpacity={0.25}
+        shadowOffset={{ width: 2, height: 2 }}
+        shadowRadius={2}
+        elevation={2}>
         <Text>{region.latitude.toFixed(6)}</Text>
         <Text>{region.longitude.toFixed(6)}</Text>
       </Box>

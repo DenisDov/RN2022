@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { useModal } from 'react-native-modalfy';
 
-import { Button } from '../../../components/Button';
+import { OutlineButton, PrimaryButton } from '../../../components/Button';
 import { Header } from '../../../components/Header';
 import { logOut } from '../../../features/auth/authSlice';
 import { Counter } from '../../../features/counter/Counter';
@@ -40,8 +40,8 @@ const HomeScreen = () => {
           Whereas recognition of the inherent dignity
         </Text>
 
-        <Button
-          text="Playground"
+        <PrimaryButton
+          label="Playground"
           onPress={() => navigation.navigate('Playground')}
         />
 
@@ -53,17 +53,17 @@ const HomeScreen = () => {
           laudantium minus iure neque?
         </Text>
 
-        <Button
-          text="Go to products"
+        <PrimaryButton
+          label="Go to products"
           onPress={() => navigation.navigate('Products')}
         />
         <Box height={16} />
-        <Button
-          text="Go to profile"
+        <PrimaryButton
+          label="Go to profile"
           onPress={() => navigation.navigate('Profile')}
         />
         <Box height={16} />
-        <Button type="outline" text="Logout" onPress={handleLogout} />
+        <OutlineButton label="Logout" onPress={handleLogout} />
       </ScrollBox>
     </Box>
   );

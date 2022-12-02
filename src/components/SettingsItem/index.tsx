@@ -28,7 +28,12 @@ function SettingsItem({ onPress, label }: Props) {
       borderRadius="s"
       flexDirection="row"
       alignItems="center"
-      justifyContent="center">
+      justifyContent="center"
+      shadowColor="shadow"
+      shadowOpacity={0.25}
+      shadowOffset={{ width: 2, height: 2 }}
+      shadowRadius={2}
+      elevation={2}>
       <Box flex={1}>
         <Text>{label}</Text>
       </Box>

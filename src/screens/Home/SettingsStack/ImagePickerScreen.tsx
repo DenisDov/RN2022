@@ -4,7 +4,7 @@ import {
   launchImageLibrary,
 } from 'react-native-image-picker';
 
-import { Button } from '../../../components/Button';
+import { PrimaryButton } from '../../../components/Button';
 import { Box, ImageBox } from '../../../theme';
 
 const options: ImageLibraryOptions = {
@@ -33,7 +33,7 @@ const ImagePickerScreen = () => {
             />
           </Box>
         ))}
-      <Button text="Pick image" onPress={handlePickImage} />
+      <PrimaryButton label="Pick image" onPress={handlePickImage} />
     </Box>
   );
 };

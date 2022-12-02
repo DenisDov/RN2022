@@ -42,7 +42,7 @@ const Header = ({ noBack, textTitle, translucent }: Props) => {
           </Pressable>
         </Box>
         <Box flex={1} alignItems="center">
-          {textTitle ? <Text textAlign="center">{textTitle}</Text> : null}
+          {textTitle ? <Text variant="headerTitle">{textTitle}</Text> : null}
         </Box>
         <Box width={56} alignItems="flex-end" />
       </Box>
@@ -67,11 +67,11 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   translucent: {
-    // position: 'absolute',
-    // left: 0,
-    // right: 0,
-    // zIndex: 1,
-    backgroundColor: 'transparent',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    zIndex: 1,
+    // backgroundColor: 'transparent',
   },
   backButton: {
     transform: [

@@ -12,7 +12,7 @@ import { showMessage } from 'react-native-flash-message';
 import * as yup from 'yup';
 
 import { Images } from '../../assets';
-import { Button } from '../../components/Button';
+import { PrimaryButton } from '../../components/Button';
 import { LoginRequest, useLoginMutation } from '../../services/authApi';
 import {
   Box,
@@ -131,8 +131,8 @@ const LoginScreen = () => {
               )}
             </Box>
 
-            <Button
-              text="Login"
+            <PrimaryButton
+              label="Login"
               onPress={handleSubmit(handleLogin)}
               isLoading={isLoading}
             />

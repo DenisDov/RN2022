@@ -18,11 +18,12 @@ const theme = createTheme({
     muted: '#303134',
     error: '#DE3030',
     shadow: '#121212',
-    buttonText: '#E9EFFE',
+    headerTitle: '#E9EFFE',
 
     primaryText: '#000000',
-    outlineButtonBorder: '#121212',
+    primaryButtonText: '#E9EFFE',
     outlineButtonText: '#121212',
+    outlineButtonBorder: '#121212',
     tabLabel: '#91969D',
   },
   // Spacing tends to follow multiples of a given base spacing number
@@ -63,11 +64,15 @@ const theme = createTheme({
     welcomeDescription: {
       marginVertical: 'l',
     },
+    headerTitle: {
+      textAlign: 'center',
+      color: 'headerTitle',
+    },
   },
   cardVariants: {
     defaults: {
       shadowColor: 'shadow',
-      shadowOpacity: 0.5,
+      shadowOpacity: 0.25,
       shadowOffset: { width: 2, height: 2 },
       shadowRadius: 2,
       elevation: 2,

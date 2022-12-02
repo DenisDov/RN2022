@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Box, Card, Text } from '../../theme';
-import { Button } from '../Button';
+import { PrimaryButton } from '../Button';
 
 const ConfirmModal = ({ modal: { getParam, closeModal } }) => {
   const title = getParam('title');
@@ -25,7 +25,7 @@ const ConfirmModal = ({ modal: { getParam, closeModal } }) => {
         <Text marginBottom="m">{message}</Text>
         <Box flexDirection="row">
           <Box flex={1}>
-            <Button onPress={closeModal} text={button1} />
+            <PrimaryButton onPress={closeModal} label={button1} />
           </Box>
 
           {button2 && (
@@ -33,7 +33,7 @@ const ConfirmModal = ({ modal: { getParam, closeModal } }) => {
               <Box width={16} />
 
               <Box flex={1}>
-                <Button onPress={onSubmit} text={button2} />
+                <PrimaryButton onPress={onSubmit} label={button2} />
               </Box>
             </>
           )}

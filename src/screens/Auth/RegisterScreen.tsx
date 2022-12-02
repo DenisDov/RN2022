@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 
-import { Button } from '../../components/Button';
+import { PrimaryButton } from '../../components/Button';
 import { Box, SafeAreaBox, Text } from '../../theme';
 
 const RegisterScreen = () => {
@@ -38,7 +38,10 @@ const RegisterScreen = () => {
             autoCapitalize="none"
             autoCorrect={false}
           />
-          <Button text="Submit" onPress={() => console.log('REGISTER')} />
+          <PrimaryButton
+            label="Submit"
+            onPress={() => console.log('REGISTER')}
+          />
         </Box>
       </Box>
     </SafeAreaBox>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Button } from '../../components/Button';
+import { OutlineButton, PrimaryButton } from '../../components/Button';
 import { Header } from '../../components/Header';
 import { Box, Card, ScrollBox, Text, theme } from '../../theme';
 
@@ -46,9 +46,9 @@ const PlaygroundScreen = () => {
 
         {/* Buttons */}
         <Text variant="title">Buttons</Text>
-        <Button text="Primary button" onPress={() => null} />
+        <PrimaryButton label="Primary button" onPress={() => null} />
         <Box height={16} />
-        <Button type="outline" text="Outline button" onPress={() => null} />
+        <OutlineButton label="Outline button" onPress={() => null} />
       </ScrollBox>
     </Box>
   );

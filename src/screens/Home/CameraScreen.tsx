@@ -12,7 +12,7 @@ const CameraScreen = () => {
   return (
     <Box flex={1} backgroundColor="surface">
       <Header textTitle="Camera" noBack translucent />
-      <Box padding="m">
+      <Box>
         <Text>CameraScreen</Text>
       </Box>
     </Box>

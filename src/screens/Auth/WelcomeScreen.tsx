@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
 import { Images } from '../../assets';
-import { Button } from '../../components/Button';
+import { PrimaryButton } from '../../components/Button';
 import { Box, ImageBackgroundBox, SafeAreaBox, Text } from '../../theme';
 
 const WelcomeScreen = () => {
@@ -18,8 +18,8 @@ const WelcomeScreen = () => {
           </Text>
         </Box>
 
-        <Button
-          text="❖ Get started ❖"
+        <PrimaryButton
+          label="❖ Get started ❖"
           onPress={() => navigation.navigate('Login')}
         />
       </SafeAreaBox>
