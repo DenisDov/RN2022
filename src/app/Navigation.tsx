@@ -18,6 +18,7 @@ import ProductsScreen from '../screens/Home/HomeStack/ProductsScreen';
 import ProfileScreen from '../screens/Home/HomeStack/ProfileScreen';
 import SingleProductScreen from '../screens/Home/HomeStack/SingleProductScreen';
 import MapScreen from '../screens/Home/MapScreen';
+import AppSettingsScreen from '../screens/Home/SettingsStack/AppSettingsScreen';
 import HTMLScreen from '../screens/Home/SettingsStack/HTMLScreen';
 import ImagePickerScreen from '../screens/Home/SettingsStack/ImagePickerScreen';
 import SettingsScreen from '../screens/Home/SettingsStack/SettingsScreen';
@@ -55,6 +56,7 @@ const SettingsTabStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen name="AppSettingsScreen" component={AppSettingsScreen} />
       <Stack.Screen name="HTMLScreen" component={HTMLScreen} />
       <Stack.Screen name="WebViewScreen" component={WebViewScreen} />
       <Stack.Screen name="ImagePickerScreen" component={ImagePickerScreen} />

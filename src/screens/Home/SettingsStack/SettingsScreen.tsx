@@ -12,6 +12,10 @@ type Settings = {
 
 const ROUTES: Array<Settings> = [
   {
+    label: 'App settings',
+    navTo: 'AppSettingsScreen',
+  },
+  {
     label: 'react-native-render-html',
     navTo: 'HTMLScreen',
   },

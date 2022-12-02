@@ -20,6 +20,7 @@ export type RootStackParamList = {
   };
 
   Settings: undefined;
+  AppSettingsScreen: undefined;
   HTMLScreen: undefined;
   WebViewScreen: undefined;
   CameraRollScreen: undefined;
