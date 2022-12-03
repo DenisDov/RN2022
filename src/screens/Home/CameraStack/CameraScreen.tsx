@@ -5,7 +5,7 @@ import { Camera, useCameraDevices } from 'react-native-vision-camera';
 
 import { ActivityIndicator } from '../../../components/ActivityIndicator';
 import { useIsForeground } from '../../../hooks/useIsForeground';
-import { Box } from '../../../theme';
+import { Box, RectBox, Text } from '../../../theme';
 
 const CameraScreen = () => {
   const devices = useCameraDevices();
@@ -28,8 +28,11 @@ const CameraScreen = () => {
           photo={true}
           device={device}
           isActive={isActive}
-          style={StyleSheet.absoluteFill}
-        />
+          style={StyleSheet.absoluteFill}>
+          <RectBox position="absolute">
+            <Text>TAKE PHOTO</Text>
+          </RectBox>
+        </Camera>
       )}
     </Box>
   );
