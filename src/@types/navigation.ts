@@ -19,6 +19,9 @@ export type RootStackParamList = {
     brand: string;
   };
 
+  CameraPermissionsScreen: undefined;
+  CameraScreen: undefined;
+
   Settings: undefined;
   AppSettingsScreen: undefined;
   HTMLScreen: undefined;

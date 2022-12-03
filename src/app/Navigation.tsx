@@ -11,7 +11,8 @@ import LoginScreen from '../screens/Auth/LoginScreen';
 import RegisterScreen from '../screens/Auth/RegisterScreen';
 import WelcomeScreen from '../screens/Auth/WelcomeScreen';
 import PlaygroundScreen from '../screens/Common/PlaygroundScreen';
-import CameraScreen from '../screens/Home/CameraScreen';
+import CameraPermissionsScreen from '../screens/Home/CameraStack/CameraPermissionsScreen';
+import CameraScreen from '../screens/Home/CameraStack/CameraScreen';
 import GalleryScreen from '../screens/Home/GalleryScreen';
 import HomeScreen from '../screens/Home/HomeStack/HomeScreen';
 import ProductsScreen from '../screens/Home/HomeStack/ProductsScreen';
@@ -52,6 +53,18 @@ const HomeTabStack = () => {
   );
 };
 
+const CameraTabStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen
+        name="CameraPermissionsScreen"
+        component={CameraPermissionsScreen}
+      />
+      <Stack.Screen name="CameraScreen" component={CameraScreen} />
+    </Stack.Navigator>
+  );
+};
+
 const SettingsTabStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -88,7 +101,11 @@ const AppNavigator = () => {
           <Tab.Screen name="HomeTab" component={HomeTabStack} />
           <Tab.Screen name="GalleryTab" component={GalleryScreen} />
           <Tab.Screen name="MapTab" component={MapScreen} />
-          <Tab.Screen name="CameraTab" component={CameraScreen} />
+          <Tab.Screen
+            name="CameraTab"
+            component={CameraTabStack}
+            options={{ headerShown: false }}
+          />
           <Tab.Screen
             name="SettingsTab"
             component={SettingsTabStack}

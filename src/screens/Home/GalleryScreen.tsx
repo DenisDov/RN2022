@@ -12,7 +12,15 @@ import { CameraRollItem } from '../../components/CameraRollItem';
 import { hasAndroidPermission } from '../../components/CameraRollItem/androidPermission';
 import { Header } from '../../components/Header';
 import { ProgressBar } from '../../components/ProgressBar';
-import { Box, theme } from '../../theme';
+import { Box, Text, theme } from '../../theme';
+
+const EmptyGallery = () => {
+  return (
+    <Box>
+      <Text>Can't find photos on device</Text>
+    </Box>
+  );
+};
 
 const GalleryScreen = () => {
   const [photos, setPhotos] = useState<PhotoIdentifier[]>([]);
@@ -67,6 +75,7 @@ const GalleryScreen = () => {
             numColumns={3}
             contentContainerStyle={styles.content}
             showsVerticalScrollIndicator={false}
+            ListEmptyComponent={EmptyGallery}
           />
         )}
       </Box>

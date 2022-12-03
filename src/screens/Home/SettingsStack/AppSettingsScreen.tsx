@@ -6,7 +6,7 @@ import { Box, Text } from '../../../theme';
 const AppSettingsScreen = () => {
   return (
     <Box flex={1} backgroundColor="surface">
-      <Header textTitle="Image picker" />
+      <Header textTitle="AppSettings" />
       <Box flex={1} padding="m">
         <Text>AppSettingsScreen</Text>
       </Box>
