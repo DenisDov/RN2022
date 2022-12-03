@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
+import { DarkTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import RNBootSplash from 'react-native-bootsplash';
@@ -84,7 +84,9 @@ const AppNavigator = () => {
   const auth = useAuth();
   const isAuthenicated = !!auth?.user?.token || false;
   return (
-    <NavigationContainer onReady={() => RNBootSplash.hide({ fade: true })}>
+    <NavigationContainer
+      theme={DarkTheme}
+      onReady={() => RNBootSplash.hide({ fade: true })}>
       {isAuthenicated ? (
         <Tab.Navigator
           screenOptions={({ route }) => ({
