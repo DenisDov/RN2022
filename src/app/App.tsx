@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@shopify/restyle';
-import React, { useState } from 'react';
+import React from 'react';
 import { StatusBar, StyleSheet, useColorScheme } from 'react-native';
 import FlashMessage from 'react-native-flash-message';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';

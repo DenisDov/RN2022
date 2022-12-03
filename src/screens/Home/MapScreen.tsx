@@ -5,7 +5,7 @@ import MapView, { PROVIDER_GOOGLE, Region } from 'react-native-maps';
 import { Box, Text } from '../../theme';
 
 const MapScreen = () => {
-  const [region, setRegion] = useState({
+  const [region, setRegion] = useState<Region>({
     latitude: 46.696228,
     longitude: 32.544376,
     latitudeDelta: 0.0922,
