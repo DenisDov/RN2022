@@ -1,13 +1,22 @@
-import React from 'react';
+import { useIsFocused } from '@react-navigation/native';
+import React, { useRef } from 'react';
 import { StyleSheet } from 'react-native';
 import { Camera, useCameraDevices } from 'react-native-vision-camera';
 
 import { ActivityIndicator } from '../../../components/ActivityIndicator';
+import { useIsForeground } from '../../../hooks/useIsForeground';
 import { Box } from '../../../theme';
 
 const CameraScreen = () => {
   const devices = useCameraDevices();
   const device = devices.back;
+
+  const camera = useRef<Camera>(null);
+
+  // check if camera page is active
+  const isFocused = useIsFocused();
+  const isForeground = useIsForeground();
+  const isActive = isFocused && isForeground;
 
   return (
     <Box flex={1} backgroundColor="surface" justifyContent="center">
@@ -15,9 +24,11 @@ const CameraScreen = () => {
         <ActivityIndicator />
       ) : (
         <Camera
-          style={StyleSheet.absoluteFill}
+          ref={camera}
+          photo={true}
           device={device}
-          isActive={true}
+          isActive={isActive}
+          style={StyleSheet.absoluteFill}
         />
       )}
     </Box>
