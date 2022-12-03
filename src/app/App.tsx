@@ -26,7 +26,10 @@ const App = () => {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ThemeProvider theme={isDarkMode ? darkTheme : theme}>
-            <StatusBar barStyle="light-content" />
+            <StatusBar
+              barStyle="light-content"
+              backgroundColor={theme.colors.statusBar} //for android only
+            />
             <SafeAreaProvider initialMetrics={initialWindowMetrics}>
               <ModalProvider stack={stack}>
                 <AppNavigator />

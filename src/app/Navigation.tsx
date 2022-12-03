@@ -29,15 +29,6 @@ import WebViewScreen from '../screens/Home/SettingsStack/WebViewScreen';
 import YoutubeScreen from '../screens/Home/SettingsStack/YoutubeScreen';
 import { theme } from '../theme';
 
-// const navigationTheme = {
-//   ...DarkTheme,
-//   colors: {
-//     ...DarkTheme.colors,
-//     card: theme.colors.main,
-//   },
-// };
-// console.log('navigationTheme: ', navigationTheme);
-
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
 
