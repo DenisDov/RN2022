@@ -1,15 +1,20 @@
-import { PermissionsAndroid } from 'react-native';
+import { PermissionsAndroid, Platform } from 'react-native';
 
-export async function hasAndroidPermission() {
-  const permission = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
-
-  const hasPermission = await PermissionsAndroid.check(permission);
-  console.log('hasPermission: ', hasPermission);
-  if (hasPermission) {
+export const requestReadPermission = async (): Promise<boolean> => {
+  if (Platform.OS !== 'android') {
     return true;
   }
 
-  const status = await PermissionsAndroid.request(permission);
-  console.log('status: ', status);
-  return status === 'granted';
-}
+  const permission = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
+  if (permission == null) {
+    return false;
+  }
+  let hasPermission = await PermissionsAndroid.check(permission);
+  if (!hasPermission) {
+    const permissionRequestResult = await PermissionsAndroid.request(
+      permission,
+    );
+    hasPermission = permissionRequestResult === 'granted';
+  }
+  return hasPermission;
+};

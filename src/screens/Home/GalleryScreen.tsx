@@ -1,15 +1,14 @@
 import {
   CameraRoll,
   PhotoIdentifier,
-  PhotoIdentifiersPage,
 } from '@react-native-camera-roll/camera-roll';
 import { useFocusEffect } from '@react-navigation/native';
 import { FlashList } from '@shopify/flash-list';
-import React, { useState } from 'react';
-import { Alert, Platform, StyleSheet } from 'react-native';
+import React, { useCallback, useState } from 'react';
+import { Alert, StyleSheet } from 'react-native';
 
 import { CameraRollItem } from '../../components/CameraRollItem';
-import { hasAndroidPermission } from '../../components/CameraRollItem/androidPermission';
+import { requestReadPermission } from '../../components/CameraRollItem/androidPermission';
 import { Header } from '../../components/Header';
 import { ProgressBar } from '../../components/ProgressBar';
 import { Box, Text, theme } from '../../theme';
@@ -26,34 +25,36 @@ const GalleryScreen = () => {
   const [photos, setPhotos] = useState<PhotoIdentifier[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const getPermissionAndroid = async () => {
-    if (Platform.OS === 'android' && !(await hasAndroidPermission())) {
-      Alert.alert('Permission not granted');
-      return;
-    }
-  };
-
   useFocusEffect(
-    React.useCallback(() => {
+    useCallback(() => {
       let isActive = true;
 
-      getPermissionAndroid();
-      if (isActive) {
-        CameraRoll.getPhotos({ first: 60 })
-          .then((r: PhotoIdentifiersPage) => {
-            if ('edges' in r) {
-              setPhotos(r.edges);
-            }
-          })
-          .catch(e => {
-            console.log('CameraRollError', e);
-          })
-          .finally(() => setLoading(false));
-      }
+      const fetchPhotos = async () => {
+        try {
+          const hasPermission = await requestReadPermission();
+
+          if (!hasPermission) {
+            Alert.alert(
+              'Permission denied!',
+              'Camera does not have permission to read the media.',
+            );
+            return;
+          }
+
+          if (isActive) {
+            const { edges } = await CameraRoll.getPhotos({ first: 60 });
+            setPhotos(edges);
+            setLoading(false);
+          }
+        } catch (e) {
+          console.log('CameraRollError', e);
+        }
+      };
+
+      fetchPhotos();
 
       return () => {
         isActive = false;
-        setLoading(true);
       };
     }, []),
   );
