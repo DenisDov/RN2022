@@ -1,11 +1,20 @@
 import { useIsFocused } from '@react-navigation/native';
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { StyleSheet } from 'react-native';
-import { Camera, useCameraDevices } from 'react-native-vision-camera';
+import {
+  Camera,
+  TakePhotoOptions,
+  useCameraDevices,
+} from 'react-native-vision-camera';
 
 import { ActivityIndicator } from '../../../components/ActivityIndicator';
 import { useIsForeground } from '../../../hooks/useIsForeground';
 import { Box, RectBox, Text } from '../../../theme';
+
+const takePhotoOptions: TakePhotoOptions = {
+  qualityPrioritization: 'speed',
+  skipMetadata: true,
+};
 
 const CameraScreen = () => {
   const devices = useCameraDevices();
@@ -18,6 +27,20 @@ const CameraScreen = () => {
   const isForeground = useIsForeground();
   const isActive = isFocused && isForeground;
 
+  const takePhoto = useCallback(async () => {
+    try {
+      if (camera.current == null) {
+        throw new Error('Camera ref is null!');
+      }
+
+      console.log('Taking photo...');
+      const photo = await camera.current.takePhoto(takePhotoOptions);
+      console.log('photo: ', photo);
+    } catch (e) {
+      console.error('Failed to take photo!', e);
+    }
+  }, [camera]);
+
   return (
     <Box flex={1} backgroundColor="surface" justifyContent="center">
       {device == null ? (
@@ -29,7 +52,12 @@ const CameraScreen = () => {
           device={device}
           isActive={isActive}
           style={StyleSheet.absoluteFill}>
-          <RectBox position="absolute">
+          <RectBox
+            onPress={takePhoto}
+            position="absolute"
+            width={50}
+            height={50}
+            backgroundColor="main">
             <Text>TAKE PHOTO</Text>
           </RectBox>
         </Camera>
