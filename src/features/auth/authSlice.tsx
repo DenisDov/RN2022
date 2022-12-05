@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSelector, createSlice } from '@reduxjs/toolkit';
 import { Appearance } from 'react-native';
 
 // import type { PayloadAction } from '@reduxjs/toolkit';
@@ -20,7 +20,7 @@ const authSlice = createSlice({
     logOut: state => {
       state.user = null;
     },
-    setColorScheme: (state, { payload }) => {
+    setColorScheme: (state, { payload }: PayloadAction<boolean>) => {
       state.isDarkMode = payload;
     },
   },

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Switch } from 'react-native-gesture-handler';
+import { Switch, SwitchChangeEvent } from 'react-native';
 
 import { Header } from '../../../components/Header';
 import {
@@ -43,7 +43,9 @@ const AppSettingsScreen = () => {
             ref={switchEl}
             value={isDarkMode}
             trackColor={{ true: '#5065ED' }}
-            onChange={() => dispatch(setColorScheme(!isDarkMode))}
+            onValueChange={(_: boolean) =>
+              dispatch(setColorScheme(!isDarkMode))
+            }
           />
         </RectBox>
       </Box>
