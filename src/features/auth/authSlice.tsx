@@ -27,7 +27,8 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder.addMatcher(
       authApi.endpoints.login.matchFulfilled,
-      (state, { payload }) => {
+      (state, { payload }: any) => {
+        // FIXME: any
         state.user = payload;
       },
     );

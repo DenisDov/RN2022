@@ -43,9 +43,7 @@ const AppSettingsScreen = () => {
             ref={switchEl}
             value={isDarkMode}
             trackColor={{ true: '#5065ED' }}
-            onValueChange={(_: boolean) =>
-              dispatch(setColorScheme(!isDarkMode))
-            }
+            onValueChange={(): any => dispatch(setColorScheme(!isDarkMode))} // FIXME: any
           />
         </RectBox>
       </Box>
