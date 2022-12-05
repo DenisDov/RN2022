@@ -23,10 +23,13 @@ const CameraPermissionsScreen = () => {
   }, []);
 
   useEffect(() => {
+    requestCameraPermission();
+    console.log('EFF');
+    console.log('cameraPermissionStatus: ', cameraPermissionStatus);
     if (cameraPermissionStatus === 'authorized') {
       navigation.dispatch(StackActions.replace('CameraScreen'));
     }
-  }, [cameraPermissionStatus, navigation]);
+  }, [cameraPermissionStatus, navigation, requestCameraPermission]);
 
   return (
     <Box flex={1} backgroundColor="surface">

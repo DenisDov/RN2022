@@ -44,17 +44,17 @@ const GalleryScreen = () => {
           if (isActive) {
             const { edges } = await CameraRoll.getPhotos({ first: 60 });
             setPhotos(edges);
-            setLoading(false);
           }
         } catch (e) {
           console.log('CameraRollError', e);
         }
       };
 
-      fetchPhotos();
+      fetchPhotos().finally(() => setLoading(false));
 
       return () => {
         isActive = false;
+        setLoading(true);
       };
     }, []),
   );
