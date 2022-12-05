@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Switch } from 'react-native-gesture-handler';
 
 import { Header } from '../../../components/Header';
@@ -10,11 +10,12 @@ import { useAppDispatch, useAppSelector } from '../../../hooks/store';
 import { Box, RectBox, Text } from '../../../theme';
 
 const AppSettingsScreen = () => {
+  const switchEl = useRef(null);
   const isDarkMode = useAppSelector(selectCurrentThemeMode);
   const dispatch = useAppDispatch();
 
   const handleChangeTheme = () => {
-    dispatch(setColorScheme(!isDarkMode));
+    console.log('switchEl: ', switchEl.current);
   };
 
   return (
@@ -39,7 +40,9 @@ const AppSettingsScreen = () => {
             <Text>Dark theme</Text>
           </Box>
           <Switch
+            ref={switchEl}
             value={isDarkMode}
+            trackColor={{ true: '#5065ED' }}
             onChange={() => dispatch(setColorScheme(!isDarkMode))}
           />
         </RectBox>
