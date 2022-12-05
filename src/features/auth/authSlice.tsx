@@ -1,4 +1,5 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { Appearance } from 'react-native';
 
 // import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
@@ -6,14 +7,21 @@ import { User, authApi } from '../../services/authApi';
 
 type AuthState = {
   user: User | null;
+  isDarkMode: boolean;
 };
 
 const authSlice = createSlice({
   name: 'auth',
-  initialState: { user: null } as AuthState,
+  initialState: {
+    user: null,
+    isDarkMode: Appearance.getColorScheme() === 'dark',
+  } as AuthState,
   reducers: {
     logOut: state => {
       state.user = null;
+    },
+    setColorScheme: (state, { payload }) => {
+      state.isDarkMode = payload;
     },
   },
   extraReducers: builder => {
@@ -26,11 +34,17 @@ const authSlice = createSlice({
   },
 });
 
-export const { logOut } = authSlice.actions;
+export const { logOut, setColorScheme } = authSlice.actions;
 
 // Selectors start
 const selectSelf = (state: RootState) => state.auth;
 export const selectCurrentUser = createSelector(selectSelf, auth => auth.user);
+
+export const selectCurrentThemeMode = createSelector(
+  selectSelf,
+  auth => auth.isDarkMode,
+);
+
 // Selectors end
 
 export default authSlice.reducer;

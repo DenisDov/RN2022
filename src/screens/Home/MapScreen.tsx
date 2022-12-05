@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import MapView, { PROVIDER_GOOGLE, Region } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE, Region } from 'react-native-maps';
 
 import { Box, Text } from '../../theme';
 
@@ -19,17 +19,25 @@ const MapScreen = () => {
   return (
     <Box flex={1}>
       <MapView
+        onMapReady={() => console.log('Camera ready')}
         provider={PROVIDER_GOOGLE}
         style={StyleSheet.absoluteFillObject}
         initialRegion={region}
         onRegionChange={handleRegionChange}
-      />
+        showsMyLocationButton>
+        <Marker
+          coordinate={{
+            latitude: 46.696228,
+            longitude: 32.544376,
+          }}
+        />
+      </MapView>
       <Box
         backgroundColor="background"
         position="absolute"
-        left={16}
-        right={16}
-        bottom={16}
+        width={120}
+        left={8}
+        bottom={8}
         borderRadius="m"
         padding="m"
         justifyContent="center"

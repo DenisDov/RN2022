@@ -1,14 +1,48 @@
 import React from 'react';
+import { Switch } from 'react-native-gesture-handler';
 
 import { Header } from '../../../components/Header';
-import { Box, Text } from '../../../theme';
+import {
+  selectCurrentThemeMode,
+  setColorScheme,
+} from '../../../features/auth/authSlice';
+import { useAppDispatch, useAppSelector } from '../../../hooks/store';
+import { Box, RectBox, Text } from '../../../theme';
 
 const AppSettingsScreen = () => {
+  const isDarkMode = useAppSelector(selectCurrentThemeMode);
+  const dispatch = useAppDispatch();
+
+  const handleChangeTheme = () => {
+    dispatch(setColorScheme(!isDarkMode));
+  };
+
   return (
     <Box flex={1} backgroundColor="surface">
       <Header textTitle="AppSettings" />
       <Box flex={1} padding="m">
-        <Text>AppSettingsScreen</Text>
+        <RectBox
+          onPress={handleChangeTheme}
+          marginBottom="xs"
+          padding="m"
+          backgroundColor="background"
+          borderRadius="s"
+          flexDirection="row"
+          alignItems="center"
+          justifyContent="center"
+          shadowColor="shadow"
+          shadowOpacity={0.25}
+          shadowOffset={{ width: 2, height: 2 }}
+          shadowRadius={2}
+          elevation={2}>
+          <Box flex={1}>
+            <Text>Dark theme</Text>
+          </Box>
+          <Switch
+            value={isDarkMode}
+            onChange={() => dispatch(setColorScheme(!isDarkMode))}
+          />
+        </RectBox>
       </Box>
     </Box>
   );
