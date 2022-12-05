@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Switch, SwitchChangeEvent } from 'react-native';
+import { Switch } from 'react-native';
 
 import { Header } from '../../../components/Header';
 import {
@@ -15,7 +15,7 @@ const AppSettingsScreen = () => {
   const dispatch = useAppDispatch();
 
   const handleChangeTheme = () => {
-    console.log('switchEl: ', switchEl.current);
+    dispatch(setColorScheme(!isDarkMode));
   };
 
   return (
@@ -43,7 +43,7 @@ const AppSettingsScreen = () => {
             ref={switchEl}
             value={isDarkMode}
             trackColor={{ true: '#5065ED' }}
-            onValueChange={(): any => dispatch(setColorScheme(!isDarkMode))} // FIXME: any
+            onValueChange={handleChangeTheme}
           />
         </RectBox>
       </Box>
