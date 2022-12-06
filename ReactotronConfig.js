@@ -6,4 +6,6 @@ const reactotron = Reactotron.configure()
   .use(reactotronRedux())
   .connect();
 
+console.tron = reactotron; // Usage: console.tron.logImportant(theme.colors);
+
 export default reactotron;
