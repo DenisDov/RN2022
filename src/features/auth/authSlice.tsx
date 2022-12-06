@@ -20,7 +20,7 @@ const authSlice = createSlice({
     logOut: state => {
       state.user = null;
     },
-    setColorScheme: (state, { payload }: PayloadAction<boolean>) => {
+    setDarkMode: (state, { payload }: PayloadAction<boolean>) => {
       state.isDarkMode = payload;
     },
   },
@@ -35,7 +35,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { logOut, setColorScheme } = authSlice.actions;
+export const { logOut, setDarkMode } = authSlice.actions;
 
 // Selectors start
 const selectSelf = (state: RootState) => state.auth;

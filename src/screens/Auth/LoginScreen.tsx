@@ -58,7 +58,6 @@ const LoginScreen = () => {
 
   const handleLogin = async (credentials: LoginRequest) => {
     delete credentials.agreement;
-    console.log('credentials: ', credentials);
     try {
       await login(credentials).unwrap();
     } catch (error: any) {

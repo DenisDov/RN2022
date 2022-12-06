@@ -4,10 +4,10 @@ import { Switch } from 'react-native';
 import { Header } from '../../../components/Header';
 import {
   selectCurrentThemeMode,
-  setColorScheme,
+  setDarkMode,
 } from '../../../features/auth/authSlice';
 import { useAppDispatch, useAppSelector } from '../../../hooks/store';
-import { Box, RectBox, Text } from '../../../theme';
+import { Box, RectBox, Text, theme } from '../../../theme';
 
 const AppSettingsScreen = () => {
   const switchEl = useRef(null);
@@ -15,7 +15,7 @@ const AppSettingsScreen = () => {
   const dispatch = useAppDispatch();
 
   const handleChangeTheme = () => {
-    dispatch(setColorScheme(!isDarkMode));
+    dispatch(setDarkMode(!isDarkMode));
   };
 
   return (
@@ -42,7 +42,7 @@ const AppSettingsScreen = () => {
           <Switch
             ref={switchEl}
             value={isDarkMode}
-            trackColor={{ true: '#5065ED' }}
+            trackColor={{ true: theme.colors.main }}
             onValueChange={handleChangeTheme}
           />
         </RectBox>

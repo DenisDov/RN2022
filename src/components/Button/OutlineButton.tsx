@@ -28,7 +28,7 @@ const OutlineButton = ({ onPress, label, isLoading }: Props) => {
         {isLoading ? (
           <ActivityIndicator color="#121212" />
         ) : (
-          <Text color="outlineButtonText">{label}</Text>
+          <Text color="outlineButtonText">❖ {label} ❖</Text>
         )}
       </RectBox>
     </Box>

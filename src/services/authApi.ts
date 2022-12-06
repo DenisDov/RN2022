@@ -18,6 +18,7 @@ export interface UserResponse {
 export interface LoginRequest {
   username: string;
   password: string;
+  agreement?: boolean;
 }
 
 export const authApi = rootApi.injectEndpoints({

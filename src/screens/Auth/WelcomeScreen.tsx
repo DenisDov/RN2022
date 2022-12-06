@@ -23,7 +23,7 @@ const WelcomeScreen = () => {
         </Box>
 
         <PrimaryButton
-          label="❖ Get started ❖"
+          label="Get started"
           onPress={() => navigation.navigate('Login')}
         />
       </SafeAreaBox>

@@ -28,7 +28,7 @@ const PrimaryButton = ({ onPress, label, isLoading }: Props) => {
       {isLoading ? (
         <ActivityIndicator color="white" />
       ) : (
-        <Text color="primaryButtonText">{label}</Text>
+        <Text color="primaryButtonText">❖ {label} ❖</Text>
       )}
     </RectBox>
   );
