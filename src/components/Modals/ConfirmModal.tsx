@@ -1,9 +1,10 @@
 import React from 'react';
+import { ModalfyParams } from 'react-native-modalfy';
 
 import { Box, Card, Text } from '../../theme';
 import { PrimaryButton } from '../Button';
 
-const ConfirmModal = ({ modal: { getParam, closeModal } }) => {
+const ConfirmModal = ({ modal: { getParam, closeModal } }: ModalfyParams) => {
   const title = getParam('title');
   const message = getParam('message');
   const { button1, button2, onPress, callback } = getParam('props');

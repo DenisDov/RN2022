@@ -6,12 +6,12 @@ import { SettingsItem } from '../../../components/SettingsItem';
 import { ArrowRight } from '../../../components/SettingsItem/ArrowRight';
 import { Box, ScrollBox } from '../../../theme';
 
-type Settings = {
+type SettingsItemProps = {
   label: string;
-  navTo: string;
+  navTo: any;
 };
 
-const ROUTES: Array<Settings> = [
+const ROUTES: Array<SettingsItemProps> = [
   {
     label: 'App settings',
     navTo: 'AppSettingsScreen',
@@ -49,7 +49,7 @@ const SettingsScreen = () => {
       <Header textTitle="SettingsStack" noBack />
       <ScrollBox flex={1}>
         <Box padding="m">
-          {ROUTES.map(({ label, navTo }) => (
+          {ROUTES.map(({ label, navTo }: SettingsItemProps) => (
             <SettingsItem
               key={label}
               label={label}
