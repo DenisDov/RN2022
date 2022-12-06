@@ -10,8 +10,16 @@ import { Images } from '../../assets';
 import { AuthInput } from '../../components/AuthInput';
 import { PrimaryButton } from '../../components/Button';
 import { Header } from '../../components/Header';
+import { selectCurrentThemeMode } from '../../features/auth/authSlice';
+import { useAppSelector } from '../../hooks/store';
 import { LoginRequest, useLoginMutation } from '../../services/authApi';
 import { Box, Card, ImageBackgroundBox, SafeAreaBox, Text } from '../../theme';
+
+type FormData = {
+  username: string;
+  password: string;
+  agreement: boolean;
+};
 
 const schema = yup
   .object({
@@ -30,11 +38,14 @@ const schema = yup
   .required();
 
 const LoginScreen = () => {
+  const isDarkMode = useAppSelector(selectCurrentThemeMode);
+  const BG = isDarkMode ? Images.EXVO : Images.unsplash;
+
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormData>({
     defaultValues: {
       username: 'kminchelle',
       password: '0lelplR',
@@ -46,6 +57,7 @@ const LoginScreen = () => {
   const [login, { isLoading }] = useLoginMutation();
 
   const handleLogin = async (credentials: LoginRequest) => {
+    delete credentials.agreement;
     console.log('credentials: ', credentials);
     try {
       await login(credentials).unwrap();
@@ -64,7 +76,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <ImageBackgroundBox flex={1} source={Images.unsplash} resizeMode="cover">
+    <ImageBackgroundBox flex={1} source={BG} resizeMode="cover">
       <Header translucent />
       <SafeAreaBox flex={1} justifyContent="center">
         <KeyboardAvoidingView
