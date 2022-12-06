@@ -1,7 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import CheckBox from '@react-native-community/checkbox';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { KeyboardAvoidingView, Platform } from 'react-native';
+import { KeyboardAvoidingView, Linking, Platform } from 'react-native';
 import { showMessage } from 'react-native-flash-message';
 import * as yup from 'yup';
 
@@ -22,6 +23,9 @@ const schema = yup
       .string()
       .min(6, ({ min }) => `at least ${min} characters`)
       .required(),
+    agreement: yup
+      .boolean()
+      .oneOf([true], 'You must accept the terms and conditions'),
   })
   .required();
 
@@ -34,6 +38,7 @@ const LoginScreen = () => {
     defaultValues: {
       username: 'kminchelle',
       password: '0lelplR',
+      agreement: false,
     },
     resolver: yupResolver(schema),
   });
@@ -41,6 +46,7 @@ const LoginScreen = () => {
   const [login, { isLoading }] = useLoginMutation();
 
   const handleLogin = async (credentials: LoginRequest) => {
+    console.log('credentials: ', credentials);
     try {
       await login(credentials).unwrap();
     } catch (error: any) {
@@ -74,6 +80,7 @@ const LoginScreen = () => {
             </Text>
             <Box marginBottom="m">
               <Controller
+                name="username"
                 control={control}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <AuthInput
@@ -83,18 +90,18 @@ const LoginScreen = () => {
                     placeholder="username*"
                   />
                 )}
-                name="username"
               />
 
-              {errors.username && (
+              {errors.username ? (
                 <Text fontSize={14} color="error">
                   {errors.username?.message}
                 </Text>
-              )}
+              ) : null}
             </Box>
 
             <Box marginBottom="m">
               <Controller
+                name="password"
                 control={control}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <AuthInput
@@ -104,14 +111,42 @@ const LoginScreen = () => {
                     placeholder="password*"
                   />
                 )}
-                name="password"
               />
 
-              {errors.password && (
+              {errors.password ? (
                 <Text fontSize={14} color="error">
                   {errors.password?.message}
                 </Text>
-              )}
+              ) : null}
+            </Box>
+            <Box marginBottom="m">
+              <Box flexDirection="row" alignItems="center">
+                <Controller
+                  name="agreement"
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <CheckBox value={value} onValueChange={onChange} />
+                  )}
+                />
+                <Text marginLeft="s">
+                  I accept the{' '}
+                  <Text
+                    color="main"
+                    textDecorationLine="underline"
+                    onPress={() =>
+                      Linking.openURL(
+                        'https://reactnative.directory/?search=checkbox',
+                      )
+                    }>
+                    terms and conditions
+                  </Text>
+                </Text>
+              </Box>
+              {errors.agreement ? (
+                <Text fontSize={14} color="error">
+                  {errors.agreement?.message}
+                </Text>
+              ) : null}
             </Box>
 
             <PrimaryButton
