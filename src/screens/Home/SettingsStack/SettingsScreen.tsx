@@ -3,6 +3,7 @@ import React from 'react';
 
 import { Header } from '../../../components/Header';
 import { SettingsItem } from '../../../components/SettingsItem';
+import { ArrowRight } from '../../../components/SettingsItem/ArrowRight';
 import { Box, ScrollBox } from '../../../theme';
 
 type Settings = {
@@ -52,8 +53,9 @@ const SettingsScreen = () => {
             <SettingsItem
               key={label}
               label={label}
-              onPress={() => navigation.navigate(navTo)}
-            />
+              onPress={() => navigation.navigate(navTo)}>
+              <ArrowRight />
+            </SettingsItem>
           ))}
         </Box>
       </ScrollBox>

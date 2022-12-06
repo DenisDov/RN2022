@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import { Box, RectBox, Text } from '../../theme';
@@ -7,6 +6,7 @@ import { Box, RectBox, Text } from '../../theme';
 type Props = {
   onPress: () => void;
   label: string;
+  children: React.ReactNode;
 };
 
 const hapticOptions = {
@@ -14,7 +14,7 @@ const hapticOptions = {
   ignoreAndroidSystemSettings: false,
 };
 
-function SettingsItem({ onPress, label }: Props) {
+function SettingsItem({ onPress, label, children }: Props) {
   const handlePress = () => {
     ReactNativeHapticFeedback.trigger('impactLight', hapticOptions);
     onPress();
@@ -37,26 +37,9 @@ function SettingsItem({ onPress, label }: Props) {
       <Box flex={1}>
         <Text>{label}</Text>
       </Box>
-      <Box
-        width={10}
-        height={10}
-        borderTopWidth={1}
-        borderRightWidth={1}
-        borderColor="primaryText"
-        style={styles.arrowRight}
-      />
+      {children}
     </RectBox>
   );
 }
-
-const styles = StyleSheet.create({
-  arrowRight: {
-    transform: [
-      {
-        rotate: '45deg',
-      },
-    ],
-  },
-});
 
 export { SettingsItem };
