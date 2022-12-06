@@ -1,5 +1,5 @@
-import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useEffect } from 'react';
+import { useRoute } from '@react-navigation/native';
+import React from 'react';
 
 import { SingleProductScreenRouteProp } from '../../../@types/navigation';
 import { ActivityIndicator } from '../../../components/ActivityIndicator';
