@@ -17,6 +17,10 @@ const ROUTES: Array<SettingsItemProps> = [
     navTo: 'AppSettingsScreen',
   },
   {
+    label: 'Action Sheets',
+    navTo: 'ActionSheetsScreen',
+  },
+  {
     label: 'react-native-render-html',
     navTo: 'HTMLScreen',
   },

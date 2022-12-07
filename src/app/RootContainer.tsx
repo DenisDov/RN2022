@@ -10,12 +10,13 @@ import {
 } from 'react-native-safe-area-context';
 
 import { ConfirmModal } from '../components/Modals/ConfirmModal';
+import { ModalfyActionSheet } from '../components/Modals/ModalfyActionSheet';
 import { selectThemeMode } from '../features/auth/authSlice';
 import { useAppSelector } from '../hooks/store';
 import { darkTheme, theme } from '../theme';
 import AppNavigator from './Navigation';
 
-const modalConfig = { ConfirmModal };
+const modalConfig = { ConfirmModal, ModalfyActionSheet };
 const stack = createModalStack(modalConfig);
 
 const RootContainer = () => {
