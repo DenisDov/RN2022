@@ -41,7 +41,7 @@ export const { logOut, setDarkMode } = authSlice.actions;
 const selectSelf = (state: RootState) => state.auth;
 export const selectCurrentUser = createSelector(selectSelf, auth => auth.user);
 
-export const selectCurrentThemeMode = createSelector(
+export const selectThemeMode = createSelector(
   selectSelf,
   auth => auth.isDarkMode,
 );

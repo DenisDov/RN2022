@@ -3,13 +3,13 @@ import React from 'react';
 
 import { Images } from '../../assets';
 import { PrimaryButton } from '../../components/Button';
-import { selectCurrentThemeMode } from '../../features/auth/authSlice';
+import { selectThemeMode } from '../../features/auth/authSlice';
 import { useAppSelector } from '../../hooks/store';
 import { Box, ImageBackgroundBox, SafeAreaBox, Text } from '../../theme';
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();
-  const isDarkMode = useAppSelector(selectCurrentThemeMode);
+  const isDarkMode = useAppSelector(selectThemeMode);
   const BG = isDarkMode ? Images.EXVO : Images.unsplash;
   return (
     <ImageBackgroundBox flex={1} source={BG} resizeMode="cover">

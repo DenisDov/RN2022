@@ -3,16 +3,13 @@ import { Switch } from 'react-native';
 
 import { Header } from '../../../components/Header';
 import { SettingsItem } from '../../../components/SettingsItem';
-import {
-  selectCurrentThemeMode,
-  setDarkMode,
-} from '../../../features/auth/authSlice';
+import { selectThemeMode, setDarkMode } from '../../../features/auth/authSlice';
 import { useAppDispatch, useAppSelector } from '../../../hooks/store';
 import { Box, theme } from '../../../theme';
 
 const AppSettingsScreen = () => {
   const switchEl = useRef(null);
-  const isDarkMode = useAppSelector(selectCurrentThemeMode);
+  const isDarkMode = useAppSelector(selectThemeMode);
   const dispatch = useAppDispatch();
 
   const handleChangeTheme = () => {

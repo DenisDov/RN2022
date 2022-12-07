@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { Alert, Button } from 'react-native';
 import YoutubePlayer from 'react-native-youtube-iframe';
 
+import { Header } from '../../../components/Header';
 import { Box } from '../../../theme';
 
 export default function App() {
@@ -18,7 +19,8 @@ export default function App() {
   }, []);
 
   return (
-    <Box>
+    <Box flex={1} backgroundColor="surface">
+      <Header textTitle="YoutubePlayer" />
       <YoutubePlayer
         height={300}
         play={playing}

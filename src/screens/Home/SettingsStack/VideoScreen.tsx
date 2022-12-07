@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import Video, { LoadError } from 'react-native-video';
 
+import { Header } from '../../../components/Header';
 import { Box, Text } from '../../../theme';
 
 const VideoScreen = () => {
@@ -11,7 +12,8 @@ const VideoScreen = () => {
     setVideoError(error.errorString);
   };
   return (
-    <Box flex={1} backgroundColor="surface" padding="m">
+    <Box flex={1} backgroundColor="surface">
+      <Header textTitle="Video" />
       <Box height={250}>
         <Video
           source={{

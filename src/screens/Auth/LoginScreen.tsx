@@ -10,7 +10,7 @@ import { Images } from '../../assets';
 import { AuthInput } from '../../components/AuthInput';
 import { PrimaryButton } from '../../components/Button';
 import { Header } from '../../components/Header';
-import { selectCurrentThemeMode } from '../../features/auth/authSlice';
+import { selectThemeMode } from '../../features/auth/authSlice';
 import { useAppSelector } from '../../hooks/store';
 import { LoginRequest, useLoginMutation } from '../../services/authApi';
 import { Box, Card, ImageBackgroundBox, SafeAreaBox, Text } from '../../theme';
@@ -38,7 +38,7 @@ const schema = yup
   .required();
 
 const LoginScreen = () => {
-  const isDarkMode = useAppSelector(selectCurrentThemeMode);
+  const isDarkMode = useAppSelector(selectThemeMode);
   const BG = isDarkMode ? Images.EXVO : Images.unsplash;
 
   const {

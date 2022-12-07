@@ -1,3 +1,4 @@
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { ThemeProvider } from '@shopify/restyle';
 import React from 'react';
 import { StatusBar } from 'react-native';
@@ -9,7 +10,7 @@ import {
 } from 'react-native-safe-area-context';
 
 import { ConfirmModal } from '../components/Modals/ConfirmModal';
-import { selectCurrentThemeMode } from '../features/auth/authSlice';
+import { selectThemeMode } from '../features/auth/authSlice';
 import { useAppSelector } from '../hooks/store';
 import { darkTheme, theme } from '../theme';
 import AppNavigator from './Navigation';
@@ -18,7 +19,7 @@ const modalConfig = { ConfirmModal };
 const stack = createModalStack(modalConfig);
 
 const RootContainer = () => {
-  const isDarkMode = useAppSelector(selectCurrentThemeMode);
+  const isDarkMode = useAppSelector(selectThemeMode);
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : theme}>
       <StatusBar
@@ -27,7 +28,9 @@ const RootContainer = () => {
       />
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
         <ModalProvider stack={stack}>
-          <AppNavigator />
+          <BottomSheetModalProvider>
+            <AppNavigator />
+          </BottomSheetModalProvider>
         </ModalProvider>
       </SafeAreaProvider>
       <FlashMessage position="bottom" />
