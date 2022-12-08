@@ -44,6 +44,10 @@ const ROUTES: Array<SettingsItemProps> = [
     label: 'react-native-vimeo-iframe',
     navTo: 'VimeoScreen',
   },
+  {
+    label: 'react-native-document-picker',
+    navTo: 'DocumentPickerScreen',
+  },
 ];
 
 const SettingsScreen = () => {

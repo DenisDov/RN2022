@@ -21,6 +21,7 @@ import SingleProductScreen from '../screens/Home/HomeStack/SingleProductScreen';
 import MapScreen from '../screens/Home/MapScreen';
 import ActionSheetsScreen from '../screens/Home/SettingsStack/ActionSheets';
 import AppSettingsScreen from '../screens/Home/SettingsStack/AppSettingsScreen';
+import DocumentPickerScreen from '../screens/Home/SettingsStack/DocumentPickerScreen';
 import HTMLScreen from '../screens/Home/SettingsStack/HTMLScreen';
 import ImagePickerScreen from '../screens/Home/SettingsStack/ImagePickerScreen';
 import SettingsScreen from '../screens/Home/SettingsStack/SettingsScreen';
@@ -69,6 +70,10 @@ const SettingsTabStack = () => {
       <Stack.Screen name="VideoScreen" component={VideoScreen} />
       <Stack.Screen name="YoutubeScreen" component={YoutubeScreen} />
       <Stack.Screen name="VimeoScreen" component={VimeoScreen} />
+      <Stack.Screen
+        name="DocumentPickerScreen"
+        component={DocumentPickerScreen}
+      />
     </Stack.Navigator>
   );
 };

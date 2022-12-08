@@ -32,6 +32,7 @@ export type RootStackParamList = {
   VideoScreen: undefined;
   YoutubeScreen: undefined;
   VimeoScreen: undefined;
+  DocumentPickerScreen: undefined;
 
   Playground: undefined;
 };
