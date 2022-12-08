@@ -1,4 +1,5 @@
 import React from 'react';
+import { useWindowDimensions } from 'react-native';
 import { ModalfyParams } from 'react-native-modalfy';
 
 import { Box, Text } from '../../theme';
@@ -7,6 +8,7 @@ import { PrimaryButton } from '../Button';
 const ModalfyActionSheet = ({
   modal: { getParam, closeModal },
 }: ModalfyParams) => {
+  const { width } = useWindowDimensions();
   const title = getParam('title');
   const message = getParam('message');
   const { button1, button2, onPress, callback } = getParam('props');
@@ -18,7 +20,11 @@ const ModalfyActionSheet = ({
   };
 
   return (
-    <Box backgroundColor="background" borderRadius="m" padding="m" width={320}>
+    <Box
+      backgroundColor="background"
+      borderRadius="m"
+      padding="m"
+      width={width}>
       <Text>{title}</Text>
       <Text marginBottom="m">{message}</Text>
       <Box flexDirection="row">
@@ -38,6 +44,10 @@ const ModalfyActionSheet = ({
       </Box>
     </Box>
   );
+};
+
+ModalfyActionSheet.modalOptions = {
+  position: 'bottom',
 };
 
 export { ModalfyActionSheet };

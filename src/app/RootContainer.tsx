@@ -16,8 +16,12 @@ import { useAppSelector } from '../hooks/store';
 import { darkTheme, theme } from '../theme';
 import AppNavigator from './Navigation';
 
-const modalConfig = { ConfirmModal, ModalfyActionSheet };
-const stack = createModalStack(modalConfig);
+const modalConfig = {
+  ConfirmModal,
+  ModalfyActionSheet,
+};
+const defaultOptions = { backdropOpacity: 0.6 };
+const stack = createModalStack(modalConfig, defaultOptions);
 
 const RootContainer = () => {
   const isDarkMode = useAppSelector(selectThemeMode);
