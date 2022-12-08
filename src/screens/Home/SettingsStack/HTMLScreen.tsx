@@ -13,11 +13,11 @@ const source = {
 };
 
 const HTMLScreen = () => {
-  const { width } = useWindowDimensions();
+  const { width: SCREEN_WIDTH } = useWindowDimensions();
   return (
     <Box flex={1} backgroundColor="surface">
       <Header textTitle="RenderHtml" />
-      <RenderHtml contentWidth={width} source={source} />
+      <RenderHtml contentWidth={SCREEN_WIDTH} source={source} />
     </Box>
   );
 };

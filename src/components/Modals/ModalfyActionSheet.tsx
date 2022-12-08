@@ -5,7 +5,7 @@ import { ModalfyParams } from 'react-native-modalfy';
 import { Box, Text } from '../../theme';
 import { PrimaryButton } from '../Button';
 
-const { width, height } = Dimensions.get('window');
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 const ModalfyActionSheet = ({
   modal: { getParam, closeModal },
@@ -25,7 +25,7 @@ const ModalfyActionSheet = ({
       backgroundColor="background"
       borderRadius="m"
       padding="m"
-      width={width}>
+      width={SCREEN_WIDTH}>
       <Text>{title}</Text>
       <Text marginBottom="m">{message}</Text>
       <Box flexDirection="row">
@@ -60,7 +60,7 @@ ModalfyActionSheet.modalOptions = {
       {
         translateY: animatedValue.interpolate({
           inputRange: [0, 1, 2],
-          outputRange: [height / 2, 0, 25],
+          outputRange: [SCREEN_HEIGHT / 2, 0, 25],
         }),
       },
     ],
