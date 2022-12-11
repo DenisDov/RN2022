@@ -1,4 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
+import { MotiView, useAnimationState } from 'moti';
 import React from 'react';
 
 import { Header } from '../../../components/Header';
@@ -19,6 +20,10 @@ const ROUTES: Array<SettingsItemProps> = [
   {
     label: 'Action Sheets',
     navTo: 'ActionSheetsScreen',
+  },
+  {
+    label: 'moti',
+    navTo: 'MotiScreen',
   },
   {
     label: 'react-native-render-html',
@@ -52,20 +57,32 @@ const ROUTES: Array<SettingsItemProps> = [
 
 const SettingsScreen = () => {
   const navigation = useNavigation();
+  const animationState = useAnimationState({
+    from: {
+      opacity: 0,
+      translateY: 5,
+    },
+    to: {
+      opacity: 1,
+      translateY: 0,
+    },
+  });
   return (
     <Box flex={1} backgroundColor="surface">
       <Header textTitle="SettingsStack" noBack />
       <ScrollBox flex={1}>
-        <Box padding="m">
-          {ROUTES.map(({ label, navTo }: SettingsItemProps) => (
-            <SettingsItem
-              key={label}
-              label={label}
-              onPress={() => navigation.navigate(navTo)}>
-              <ArrowRight />
-            </SettingsItem>
-          ))}
-        </Box>
+        <MotiView state={animationState}>
+          <Box padding="m">
+            {ROUTES.map(({ label, navTo }: SettingsItemProps) => (
+              <SettingsItem
+                key={label}
+                label={label}
+                onPress={() => navigation.navigate(navTo)}>
+                <ArrowRight />
+              </SettingsItem>
+            ))}
+          </Box>
+        </MotiView>
       </ScrollBox>
     </Box>
   );

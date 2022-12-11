@@ -24,6 +24,7 @@ import AppSettingsScreen from '../screens/Home/SettingsStack/AppSettingsScreen';
 import DocumentPickerScreen from '../screens/Home/SettingsStack/DocumentPickerScreen';
 import HTMLScreen from '../screens/Home/SettingsStack/HTMLScreen';
 import ImagePickerScreen from '../screens/Home/SettingsStack/ImagePickerScreen';
+import MotiScreen from '../screens/Home/SettingsStack/MotiScreen';
 import SettingsScreen from '../screens/Home/SettingsStack/SettingsScreen';
 import VideoScreen from '../screens/Home/SettingsStack/VideoScreen';
 import VimeoScreen from '../screens/Home/SettingsStack/VimeoScreen';
@@ -63,6 +64,7 @@ const SettingsTabStack = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="ActionSheetsScreen" component={ActionSheetsScreen} />
+      <Stack.Screen name="MotiScreen" component={MotiScreen} />
       <Stack.Screen name="AppSettingsScreen" component={AppSettingsScreen} />
       <Stack.Screen name="HTMLScreen" component={HTMLScreen} />
       <Stack.Screen name="WebViewScreen" component={WebViewScreen} />

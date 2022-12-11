@@ -23,6 +23,7 @@
     "@reduxjs/toolkit": "^1.8.6",
     "@shopify/flash-list": "^1.4.0",
     "@shopify/restyle": "^2.1.0",
+    "moti": "^0.21.0",
     "react": "18.1.0",
     "react-content-loader": "^6.2.0",
     "react-hook-form": "^7.39.3",
