@@ -1,5 +1,5 @@
 ## Installation
 
 ```bash
-yarn && npx pod install
+yarn && yarn pi
 ```

@@ -60,7 +60,7 @@ const SettingsScreen = () => {
   const animationState = useAnimationState({
     from: {
       opacity: 0,
-      translateY: 5,
+      translateY: 15,
     },
     to: {
       opacity: 1,
@@ -71,7 +71,12 @@ const SettingsScreen = () => {
     <Box flex={1} backgroundColor="surface">
       <Header textTitle="SettingsStack" noBack />
       <ScrollBox flex={1}>
-        <MotiView state={animationState}>
+        <MotiView
+          state={animationState}
+          transition={{
+            type: 'timing',
+            duration: 300,
+          }}>
           <Box padding="m">
             {ROUTES.map(({ label, navTo }: SettingsItemProps) => (
               <SettingsItem

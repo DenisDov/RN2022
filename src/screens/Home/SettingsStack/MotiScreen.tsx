@@ -11,7 +11,7 @@ const MotiScreen = () => {
       <MotiView
         from={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ type: 'timing' }}>
+        transition={{ type: 'timing', duration: 1000 }}>
         <Text>MOTI</Text>
       </MotiView>
     </Box>
