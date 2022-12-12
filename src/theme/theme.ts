@@ -69,6 +69,9 @@ const theme = createTheme({
       textAlign: 'center',
       color: 'headerTitle',
     },
+    bold: {
+      fontFamily: 'Raleway-Bold',
+    },
   },
   cardVariants: {
     defaults: {

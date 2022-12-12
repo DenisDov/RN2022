@@ -33,11 +33,18 @@ const ProductsCard = ({ item: product }: ProductItem) => {
         width={80}
         height={80}
         borderRadius="s"
+        marginBottom="s"
         defaultSource={Images.dummy}
       />
-      <Text numberOfLines={1}>{product.brand}</Text>
-      <Text numberOfLines={3}>{product.description}</Text>
-      <Text numberOfLines={1}>{product.price}</Text>
+      <Text numberOfLines={1} fontSize={18} marginBottom="xs">
+        {product.brand}
+      </Text>
+      <Text numberOfLines={3} fontSize={14} marginBottom="xs">
+        {product.description}
+      </Text>
+      <Text numberOfLines={1} variant="bold">
+        {product.price}
+      </Text>
     </RectBox>
   );
 };
