@@ -23,7 +23,7 @@ const ProductsCard = ({ item: product }: ProductItem) => {
         })
       }
       flex={1}
-      height={200}
+      height={210}
       padding="s"
       margin="xs"
       borderRadius="m"
