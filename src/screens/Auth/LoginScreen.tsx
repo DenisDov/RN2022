@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import CheckBox from '@react-native-community/checkbox';
+import { useTheme } from '@shopify/restyle';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { KeyboardAvoidingView, Linking, Platform } from 'react-native';
@@ -38,6 +39,7 @@ const schema = yup
   .required();
 
 const LoginScreen = () => {
+  const theme = useTheme();
   const isDarkMode = useAppSelector(selectThemeMode);
   const BG = isDarkMode ? Images.EXVO : Images.unsplash;
 
@@ -136,7 +138,14 @@ const LoginScreen = () => {
                   name="agreement"
                   control={control}
                   render={({ field: { onChange, value } }) => (
-                    <CheckBox value={value} onValueChange={onChange} />
+                    <CheckBox
+                      value={value}
+                      onValueChange={onChange}
+                      tintColors={{
+                        true: theme.colors.main,
+                        false: theme.colors.main,
+                      }}
+                    />
                   )}
                 />
                 <Text marginLeft="s">
