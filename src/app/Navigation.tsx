@@ -82,7 +82,7 @@ const SettingsTabStack = () => {
 
 const AppNavigator = () => {
   const auth = useAuth();
-  const isAuthenicated = !!auth?.user?.token || false;
+  const isAuthenicated = !!auth?.user?.token;
   return (
     <NavigationContainer
       theme={DarkTheme}
