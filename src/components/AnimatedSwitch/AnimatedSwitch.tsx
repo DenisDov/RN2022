@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   withTiming,
@@ -9,10 +9,11 @@ const _colors = {
   active: '#5065ED',
   inactive: '#D4D4D6',
   knob: '#FFFFFF',
+  shadow: '#121212',
 };
 
 interface AnimatedSwitchProps {
-  size: number;
+  size?: number;
   onPress: () => void;
   isActive: boolean;
 }
@@ -48,16 +49,11 @@ const AnimatedSwitch = ({
 
   return (
     <Pressable onPress={onPress}>
-      <View
-        style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+      <View style={styles.container}>
         <Animated.View
           style={[
+            styles.track,
             {
-              position: 'absolute',
-              right: 0,
               width: trackWidth,
               height: trackHeight,
               borderRadius: trackHeight / 2,
@@ -67,16 +63,11 @@ const AnimatedSwitch = ({
         />
         <Animated.View
           style={[
+            styles.knob,
             {
               width: knobSize,
               height: knobSize,
               borderRadius: size / 2,
-              backgroundColor: _colors.knob,
-              shadowColor: 'shadow',
-              shadowOpacity: 0.1,
-              shadowOffset: { width: 1, height: 1 },
-              shadowRadius: 1,
-              elevation: 1,
             },
             animatedKnobStyle,
           ]}
@@ -85,5 +76,24 @@ const AnimatedSwitch = ({
     </Pressable>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  track: {
+    position: 'absolute',
+    right: 0,
+  },
+  knob: {
+    backgroundColor: _colors.knob,
+    shadowColor: _colors.shadow,
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 1, height: 1 },
+    shadowRadius: 1,
+    elevation: 1,
+  },
+});
 
 export { AnimatedSwitch };

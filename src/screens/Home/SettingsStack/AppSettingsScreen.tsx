@@ -20,11 +20,7 @@ const AppSettingsScreen = () => {
       <Header textTitle="AppSettings" />
       <Box flex={1} padding="m">
         <SettingsItem onPress={handleChangeTheme} label="Dark theme">
-          <AnimatedSwitch
-            size={40}
-            isActive={isDarkMode}
-            onPress={handleChangeTheme}
-          />
+          <AnimatedSwitch isActive={isDarkMode} onPress={handleChangeTheme} />
         </SettingsItem>
       </Box>
     </Box>
