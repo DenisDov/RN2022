@@ -36,8 +36,9 @@ const AnimatedSwitch = ({
   });
 
   const animatedKnobStyle = useAnimatedStyle(() => {
-    const endPos = -2;
-    const startPos = -trackWidth + knobSize + 2;
+    const offsetX = 2;
+    const endPos = -offsetX;
+    const startPos = -trackWidth + knobSize + offsetX;
     return {
       transform: [
         {
