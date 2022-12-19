@@ -14,7 +14,6 @@ const ProductsCard = ({ item: product }: ProductItem) => {
   const navigation = useNavigation();
 
   return (
-    // RectButton borderColor propery not working on Android devices, thats why we need to wrap RectButton in outer View
     <RectBox
       onPress={() =>
         navigation.navigate('SingleProduct', {
