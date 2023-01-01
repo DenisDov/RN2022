@@ -1,5 +1,12 @@
 import React from 'react';
-import { Dimensions, FlatList, StyleSheet, Text, View } from 'react-native';
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -44,16 +51,27 @@ const Onboarding = () => {
       data={slides}
       renderItem={({ item }) => {
         return (
-          <View style={{ width, height, backgroundColor: item.background }}>
+          <View
+            style={{
+              width,
+              height,
+              backgroundColor: item.background,
+              padding: 16,
+            }}>
             <View
               style={{
                 flex: 2,
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <Text>ING</Text>
+              <Image
+                source={{
+                  uri: item.image,
+                }}
+                resizeMode="contain"
+              />
             </View>
-            <View style={{ flex: 1, padding: 16 }}>
+            <View style={{ flex: 1 }}>
               <Text>{item.title}</Text>
               <Text>{item.description}</Text>
             </View>
