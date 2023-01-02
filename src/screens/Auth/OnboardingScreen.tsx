@@ -1,12 +1,8 @@
 import React from 'react';
-import {
-  Dimensions,
-  FlatList,
-  Image,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Dimensions, FlatList, StyleSheet, View } from 'react-native';
+
+import { Images } from '../../assets';
+import { ImageBox, Text } from '../../theme';
 
 const { width, height } = Dimensions.get('window');
 
@@ -45,7 +41,7 @@ const slides = [
   },
 ];
 
-const Onboarding = () => {
+const OnboardingScreen = () => {
   return (
     <FlatList
       data={slides}
@@ -54,25 +50,31 @@ const Onboarding = () => {
           <View
             style={{
               width,
-              height,
+              // height,
               backgroundColor: item.background,
               padding: 16,
             }}>
             <View
               style={{
-                flex: 2,
+                flex: 3,
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <Image
+              <ImageBox
                 source={{
                   uri: item.image,
                 }}
+                width={200}
+                height={200}
                 resizeMode="contain"
+                defaultSource={Images.dummy}
+                borderRadius="m"
               />
             </View>
-            <View style={{ flex: 1 }}>
-              <Text>{item.title}</Text>
+            <View style={{ flex: 2 }}>
+              <Text variant="welcomeTitle" marginBottom="l">
+                {item.title}
+              </Text>
               <Text>{item.description}</Text>
             </View>
           </View>
@@ -87,6 +89,6 @@ const Onboarding = () => {
   );
 };
 
-export { Onboarding };
+export default OnboardingScreen;
 
 const styles = StyleSheet.create({});

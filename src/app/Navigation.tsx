@@ -8,6 +8,7 @@ import { RootStackParamList } from '../@types/navigation';
 import { TabIcon } from '../components/TabIcon';
 import { useAuth } from '../hooks/useAuth';
 import LoginScreen from '../screens/Auth/LoginScreen';
+import OnboardingScreen from '../screens/Auth/OnboardingScreen';
 import RegisterScreen from '../screens/Auth/RegisterScreen';
 import WelcomeScreen from '../screens/Auth/WelcomeScreen';
 import PlaygroundScreen from '../screens/Common/PlaygroundScreen';
@@ -116,6 +117,7 @@ const AppNavigator = () => {
         </Tab.Navigator>
       ) : (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Onboarding" component={OnboardingScreen} />
           <Stack.Screen
             name="Welcome"
             component={WelcomeScreen}
