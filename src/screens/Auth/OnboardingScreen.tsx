@@ -1,18 +1,14 @@
 import React from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, View } from 'react-native';
 import Animated, {
-  Extrapolation,
-  interpolate,
   interpolateColor,
-  interpolateColors,
-  interpolateNode,
   useAnimatedScrollHandler,
   useAnimatedStyle,
   useSharedValue,
 } from 'react-native-reanimated';
 
 import { Images } from '../../assets';
-import { ImageBox, Text } from '../../theme';
+import { Text } from '../../theme';
 
 const { width } = Dimensions.get('window');
 
@@ -90,15 +86,16 @@ const OnboardingScreen = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <ImageBox
+              <Image
                 source={{
                   uri: item.image,
                 }}
-                width={200}
-                height={200}
-                resizeMode="contain"
                 defaultSource={Images.dummy}
-                borderRadius="m"
+                style={{
+                  height: 200,
+                  width: 200,
+                  borderRadius: 16,
+                }}
               />
             </View>
             <View style={{ flex: 2 }}>
