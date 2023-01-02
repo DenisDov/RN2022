@@ -1,10 +1,20 @@
 import React from 'react';
-import { Dimensions, FlatList, StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet, View } from 'react-native';
+import Animated, {
+  Extrapolation,
+  interpolate,
+  interpolateColor,
+  interpolateColors,
+  interpolateNode,
+  useAnimatedScrollHandler,
+  useAnimatedStyle,
+  useSharedValue,
+} from 'react-native-reanimated';
 
 import { Images } from '../../assets';
 import { ImageBox, Text } from '../../theme';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const slides = [
   {
@@ -12,7 +22,7 @@ const slides = [
     title: 'illo nulla aliquid',
     description:
       'accusantium voluptas nobis qui repellat perferendis distinctio hic labore deleniti',
-    background: 'navy',
+    background: '#09007F',
     image: 'https://loremflickr.com/640/480/abstract',
   },
   {
@@ -20,7 +30,7 @@ const slides = [
     title: 'possimus sequi incidunt',
     description:
       'nobis aperiam aut maiores rerum hic doloribus repellendus labore animi',
-    background: 'olive',
+    background: '#7F8001',
     image: 'https://loremflickr.com/640/480/abstract',
   },
   {
@@ -28,7 +38,7 @@ const slides = [
     title: 'possimus odit placeat',
     description:
       'ullam vero totam fuga quam illum laudantium suscipit eaque autem',
-    background: 'tomato',
+    background: '#FF6346',
     image: 'https://loremflickr.com/640/480/abstract',
   },
   {
@@ -36,24 +46,44 @@ const slides = [
     title: 'est asperiores ex',
     description:
       'consequatur ipsa enim ab delectus doloribus voluptatibus facere doloribus sapiente',
-    background: 'indigo',
+    background: '#4B0082',
     image: 'https://loremflickr.com/640/480/abstract',
   },
 ];
 
 const OnboardingScreen = () => {
+  const translationX = useSharedValue(0);
+
+  const scrollHandler = useAnimatedScrollHandler(event => {
+    translationX.value = event.contentOffset.x;
+  });
+
+  const animatedBgColor = useAnimatedStyle(() => {
+    const backgroundColor = interpolateColor(
+      translationX.value,
+      slides.map((_, i) => i * width), // [0, 375, 750, 1125]
+      slides.map(s => s.background), // ['#09007F', '#7F8001', '#FF6346', '#4B0082']
+    );
+
+    return {
+      backgroundColor,
+    };
+  });
+
   return (
-    <FlatList
+    <Animated.FlatList
       data={slides}
       renderItem={({ item }) => {
         return (
-          <View
-            style={{
-              width,
-              // height,
-              backgroundColor: item.background,
-              padding: 16,
-            }}>
+          <Animated.View
+            style={[
+              animatedBgColor,
+              {
+                flex: 1,
+                width,
+                padding: 16,
+              },
+            ]}>
             <View
               style={{
                 flex: 3,
@@ -77,13 +107,15 @@ const OnboardingScreen = () => {
               </Text>
               <Text>{item.description}</Text>
             </View>
-          </View>
+          </Animated.View>
         );
       }}
       horizontal
       pagingEnabled
       bounces={false}
       showsHorizontalScrollIndicator={false}
+      scrollEventThrottle={32}
+      onScroll={scrollHandler}
       keyExtractor={item => String(item.id)}
     />
   );
