@@ -1,4 +1,6 @@
+import { useTheme } from '@shopify/restyle';
 import React, { useState } from 'react';
+import { StyleSheet } from 'react-native';
 import Animated, { withSpring } from 'react-native-reanimated';
 
 import { Box, RectBox, Text } from '../../theme';
@@ -12,6 +14,7 @@ type AccordionProps = {
 
 const Accordion = ({ item }: AccordionProps) => {
   const [visible, setVisible] = useState(false);
+  const theme = useTheme();
   return (
     <Box>
       <RectBox
@@ -27,12 +30,22 @@ const Accordion = ({ item }: AccordionProps) => {
         </Text>
       </RectBox>
       {visible && (
-        <Animated.View style={{ backgroundColor: '#313235', padding: 16 }}>
+        <Animated.View
+          style={[
+            styles.content,
+            { backgroundColor: theme.colors.background },
+          ]}>
           <Text>{item.content}</Text>
         </Animated.View>
       )}
     </Box>
   );
 };
+
+const styles = StyleSheet.create({
+  content: {
+    padding: 16,
+  },
+});
 
 export { Accordion };
