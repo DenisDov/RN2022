@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Dimensions, Image, StyleSheet, View } from 'react-native';
 import Animated, {
   Extrapolate,
@@ -50,6 +50,10 @@ const slides = [
 ];
 
 const OnboardingScreen = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  console.log('currentIndex: ', currentIndex);
+  const slidesRef = useRef(null);
+
   const translationX = useSharedValue(0);
 
   const scrollHandler = useAnimatedScrollHandler(event => {
@@ -72,7 +76,7 @@ const OnboardingScreen = () => {
     return (
       <View
         style={{
-          bottom: 50,
+          // bottom: 50,
           flexDirection: 'row',
           alignItems: 'center',
           alignSelf: 'center',
@@ -123,9 +127,28 @@ const OnboardingScreen = () => {
     );
   };
 
+  const viewableItemsChanged = useRef(({ viewableItems }) => {
+    setCurrentIndex(viewableItems[0].index);
+  }).current;
+
+  const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
+
+  const scrollLeft = () => {
+    slidesRef.current.scrollToIndex({ index: currentIndex - 1 });
+  };
+
+  const scrollRight = () => {
+    if (currentIndex < slides.length - 1) {
+      slidesRef.current.scrollToIndex({ index: currentIndex + 1 });
+    } else {
+      console.log('last item');
+    }
+  };
+
   return (
     <Animated.View style={[{ flex: 1 }, animatedBgColor]}>
       <Animated.FlatList
+        ref={slidesRef}
         data={slides}
         renderItem={({ item }) => {
           return (
@@ -163,9 +186,33 @@ const OnboardingScreen = () => {
         showsHorizontalScrollIndicator={false}
         scrollEventThrottle={32}
         onScroll={scrollHandler}
+        onViewableItemsChanged={viewableItemsChanged}
+        viewabilityConfig={viewConfig}
         keyExtractor={item => String(item.id)}
       />
-      <Dots />
+      <View
+        style={{
+          padding: 16,
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+        <View style={{ width: 60 }}>
+          {currentIndex > 0 && <Text onPress={scrollLeft}>Prev</Text>}
+        </View>
+
+        <Dots />
+
+        <View style={{ width: 60 }}>
+          {currentIndex === slides.length - 1 ? (
+            <Text style={{ textAlign: 'right' }}>Done</Text>
+          ) : (
+            <Text onPress={scrollRight} style={{ textAlign: 'right' }}>
+              Next
+            </Text>
+          )}
+        </View>
+      </View>
     </Animated.View>
   );
 };
