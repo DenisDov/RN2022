@@ -20,6 +20,7 @@ import ProductsScreen from '../screens/Home/HomeStack/ProductsScreen';
 import ProfileScreen from '../screens/Home/HomeStack/ProfileScreen';
 import SingleProductScreen from '../screens/Home/HomeStack/SingleProductScreen';
 import MapScreen from '../screens/Home/MapScreen';
+import AccordionScreen from '../screens/Home/SettingsStack/AccordionScreen';
 import ActionSheetsScreen from '../screens/Home/SettingsStack/ActionSheets';
 import AppSettingsScreen from '../screens/Home/SettingsStack/AppSettingsScreen';
 import DocumentPickerScreen from '../screens/Home/SettingsStack/DocumentPickerScreen';
@@ -66,6 +67,7 @@ const SettingsTabStack = () => {
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="ActionSheetsScreen" component={ActionSheetsScreen} />
       <Stack.Screen name="MotiScreen" component={MotiScreen} />
+      <Stack.Screen name="AccordionScreen" component={AccordionScreen} />
       <Stack.Screen name="AppSettingsScreen" component={AppSettingsScreen} />
       <Stack.Screen name="HTMLScreen" component={HTMLScreen} />
       <Stack.Screen name="WebViewScreen" component={WebViewScreen} />

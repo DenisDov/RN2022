@@ -26,6 +26,10 @@ const ROUTES: Array<SettingsItemProps> = [
     navTo: 'MotiScreen',
   },
   {
+    label: 'Accordion reanimated',
+    navTo: 'AccordionScreen',
+  },
+  {
     label: 'react-native-render-html',
     navTo: 'HTMLScreen',
   },
