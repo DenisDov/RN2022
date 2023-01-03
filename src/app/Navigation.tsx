@@ -117,7 +117,6 @@ const AppNavigator = () => {
         </Tab.Navigator>
       ) : (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Onboarding" component={OnboardingScreen} />
           <Stack.Screen
             name="Welcome"
             component={WelcomeScreen}
@@ -126,6 +125,7 @@ const AppNavigator = () => {
               animation: 'none',
             }}
           />
+          <Stack.Screen name="Onboarding" component={OnboardingScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator>
