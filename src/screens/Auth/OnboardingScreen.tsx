@@ -138,11 +138,12 @@ const OnboardingScreen = () => {
   };
 
   const scrollRight = () => {
-    if (currentIndex < slides.length - 1) {
-      slidesRef.current.scrollToIndex({ index: currentIndex + 1 });
-    } else {
-      console.log('last item');
-    }
+    slidesRef.current.scrollToIndex({ index: currentIndex + 1 });
+    // if (currentIndex < slides.length - 1) {
+    //   slidesRef.current.scrollToIndex({ index: currentIndex + 1 });
+    // } else {
+    //   console.log('last item');
+    // }
   };
 
   return (
@@ -205,7 +206,9 @@ const OnboardingScreen = () => {
 
         <View style={{ width: 60 }}>
           {currentIndex === slides.length - 1 ? (
-            <Text style={{ textAlign: 'right' }}>Done</Text>
+            <Text onPress={() => alert('done')} style={{ textAlign: 'right' }}>
+              Done
+            </Text>
           ) : (
             <Text onPress={scrollRight} style={{ textAlign: 'right' }}>
               Next
