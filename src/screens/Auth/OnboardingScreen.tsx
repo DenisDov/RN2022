@@ -1,6 +1,8 @@
 import React from 'react';
 import { Dimensions, Image, StyleSheet, View } from 'react-native';
 import Animated, {
+  Extrapolate,
+  interpolate,
   interpolateColor,
   useAnimatedScrollHandler,
   useAnimatedStyle,
@@ -66,55 +68,105 @@ const OnboardingScreen = () => {
     };
   });
 
+  const Dots = () => {
+    return (
+      <View
+        style={{
+          bottom: 50,
+          flexDirection: 'row',
+          alignItems: 'center',
+          alignSelf: 'center',
+        }}>
+        {slides.map((s, i) => {
+          const inputRange = [(i - 1) * width, i * width, (i + 1) * width];
+          // eslint-disable-next-line react-hooks/rules-of-hooks
+          const animatedStyle = useAnimatedStyle(() => {
+            const scale = interpolate(
+              translationX.value,
+              inputRange,
+              [1, 1.5, 1],
+              Extrapolate.CLAMP,
+            );
+            const opacity = interpolate(
+              translationX.value,
+              inputRange,
+              [0.7, 1, 0.7],
+              Extrapolate.CLAMP,
+            );
+
+            return {
+              transform: [
+                {
+                  scale,
+                },
+              ],
+              opacity,
+            };
+          });
+          return (
+            <Animated.View
+              key={s.id}
+              style={[
+                {
+                  width: 10,
+                  height: 10,
+                  borderRadius: 5,
+                  backgroundColor: 'white',
+                  margin: 10,
+                },
+                animatedStyle,
+              ]}
+            />
+          );
+        })}
+      </View>
+    );
+  };
+
   return (
-    <Animated.FlatList
-      data={slides}
-      renderItem={({ item }) => {
-        return (
-          <Animated.View
-            style={[
-              animatedBgColor,
-              {
-                flex: 1,
-                width,
-                padding: 16,
-              },
-            ]}>
-            <View
-              style={{
-                flex: 3,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <Image
-                source={{
-                  uri: item.image,
-                }}
-                defaultSource={Images.dummy}
+    <Animated.View style={[{ flex: 1 }, animatedBgColor]}>
+      <Animated.FlatList
+        data={slides}
+        renderItem={({ item }) => {
+          return (
+            <View style={{ flex: 1, padding: 16, width }}>
+              <View
                 style={{
-                  height: 200,
-                  width: 200,
-                  borderRadius: 16,
-                }}
-              />
+                  flex: 3,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Image
+                  source={{
+                    uri: item.image,
+                  }}
+                  defaultSource={Images.dummy}
+                  style={{
+                    height: 200,
+                    width: 200,
+                    borderRadius: 16,
+                  }}
+                />
+              </View>
+              <View style={{ flex: 2 }}>
+                <Text variant="welcomeTitle" marginBottom="l">
+                  {item.title}
+                </Text>
+                <Text>{item.description}</Text>
+              </View>
             </View>
-            <View style={{ flex: 2 }}>
-              <Text variant="welcomeTitle" marginBottom="l">
-                {item.title}
-              </Text>
-              <Text>{item.description}</Text>
-            </View>
-          </Animated.View>
-        );
-      }}
-      horizontal
-      pagingEnabled
-      bounces={false}
-      showsHorizontalScrollIndicator={false}
-      scrollEventThrottle={32}
-      onScroll={scrollHandler}
-      keyExtractor={item => String(item.id)}
-    />
+          );
+        }}
+        horizontal
+        pagingEnabled
+        bounces={false}
+        showsHorizontalScrollIndicator={false}
+        scrollEventThrottle={32}
+        onScroll={scrollHandler}
+        keyExtractor={item => String(item.id)}
+      />
+      <Dots />
+    </Animated.View>
   );
 };
 
