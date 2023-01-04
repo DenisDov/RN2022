@@ -2,6 +2,8 @@ import { useTheme } from '@shopify/restyle';
 import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 
+import { theme } from '../../theme';
+
 type Props = {
   onBlur: () => void;
   onChange: () => void;
@@ -11,17 +13,6 @@ type Props = {
 
 const AuthInput = ({ onBlur, onChange, value, placeholder }: Props) => {
   const appTheme = useTheme();
-  const styles = StyleSheet.create({
-    input: {
-      marginBottom: appTheme.spacing.xs,
-      fontSize: 18,
-      fontFamily: 'Raleway-Regular',
-      color: appTheme.colors.primaryText,
-      height: appTheme.spacing.xl,
-      borderBottomWidth: StyleSheet.hairlineWidth,
-      borderColor: appTheme.colors.main,
-    },
-  });
   return (
     <TextInput
       onBlur={onBlur}
@@ -32,9 +23,20 @@ const AuthInput = ({ onBlur, onChange, value, placeholder }: Props) => {
       underlineColorAndroid="transparent"
       autoCapitalize="none"
       autoCorrect={false}
-      style={styles.input}
+      style={[styles.input, { color: appTheme.colors.primaryText }]}
     />
   );
 };
+
+const styles = StyleSheet.create({
+  input: {
+    marginBottom: theme.spacing.xs,
+    fontSize: 18,
+    fontFamily: 'Raleway-Regular',
+    height: theme.spacing.xl,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: theme.colors.main,
+  },
+});
 
 export { AuthInput };
