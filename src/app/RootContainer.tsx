@@ -14,7 +14,7 @@ import { ModalfyActionSheet } from '../components/Modals/ModalfyActionSheet';
 import { selectThemeMode } from '../features/auth/authSlice';
 import { useAppSelector } from '../hooks/store';
 import { darkTheme, theme } from '../theme';
-import AppNavigator from './Navigation';
+import RootNavigator from './RootNavigator';
 
 const modalConfig = {
   ConfirmModal,
@@ -34,7 +34,7 @@ const RootContainer = () => {
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
         <ModalProvider stack={stack}>
           <BottomSheetModalProvider>
-            <AppNavigator />
+            <RootNavigator />
           </BottomSheetModalProvider>
         </ModalProvider>
       </SafeAreaProvider>

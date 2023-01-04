@@ -83,7 +83,7 @@ const SettingsTabStack = () => {
   );
 };
 
-const AppNavigator = () => {
+const RootNavigator = () => {
   const auth = useAuth();
   const isAuthenicated = !!auth?.user?.token;
   return (
@@ -136,4 +136,5 @@ const AppNavigator = () => {
   );
 };
 
-export default AppNavigator;
+// export default AppNavigator;
+export default React.memo(RootNavigator);
