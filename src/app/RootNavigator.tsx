@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DarkTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useTheme } from '@shopify/restyle';
 import * as React from 'react';
 import RNBootSplash from 'react-native-bootsplash';
 
@@ -32,7 +33,6 @@ import VideoScreen from '../screens/Home/SettingsStack/VideoScreen';
 import VimeoScreen from '../screens/Home/SettingsStack/VimeoScreen';
 import WebViewScreen from '../screens/Home/SettingsStack/WebViewScreen';
 import YoutubeScreen from '../screens/Home/SettingsStack/YoutubeScreen';
-import { theme } from '../theme';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
@@ -86,6 +86,7 @@ const SettingsTabStack = () => {
 const RootNavigator = () => {
   const auth = useAuth();
   const isAuthenicated = !!auth?.user?.token;
+  const appTheme = useTheme();
   return (
     <NavigationContainer
       theme={DarkTheme}
@@ -100,7 +101,7 @@ const RootNavigator = () => {
             ),
             tabBarStyle: {
               backgroundColor: '#1A1B1E',
-              borderTopColor: theme.colors.muted,
+              borderTopColor: appTheme.colors.muted,
             },
           })}>
           <Tab.Screen name="HomeTab" component={HomeTabStack} />
