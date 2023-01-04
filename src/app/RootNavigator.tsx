@@ -136,5 +136,4 @@ const RootNavigator = () => {
   );
 };
 
-// export default AppNavigator;
 export default React.memo(RootNavigator);
