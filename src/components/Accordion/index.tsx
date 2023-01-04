@@ -1,7 +1,7 @@
 import { useTheme } from '@shopify/restyle';
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import Animated, { withSpring } from 'react-native-reanimated';
+import Animated, { FadeInDown, withSpring } from 'react-native-reanimated';
 
 import { Box, RectBox, Text } from '../../theme';
 
@@ -16,7 +16,7 @@ const Accordion = ({ item }: AccordionProps) => {
   const [visible, setVisible] = useState(false);
   const theme = useTheme();
   return (
-    <Box>
+    <Box marginBottom="s">
       <RectBox
         flexDirection="row"
         alignItems="center"
@@ -31,6 +31,7 @@ const Accordion = ({ item }: AccordionProps) => {
       </RectBox>
       {visible && (
         <Animated.View
+          entering={FadeInDown}
           style={[
             styles.content,
             { backgroundColor: theme.colors.background },
