@@ -26,7 +26,7 @@ const SECTIONS = [
 const AccordionScreen = () => {
   return (
     <Box flex={1} backgroundColor="surface">
-      <Header textTitle="RenderHtml" />
+      <Header textTitle="Accordion" />
       <ScrollBox flex={1} padding="m" showsVerticalScrollIndicator={false}>
         {SECTIONS.map(item => (
           <Accordion key={item._id} item={item} />

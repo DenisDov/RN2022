@@ -25,7 +25,7 @@ const Accordion = ({ item }: AccordionProps) => {
         onPress={() => setVisible(prev => !prev)}
         padding="m">
         <Text>{item.title}</Text>
-        <Text fontSize={32} lineHeight={32}>
+        <Text fontSize={24} lineHeight={24}>
           {visible ? '-' : '+'}
         </Text>
       </RectBox>
