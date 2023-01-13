@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Dimensions, FlatList, StyleSheet } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE, Region } from 'react-native-maps';
 
@@ -35,6 +35,7 @@ const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const CARD_WIDTH = SCREEN_WIDTH - 64;
 
 const MapScreen = () => {
+  const mapRef = useRef<MapView>(null);
   const [region, setRegion] = useState<Region>({
     latitude: 50.51424523427609,
     longitude: 30.613633014838392,
@@ -50,6 +51,7 @@ const MapScreen = () => {
     <Box flex={1}>
       {/* MAP */}
       <MapView
+        ref={mapRef}
         onMapReady={() => console.log('Map ready')}
         // provider={PROVIDER_GOOGLE}
         style={StyleSheet.absoluteFillObject}
@@ -86,7 +88,14 @@ const MapScreen = () => {
             return (
               <Box key={marker.id} width={CARD_WIDTH} padding="m">
                 <RectBox
-                  onPress={() => null}
+                  onPress={() =>
+                    mapRef.current?.animateToRegion({
+                      latitude: marker.latitude,
+                      longitude: marker.longitude,
+                      latitudeDelta: 0.0043,
+                      longitudeDelta: 0.0034,
+                    })
+                  }
                   backgroundColor="main"
                   padding="m"
                   borderRadius="m"
