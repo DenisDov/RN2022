@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dimensions, FlatList, ScrollView, StyleSheet } from 'react-native';
+import { Dimensions, FlatList, StyleSheet } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE, Region } from 'react-native-maps';
 
 import { Box, Text } from '../../theme';
