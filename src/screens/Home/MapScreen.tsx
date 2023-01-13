@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Dimensions, FlatList, StyleSheet } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE, Region } from 'react-native-maps';
 
-import { Box, Text } from '../../theme';
+import { Box, RectBox, Text } from '../../theme';
 
 const markers = [
   {
@@ -85,7 +85,8 @@ const MapScreen = () => {
           renderItem={({ item: marker }) => {
             return (
               <Box key={marker.id} width={CARD_WIDTH} padding="m">
-                <Box
+                <RectBox
+                  onPress={() => null}
                   backgroundColor="main"
                   padding="m"
                   borderRadius="m"
@@ -97,7 +98,7 @@ const MapScreen = () => {
                     {marker.title}
                   </Text>
                   <Text>{marker.description}</Text>
-                </Box>
+                </RectBox>
               </Box>
             );
           }}
