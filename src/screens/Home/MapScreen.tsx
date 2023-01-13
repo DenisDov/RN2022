@@ -32,6 +32,7 @@ const markers = [
 ];
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const CARD_WIDTH = SCREEN_WIDTH - 64;
 
 const MapScreen = () => {
   const [region, setRegion] = useState<Region>({
@@ -48,8 +49,8 @@ const MapScreen = () => {
   return (
     <Box flex={1}>
       <MapView
-        onMapReady={() => console.log('Camera ready')}
-        provider={PROVIDER_GOOGLE}
+        onMapReady={() => console.log('Map ready')}
+        // provider={PROVIDER_GOOGLE}
         style={StyleSheet.absoluteFillObject}
         initialRegion={region}
         onRegionChange={handleRegionChange}
@@ -69,57 +70,36 @@ const MapScreen = () => {
         })}
       </MapView>
 
-      <Box
-        // backgroundColor="surface"
-        position="absolute"
-        left={0}
-        right={0}
-        bottom={0}>
+      <Box position="absolute" left={0} right={0} bottom={0}>
         <ScrollView
-          // contentContainerStyle={{ paddingHorizontal: 16 }}
           horizontal
-          pagingEnabled
-          // decelerationRate="fast"
-          // snapToInterval={SCREEN_WIDTH - (64 - 16)} //your element width
-          // snapToAlignment="center"
+          decelerationRate="fast"
+          snapToInterval={CARD_WIDTH}
+          snapToAlignment="center"
           bounces={false}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}>
           {markers.map(marker => {
             return (
-              <Box
-                key={marker.id}
-                width={SCREEN_WIDTH}
-                padding="m"
-                // marginHorizontal="s"
-                backgroundColor="error">
-                <Text marginBottom="s" fontSize={24}>
-                  {marker.title}
-                </Text>
-                <Text>{marker.description}</Text>
+              <Box key={marker.id} width={CARD_WIDTH} padding="m">
+                <Box
+                  backgroundColor="main"
+                  padding="m"
+                  borderRadius="m"
+                  shadowOpacity={0.25}
+                  shadowOffset={{ width: 2, height: 2 }}
+                  shadowRadius={2}
+                  elevation={2}>
+                  <Text marginBottom="s" fontSize={24}>
+                    {marker.title}
+                  </Text>
+                  <Text>{marker.description}</Text>
+                </Box>
               </Box>
             );
           })}
         </ScrollView>
       </Box>
-      {/* <Box
-        backgroundColor="background"
-        position="absolute"
-        width={120}
-        left={8}
-        bottom={8}
-        borderRadius="m"
-        padding="m"
-        justifyContent="center"
-        alignItems="center"
-        shadowColor="shadow"
-        shadowOpacity={0.25}
-        shadowOffset={{ width: 2, height: 2 }}
-        shadowRadius={2}
-        elevation={2}>
-        <Text>{region.latitude.toFixed(6)}</Text>
-        <Text>{region.longitude.toFixed(6)}</Text>
-      </Box> */}
     </Box>
   );
 };
