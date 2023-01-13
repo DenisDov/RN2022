@@ -36,16 +36,17 @@ const CARD_WIDTH = SCREEN_WIDTH - 64;
 
 const MapScreen = () => {
   const mapRef = useRef<MapView>(null);
-  const [region, setRegion] = useState<Region>({
+  const [region] = useState<Region>({
     latitude: 50.51424523427609,
     longitude: 30.613633014838392,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   });
+  const flatListRef = useRef<FlatList>(null);
 
-  const handleRegionChange = (coords: Region) => {
-    setRegion(coords);
-  };
+  // const handleRegionChange = (coords: Region) => {
+  //   setRegion(coords);
+  // };
 
   return (
     <Box flex={1}>
@@ -56,7 +57,7 @@ const MapScreen = () => {
         // provider={PROVIDER_GOOGLE}
         style={StyleSheet.absoluteFillObject}
         initialRegion={region}
-        onRegionChange={handleRegionChange}
+        // onRegionChange={handleRegionChange}
         showsMyLocationButton>
         {markers.map(marker => {
           return (
@@ -76,6 +77,7 @@ const MapScreen = () => {
       {/* BOTTOM SCROLLVIEW */}
       <Box position="absolute" left={0} right={0} bottom={0}>
         <FlatList
+          ref={flatListRef}
           data={markers}
           horizontal
           decelerationRate="fast"
@@ -84,18 +86,23 @@ const MapScreen = () => {
           bounces={false}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
-          renderItem={({ item: marker }) => {
+          renderItem={({ item: marker, index }) => {
             return (
               <Box key={marker.id} width={CARD_WIDTH} padding="m">
                 <RectBox
-                  onPress={() =>
+                  onPress={() => {
                     mapRef.current?.animateToRegion({
                       latitude: marker.latitude,
                       longitude: marker.longitude,
                       latitudeDelta: 0.0043,
                       longitudeDelta: 0.0034,
-                    })
-                  }
+                    });
+                    flatListRef.current?.scrollToIndex({
+                      animated: true,
+                      index,
+                      viewPosition: 0.5,
+                    });
+                  }}
                   backgroundColor="main"
                   padding="m"
                   borderRadius="m"
