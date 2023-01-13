@@ -7,7 +7,7 @@ import { Box, Text } from '../../theme';
 const markers = [
   {
     id: 1,
-    name: 'Velopark',
+    title: 'Velopark',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia quam necessitatibus numquam temporibus aliquid, nobis ea quis, aut porro doloremque perspiciatis voluptates dolor accusamus ad a illo. Vero, labore hic!',
     latitude: 50.518830542287795,
@@ -15,7 +15,7 @@ const markers = [
   },
   {
     id: 2,
-    name: 'MuzLine',
+    title: 'MuzLine',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia quam necessitatibus numquam temporibus aliquid, nobis ea quis, aut porro doloremque perspiciatis voluptates dolor accusamus ad a illo. Vero, labore hic!',
     latitude: 50.509116186003205,
@@ -23,7 +23,7 @@ const markers = [
   },
   {
     id: 3,
-    name: 'Metro',
+    title: 'Metro',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia quam necessitatibus numquam temporibus aliquid, nobis ea quis, aut porro doloremque perspiciatis voluptates dolor accusamus ad a illo. Vero, labore hic!',
     latitude: 50.511898261486934,
@@ -37,8 +37,8 @@ const MapScreen = () => {
   const [region, setRegion] = useState<Region>({
     latitude: 50.51424523427609,
     longitude: 30.613633014838392,
-    latitudeDelta: 0.09,
-    longitudeDelta: 0.04,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
   });
 
   const handleRegionChange = (coords: Region) => {
@@ -62,6 +62,8 @@ const MapScreen = () => {
                 latitude: marker.latitude,
                 longitude: marker.longitude,
               }}
+              title={marker.title}
+              description={marker.description}
             />
           );
         })}
@@ -92,7 +94,7 @@ const MapScreen = () => {
                 // marginHorizontal="s"
                 backgroundColor="error">
                 <Text marginBottom="s" fontSize={24}>
-                  {marker.name}
+                  {marker.title}
                 </Text>
                 <Text>{marker.description}</Text>
               </Box>
