@@ -48,6 +48,7 @@ const MapScreen = () => {
 
   return (
     <Box flex={1}>
+      {/* MAP */}
       <MapView
         onMapReady={() => console.log('Map ready')}
         // provider={PROVIDER_GOOGLE}
@@ -70,16 +71,18 @@ const MapScreen = () => {
         })}
       </MapView>
 
+      {/* BOTTOM SCROLLVIEW */}
       <Box position="absolute" left={0} right={0} bottom={0}>
-        <ScrollView
+        <FlatList
+          data={markers}
           horizontal
           decelerationRate="fast"
           snapToInterval={CARD_WIDTH}
           snapToAlignment="center"
           bounces={false}
           showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}>
-          {markers.map(marker => {
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item: marker }) => {
             return (
               <Box key={marker.id} width={CARD_WIDTH} padding="m">
                 <Box
@@ -97,8 +100,8 @@ const MapScreen = () => {
                 </Box>
               </Box>
             );
-          })}
-        </ScrollView>
+          }}
+        />
       </Box>
     </Box>
   );
