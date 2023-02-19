@@ -125,7 +125,10 @@ const RootNavigator = () => {
             component={WelcomeScreen}
             options={{
               // Prevent double animation after logout
-              animation: 'none',
+              // animation: 'none',
+              // When logging out, a pop animation feels intuitive
+              // You can remove this if you want the default 'push' animation
+              animationTypeForReplace: 'pop',
             }}
           />
           <Stack.Screen name="Onboarding" component={OnboardingScreen} />
